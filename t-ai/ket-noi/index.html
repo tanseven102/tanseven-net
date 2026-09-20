@@ -1,0 +1,229 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T-AI</title>
+<meta name="robots" content="noindex">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@700&display=swap');
+:root{--nen:#FAF9F6;--giay:#fff;--vien:#E7EAEF;--chu:#0D1B33;--phu:#607490;--nhan:#2563EB;--nhat:#EEF3FF;--luc:#0F7B4F;--do:#B4231C}
+*{box-sizing:border-box}body{margin:0;background:var(--nen);color:var(--chu);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
+.vo{max-width:520px;margin:0 auto;padding:40px 16px 60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;margin-bottom:26px;justify-content:center}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--nhan);color:#fff;font:700 13px "JetBrains Mono",monospace;font-style:normal}
+.the{background:var(--giay);border:1px solid var(--vien);border-radius:16px;padding:28px 24px;text-align:center;margin-bottom:14px}
+h1{font-size:22px;margin:0 0 8px}p{margin:0 0 12px;color:var(--phu)}
+.ma{display:inline-block;font:700 20px "JetBrains Mono",monospace;letter-spacing:.12em;background:var(--nhat);color:var(--nhan);padding:6px 14px;border-radius:10px;margin:4px 0 16px}
+#nut-google{display:flex;justify-content:center;min-height:44px;margin:8px 0}
+.bao{font-size:14px;color:var(--phu);min-height:20px}.bao.loi{color:var(--do)}.bao.ok{color:var(--luc);font-weight:700}
+.xong{font-size:44px;line-height:1}
+.nguoi{display:flex;align-items:center;gap:10px;justify-content:center;margin:6px 0 14px;font-weight:600}
+.nguoi img{width:32px;height:32px;border-radius:50%}
+.han{display:inline-block;padding:5px 12px;border-radius:99px;font-weight:700;font-size:14px}
+.han.con{background:#E8F6EF;color:var(--luc)}.han.het{background:#FBE9E7;color:var(--do)}
+.goi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.goi button{border:1px solid var(--vien);background:var(--giay);border-radius:12px;padding:14px 10px;cursor:pointer;font:inherit;text-align:center}
+.goi button b{display:block;font-size:20px}.goi button span{font-size:13px;color:var(--phu)}
+.goi button.nb{border:2px solid var(--nhan)}
+.goi button:hover{border-color:var(--nhan)}
+#qr img{width:230px;height:230px;border-radius:12px;border:1px solid var(--vien);padding:6px;background:#fff}
+.dong{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:6px 0;border-bottom:1px solid var(--vien);text-align:left}
+.dong b{font-family:"JetBrains Mono",monospace}
+a.nho{font-size:13px;color:var(--phu)}
+</style></head><body><div class="vo">
+<div class="logo"><i>[■]</i>T-AI<select id="chon-ngu" onchange="doiNgu(this.value)" style="margin-left:14px;font:600 13px Inter,sans-serif;border:1px solid var(--vien);border-radius:8px;padding:4px 6px;background:#fff"><option value="vi">🌐 Tiếng Việt</option><option value="en">🌐 English</option><option value="hi">🌐 हिन्दी</option></select></div>
+
+<div class="the" id="o-dn">
+  <h1 id="dn-tieu" data-k="dn_tieu"></h1>
+  <p id="dn-phu" data-k="dn_phu"></p>
+  <div id="o-ma" hidden><div class="ma" id="ma"></div></div>
+  <div id="nut-google"></div>
+  <div class="bao" id="bao"></div>
+</div>
+
+<div class="the" id="o-xong" hidden>
+  <div class="xong">✓</div>
+  <h1 data-k="xong_tieu"></h1>
+  <p data-k="xong_phu"></p>
+</div>
+
+<div class="the" id="o-tk" hidden>
+  <div class="nguoi"><img id="tk-anh" alt="" hidden><span id="tk-email"></span></div>
+  <div id="tk-han"></div>
+  <p style="margin:14px 0 4px"><button id="nut-tai" onclick="taiVe()" style="border:0;background:var(--chu);color:#fff;border-radius:10px;padding:12px 20px;font:700 15px Inter,sans-serif;cursor:pointer"><span data-k="tai"></span></button></p>
+  <p style="font-size:13px" data-k="tai_phu"></p>
+  <div id="o-mua">
+    <p id="chi-vn" style="font-size:13px;margin-top:10px" data-k="chi_vn" hidden></p>
+    <div class="goi">
+      <button onclick="mua('tai_1th')"><b>180.000đ</b><span data-k="g1"></span></button>
+      <button class="nb" onclick="mua('tai_3th')"><b>500.000đ</b><span data-k="g3"></span></button>
+    </div>
+  </div>
+  <div id="qr" hidden style="margin-top:18px">
+    <p data-k="qr_phu"></p>
+    <img id="qr-anh" alt="QR">
+    <div style="margin-top:12px">
+      <div class="dong"><span data-k="so_tien"></span><b id="qr-tien"></b></div>
+      <div class="dong"><span data-k="noi_dung"></span><b id="qr-ma"></b></div>
+      <div class="dong"><span data-k="ngan_hang"></span><b id="qr-nh"></b></div>
+      <div class="dong"><span data-k="stk"></span><b id="qr-stk"></b></div>
+    </div>
+    <div class="bao" id="qr-bao" style="margin-top:10px"></div>
+  </div>
+  <p style="margin-top:16px"><a class="nho" href="#" onclick="dangXuat();return false" data-k="doi_tk"></a></p>
+</div>
+
+<p style="text-align:center"><a class="nho" href="../" data-k="ve_trang"></a> · <a class="nho" href="/">tanseven.net</a></p>
+</div>
+<script>
+const TK_API = "https://api.tanseven.net";
+const CHU = {
+ vi: {dn_tieu:'Đăng nhập T-AI', dn_phu:'Đăng nhập bằng tài khoản Google để dùng T-AI. Mỗi tài khoản dùng được trên <b>1 máy</b>.',
+      dn_phu_ma:'Kiểm tra mã dưới đây <b>trùng với mã trên cửa sổ T-AI</b>, rồi đăng nhập Google. Mỗi tài khoản dùng được trên <b>1 máy</b>.',
+      xong_tieu:'Đã kết nối T-AI', xong_phu:'Quay lại cửa sổ T-AI trên máy tính — phần mềm đã tự nhận đăng nhập.',
+      tai:'⬇ Tải T-AI cho Windows', tai_phu:'Giải nén, mở <b>tao_anh.exe</b> rồi bấm Đăng nhập bằng Google.',
+      g1:'1 tháng', g3:'3 tháng · khuyên dùng', chi_vn:'',
+      qr_phu:'Quét mã bằng app ngân hàng. Tiền về là T-AI tự mở, không cần làm gì thêm.',
+      so_tien:'Số tiền', noi_dung:'Nội dung chuyển khoản (ghi ĐÚNG)', ngan_hang:'Ngân hàng', stk:'Số tài khoản',
+      cho_tien:'Đang chờ tiền về…', doi_tk:'Đăng nhập tài khoản Google khác', ve_trang:'← Trang T-AI',
+      dang_dn:'Đang đăng nhập…', dang_tai:'Đang tải…', gg_tu_choi:'Google từ chối — thử lại.', khong_dn:'Không đăng nhập được: ',
+      con_han:'T-AI còn hạn đến ', gia_han:'Gia hạn thêm (cộng nối tiếp, không mất ngày còn lại):',
+      chua_mua:'Chưa mua T-AI', chon_goi:'Chọn gói để bắt đầu dùng:', het_15:'Chưa thấy tiền về. Đã chuyển rồi thì tải lại trang sau ít phút.',
+      da_nhan:'Đã nhận tiền — T-AI đã mở. Quay lại phần mềm là dùng được.', khong_don:'Không tạo được đơn: ', khong_link:'Không lấy được link tải: ',
+      chua_gg:'Máy chủ chưa bật đăng nhập Google.', loi_gg:'Không tải được nút Google — kiểm tra mạng rồi tải lại trang.'},
+ en: {dn_tieu:'Sign in to T-AI', dn_phu:'Sign in with your Google account to use T-AI. Each account works on <b>1 computer</b>.',
+      dn_phu_ma:'Check that the code below <b>matches the code in the T-AI window</b>, then sign in with Google. Each account works on <b>1 computer</b>.',
+      xong_tieu:'T-AI connected', xong_phu:'Go back to the T-AI window on your computer — it has picked up your sign-in.',
+      tai:'⬇ Download T-AI for Windows', tai_phu:'Unzip, open <b>tao_anh.exe</b>, then click Sign in with Google.',
+      g1:'1 month', g3:'3 months · recommended', chi_vn:'Payment is currently by Vietnamese bank transfer only (VND).',
+      qr_phu:'Scan the code with your banking app. T-AI unlocks as soon as the money arrives.',
+      so_tien:'Amount', noi_dung:'Transfer note (type EXACTLY)', ngan_hang:'Bank', stk:'Account number',
+      cho_tien:'Waiting for payment…', doi_tk:'Sign in with another Google account', ve_trang:'← T-AI page',
+      dang_dn:'Signing in…', dang_tai:'Loading…', gg_tu_choi:'Google declined — please try again.', khong_dn:'Could not sign in: ',
+      con_han:'T-AI active until ', gia_han:'Extend (added on top, no days lost):',
+      chua_mua:'No T-AI plan yet', chon_goi:'Choose a plan to start:', het_15:'Payment not seen yet. If you already paid, reload this page in a few minutes.',
+      da_nhan:'Payment received — T-AI is unlocked. Go back to the app.', khong_don:'Could not create the order: ', khong_link:'Could not get the download link: ',
+      chua_gg:'Google sign-in is not enabled on the server.', loi_gg:'Could not load the Google button — check your internet and reload.'},
+ hi: {dn_tieu:'T-AI में साइन इन', dn_phu:'T-AI इस्तेमाल करने के लिए Google अकाउंट से साइन इन करें। हर अकाउंट <b>1 कंप्यूटर</b> पर चलता है।',
+      dn_phu_ma:'देखें कि नीचे का कोड <b>T-AI विंडो के कोड से मिलता है</b>, फिर Google से साइन इन करें। हर अकाउंट <b>1 कंप्यूटर</b> पर चलता है।',
+      xong_tieu:'T-AI जुड़ गया', xong_phu:'कंप्यूटर पर T-AI विंडो में वापस जाएँ — साइन इन अपने आप हो गया है।',
+      tai:'⬇ Windows के लिए T-AI डाउनलोड करें', tai_phu:'अनज़िप करें, <b>tao_anh.exe</b> खोलें, फिर Google से साइन इन दबाएँ।',
+      g1:'1 महीना', g3:'3 महीने · सुझाया गया', chi_vn:'अभी भुगतान सिर्फ़ वियतनामी बैंक ट्रांसफ़र (VND) से होता है।',
+      qr_phu:'बैंक ऐप से कोड स्कैन करें। पैसा आते ही T-AI खुल जाएगा।',
+      so_tien:'राशि', noi_dung:'ट्रांसफ़र नोट (बिल्कुल यही लिखें)', ngan_hang:'बैंक', stk:'खाता संख्या',
+      cho_tien:'भुगतान का इंतज़ार…', doi_tk:'दूसरे Google अकाउंट से साइन इन', ve_trang:'← T-AI पेज',
+      dang_dn:'साइन इन हो रहा है…', dang_tai:'लोड हो रहा है…', gg_tu_choi:'Google ने मना किया — फिर कोशिश करें।', khong_dn:'साइन इन नहीं हुआ: ',
+      con_han:'T-AI वैध है: ', gia_han:'अवधि बढ़ाएँ (बचे दिन नहीं कटेंगे):',
+      chua_mua:'T-AI नहीं खरीदा', chon_goi:'शुरू करने के लिए प्लान चुनें:', het_15:'अभी भुगतान नहीं दिखा। भेज दिया है तो कुछ मिनट बाद पेज रीलोड करें।',
+      da_nhan:'भुगतान मिला — T-AI खुल गया। ऐप में वापस जाएँ।', khong_don:'ऑर्डर नहीं बना: ', khong_link:'डाउनलोड लिंक नहीं मिला: ',
+      chua_gg:'सर्वर पर Google साइन इन चालू नहीं है।', loi_gg:'Google बटन लोड नहीं हुआ — इंटरनेट जाँचें और पेज रीलोड करें।'},
+};
+const _q = new URLSearchParams(location.search);
+let NGU = (_q.get('ngu') || (()=>{ try{ return localStorage.getItem('tai-ngu') }catch(e){ return '' } })() ||
+           ((navigator.language || '').startsWith('vi') ? 'vi' : (navigator.language || '').startsWith('hi') ? 'hi' : 'en'));
+if (!CHU[NGU]) NGU = 'vi';
+function C(k){ return CHU[NGU][k] || CHU.vi[k] }
+function veChu(){
+  document.documentElement.lang = NGU;
+  document.querySelectorAll('[data-k]').forEach(e => { e.innerHTML = C(e.dataset.k) });
+  document.getElementById('chon-ngu').value = NGU;
+  document.getElementById('chi-vn').hidden = NGU === 'vi';
+}
+function doiNgu(v){ NGU = v; try{ localStorage.setItem('tai-ngu', v) }catch(e){}; veChu(); if (tk) veTK(); if (!tk) moNutGoogle() }
+
+const MA = (new URLSearchParams(location.search).get('ma') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12);
+let tk = null, donMa = '', henHoi = null;
+
+function token(){ try{ return localStorage.getItem('tyt-tk') || '' }catch(e){ return '' } }
+function luu(t){ try{ t ? localStorage.setItem('tyt-tk', t) : localStorage.removeItem('tyt-tk') }catch(e){} }
+async function goi(duong, than){
+  const h = {}; const t = token();
+  if (t) h.Authorization = 'Bearer ' + t;
+  if (than) h['Content-Type'] = 'application/json';
+  const r = await fetch(TK_API + duong, {method: than ? 'POST' : 'GET', headers: h, body: than ? JSON.stringify(than) : undefined});
+  const d = await r.json().catch(()=>({}));
+  if (!r.ok){ const e = new Error(d.detail || ('HTTP ' + r.status)); e.ma = r.status; throw e }
+  return d;
+}
+function bao(id, chu, kieu){ const e = document.getElementById(id); e.textContent = chu || ''; e.className = 'bao' + (kieu ? ' ' + kieu : '') }
+function hien(id, co){ document.getElementById(id).hidden = !co }
+
+// Dấu máy của trình duyệt — giống trang T-YOUTUBEE (landing/dung.py) để máy
+// chủ nhận ra cùng một máy. Chỉ dùng cho luật quà dùng thử của T-YOUTUBEE.
+function thietBi(){ try{ let m = localStorage.getItem('tyt-may'); if (!m){ m = crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(16).slice(2); localStorage.setItem('tyt-may', m) } return m.slice(0, 64) }catch(e){ return '' } }
+
+async function nhanVe(r){
+  bao('bao', C('dang_dn'));
+  try{
+    const d = await goi('/api/tk/google', {credential: r.credential, thiet_bi: thietBi()});
+    luu(d.token); await sauDangNhap();
+  }catch(e){ bao('bao', e.ma === 401 ? C('gg_tu_choi') : C('khong_dn') + e.message, 'loi') }
+}
+
+async function sauDangNhap(){
+  try{ tk = (await goi('/api/tk/toi')).nguoi }catch(e){ luu(''); moNutGoogle(); return }
+  hien('o-dn', false);
+  if (MA){
+    try{ await goi('/api/tai/xac-nhan', {ma: MA}); hien('o-xong', true) }
+    catch(e){ hien('o-dn', true); bao('bao', e.message, 'loi') }
+  }
+  veTK();
+}
+
+function veTK(){
+  hien('o-tk', true);
+  document.getElementById('tk-email').textContent = tk.email;
+  const a = document.getElementById('tk-anh'); if (tk.anh){ a.src = tk.anh; a.hidden = false }
+  const h = document.getElementById('tk-han');
+  if (tk.la_tai){
+    h.innerHTML = '<span class="han con">' + C('con_han') + new Date(tk.tai_den * 1000).toLocaleDateString(NGU === 'vi' ? 'vi-VN' : NGU === 'hi' ? 'hi-IN' : 'en-GB') + '</span><p style="margin-top:10px">' + C('gia_han') + '</p>';
+  } else {
+    h.innerHTML = '<span class="han het">' + C('chua_mua') + '</span><p style="margin-top:10px">' + C('chon_goi') + '</p>';
+  }
+}
+
+async function mua(goi_ma){
+  try{
+    const d = await goi('/api/tk/don', {goi: goi_ma});
+    donMa = d.ma;
+    document.getElementById('qr-anh').src = d.qr;
+    document.getElementById('qr-tien').textContent = d.so_tien.toLocaleString('vi-VN') + 'đ';
+    document.getElementById('qr-ma').textContent = d.ma;
+    document.getElementById('qr-nh').textContent = d.ngan_hang;
+    document.getElementById('qr-stk').textContent = d.stk;
+    hien('qr', true); bao('qr-bao', C('cho_tien'));
+    clearInterval(henHoi); const bd = Date.now();
+    henHoi = setInterval(async ()=>{
+      if (Date.now() - bd > 15 * 60 * 1000){ clearInterval(henHoi); bao('qr-bao', C('het_15'), 'loi'); return }
+      try{
+        const x = await goi('/api/tk/don/' + donMa);
+        if (x.trang_thai === 'da_tra'){ clearInterval(henHoi); tk = x.nguoi; veTK(); hien('qr', false); bao('bao', ''); alert(C('da_nhan')) }
+      }catch(e){}
+    }, 3000);
+  }catch(e){ alert(C('khong_don') + e.message) }
+}
+
+async function taiVe(){
+  try{ location.href = (await goi('/api/tai/ma-tai')).link }
+  catch(e){ alert(C('khong_link') + e.message) }
+}
+
+function dangXuat(){ goi('/api/tk/dang-xuat', {}).catch(()=>{}); luu(''); location.reload() }
+
+function taiGIS(){ return new Promise((xong, hong)=>{ if (window.google && google.accounts) return xong(); const s = document.createElement('script'); s.src = 'https://accounts.google.com/gsi/client'; s.async = true; s.onload = xong; s.onerror = hong; document.head.appendChild(s) }) }
+async function moNutGoogle(){
+  hien('o-dn', true);
+  if (MA){ document.getElementById('ma').textContent = MA; hien('o-ma', true);
+           document.getElementById('dn-phu').innerHTML = C('dn_phu_ma') }
+  bao('bao', C('dang_tai'));
+  try{
+    const cid = (await goi('/api/tk/cau-hinh')).google_client_id;
+    if (!cid){ bao('bao', C('chua_gg'), 'loi'); return }
+    await taiGIS();
+    google.accounts.id.initialize({client_id: cid, callback: nhanVe});
+    google.accounts.id.renderButton(document.getElementById('nut-google'), {theme: 'filled_blue', size: 'large', shape: 'pill', width: 280, locale: NGU, text: 'signin_with'});
+    bao('bao', '');
+  }catch(e){ bao('bao', C('loi_gg'), 'loi') }
+}
+
+veChu();
+(token() ? sauDangNhap() : moNutGoogle());
+</script></body></html>
