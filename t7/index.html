@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tân Seven — Xưởng công cụ AI cho người làm YouTube</title>
+<meta name="description" content="Tân Seven (T7) làm ra bộ công cụ AI dựng video YouTube từ A đến Z: nghiên cứu thị trường, viết content, giọng đọc, dựng hình, thumbnail và SEO. Tự làm, tự dùng, rồi mới bán.">
+<meta name="theme-color" content="#0b0b0d">
+<link rel="canonical" href="https://tanseven.net/t7/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tân Seven">
+<meta property="og:title" content="Tân Seven — Xưởng công cụ AI cho người làm YouTube">
+<meta property="og:description" content="Bộ công cụ AI dựng video YouTube từ A đến Z. Tự làm, tự dùng trên kênh của mình, rồi mới bán.">
+<meta property="og:url" content="https://tanseven.net/t7/">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='28' fill='%230b0b0d'/%3E%3Crect x='18' y='26' width='84' height='15' rx='4' fill='%23f7f8f8'/%3E%3Cpath d='M86 41 L62 100 L44 100 L68 41 Z' fill='%23f7f8f8'/%3E%3Crect x='52' y='41' width='15' height='59' rx='4' fill='%23e5484d'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tân Seven",
+  "alternateName": "T7",
+  "url": "https://tanseven.net/t7/",
+  "logo": "https://tanseven.net/t7/logo.svg",
+  "description": "Xưởng công cụ AI dựng video YouTube tự động từ A đến Z.",
+  "founder": { "@type": "Person", "name": "Tân Seven" },
+  "sameAs": ["https://www.facebook.com/tan.seven.833631/"]
+}
+</script>
+
+<script>document.documentElement.className+=' js';</script>
+<style>
+:root{
+  --nen:#0b0b0d;
+  --mat:#131316;
+  --mat2:#17171b;
+  --vien:#232326;
+  --vien-mo:#1a1a1d;
+  --chu:#f7f8f8;
+  --mo:#8a8f98;
+  --mo2:#6b7078;
+  --do:#e5484d;
+  --do-dam:#c5383c;
+  --vang:#f5a524;
+  --xanh:#30a46c;
+  --tim:#5e6ad2;
+  --r8:8px; --r12:12px; --r16:16px; --r20:20px;
+  --max:1140px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:84px;}
+body{
+  margin:0;background:var(--nen);color:var(--chu);
+  font-family:Inter,'Segoe UI',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{max-width:100%;display:block;}
+h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-0.02em;font-weight:700;}
+p{margin:0;}
+.boc{max-width:var(--max);margin:0 auto;padding:0 20px;}
+
+/* ---------- nền phát sáng ---------- */
+.sang{position:fixed;inset:0;pointer-events:none;z-index:0;}
+.sang::before,.sang::after{content:'';position:absolute;border-radius:50%;filter:blur(120px);opacity:.14;}
+.sang::before{width:560px;height:560px;top:-220px;left:-120px;background:var(--do);}
+.sang::after{width:520px;height:520px;top:120px;right:-200px;background:var(--tim);opacity:.11;}
+
+/* ---------- thanh trên ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,11,13,.72);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .25s,background .25s;
+}
+header.dinh{border-bottom-color:var(--vien);background:rgba(11,11,13,.9);}
+.thanh{display:flex;align-items:center;gap:28px;height:64px;}
+.hieu{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;font-size:17px;}
+.hieu svg{width:30px;height:30px;border-radius:9px;}
+.hieu span i{font-style:normal;color:var(--mo);font-weight:500;}
+nav{display:flex;gap:26px;margin-left:auto;font-size:14.5px;color:var(--mo);font-weight:500;}
+nav a{transition:color .18s;}
+nav a:hover{color:var(--chu);}
+.nut{
+  display:inline-flex;align-items:center;gap:8px;justify-content:center;
+  padding:10px 18px;border-radius:var(--r8);font-size:14.5px;font-weight:600;
+  border:1px solid var(--vien);background:var(--mat);color:var(--chu);
+  transition:all .18s;white-space:nowrap;cursor:pointer;
+}
+.nut:hover{background:var(--mat2);border-color:#32323a;transform:translateY(-1px);}
+.nut.chinh{background:var(--do);border-color:var(--do);}
+.nut.chinh:hover{background:var(--do-dam);border-color:var(--do-dam);box-shadow:0 8px 24px rgba(229,72,77,.28);}
+.nut.to{padding:14px 26px;font-size:15.5px;}
+.mo-menu{display:none;margin-left:auto;background:none;border:1px solid var(--vien);border-radius:var(--r8);padding:8px 10px;color:var(--chu);}
+
+/* ---------- hero ---------- */
+main{position:relative;z-index:1;}
+.hero{padding:90px 0 76px;}
+.nhan{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:6px 14px 6px 8px;border-radius:999px;
+  border:1px solid var(--vien);background:var(--mat);
+  font-size:13px;color:var(--mo);font-weight:500;margin-bottom:26px;
+}
+.nhan b{color:var(--chu);font-weight:600;}
+.cham{width:7px;height:7px;border-radius:50%;background:var(--xanh);box-shadow:0 0 0 4px rgba(48,164,108,.16);}
+.hero h1{font-size:clamp(34px,5.6vw,60px);font-weight:800;max-width:15ch;}
+.hero h1 em{font-style:normal;color:var(--do);}
+.hero .dan{margin-top:24px;max-width:60ch;font-size:clamp(16px,1.6vw,18.5px);color:var(--mo);}
+.hero .nhom{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;}
+.ghi{margin-top:18px;font-size:13.5px;color:var(--mo2);}
+
+/* ---------- dải số ---------- */
+.dai{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--vien-mo);border:1px solid var(--vien);border-radius:var(--r16);
+  overflow:hidden;margin-top:64px;
+}
+.dai div{background:var(--mat);padding:24px 22px;}
+.dai b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;}
+.dai small{display:block;margin-top:5px;font-size:13.5px;color:var(--mo);}
+
+/* ---------- khối chung ---------- */
+section{padding:86px 0;}
+.dau{max-width:66ch;margin-bottom:46px;}
+.dau .cho{
+  font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--do);margin-bottom:14px;
+}
+.dau h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;}
+.dau p{margin-top:16px;color:var(--mo);font-size:17px;}
+
+/* ---------- lưới sản phẩm ---------- */
+.luoi{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.the{
+  position:relative;background:var(--mat);border:1px solid var(--vien);
+  border-radius:var(--r16);padding:26px 24px 24px;
+  transition:border-color .2s,transform .2s,background .2s;overflow:hidden;
+}
+.the::before{
+  content:'';position:absolute;inset:0 0 auto;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(229,72,77,.5),transparent);
+  opacity:0;transition:opacity .25s;
+}
+.the:hover{border-color:#31313a;transform:translateY(-3px);background:var(--mat2);}
+.the:hover::before{opacity:1;}
+.the .bieu{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  font-size:19px;background:#1c1c21;border:1px solid var(--vien);margin-bottom:16px;
+}
+.the h3{font-size:17.5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.the p{margin-top:10px;font-size:14.5px;color:var(--mo);}
+.co{
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:5px;border:1px solid var(--vien);color:var(--mo);
+}
+.co.ban{color:var(--xanh);border-color:rgba(48,164,108,.32);background:rgba(48,164,108,.08);}
+.co.trong{color:var(--vang);border-color:rgba(245,165,36,.3);background:rgba(245,165,36,.08);}
+.the a.di{
+  display:inline-flex;align-items:center;gap:6px;margin-top:16px;
+  font-size:14px;font-weight:600;color:var(--chu);
+}
+.the a.di:hover{color:var(--do);}
+
+/* ---------- quy trình ---------- */
+.buoc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:b;}
+.buoc article{
+  background:var(--mat);border:1px solid var(--vien);border-radius:var(--r16);
+  padding:26px 24px;counter-increment:b;position:relative;
+}
+.buoc article::before{
+  content:counter(b,decimal-leading-zero);
+  font-size:13px;font-weight:800;color:var(--do);letter-spacing:.08em;
+}
+.buoc h3{font-size:17px;margin-top:12px;}
+.buoc p{margin-top:9px;font-size:14.5px;color:var(--mo);}
+
+/* ---------- vì sao ---------- */
+.vi{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.vi article{
+  display:flex;gap:16px;background:var(--mat);border:1px solid var(--vien);
+  border-radius:var(--r16);padding:26px 24px;
+}
+.vi .bieu{
+  flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  font-size:18px;background:#1c1c21;border:1px solid var(--vien);
+}
+.vi h3{font-size:17px;}
+.vi p{margin-top:8px;font-size:14.5px;color:var(--mo);}
+
+/* ---------- người sáng lập ---------- */
+.nguoi{
+  display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;
+  background:linear-gradient(135deg,#141418,#0f0f12);
+  border:1px solid var(--vien);border-radius:var(--r20);padding:38px 36px;
+}
+.nguoi .anh{
+  width:108px;height:108px;border-radius:26px;display:grid;place-items:center;
+  background:var(--nen);border:1px solid var(--vien);
+}
+.nguoi .anh svg{width:66px;height:66px;}
+.nguoi h3{font-size:22px;}
+.nguoi .vai{margin-top:6px;font-size:14px;color:var(--do);font-weight:600;letter-spacing:.02em;}
+.nguoi p{margin-top:14px;color:var(--mo);font-size:15.5px;max-width:64ch;}
+.nguoi .lien{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+
+/* ---------- hỏi đáp ---------- */
+.hoi{border-top:1px solid var(--vien);}
+.hoi details{border-bottom:1px solid var(--vien);padding:20px 0;}
+.hoi summary{
+  cursor:pointer;list-style:none;font-weight:600;font-size:16.5px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.hoi summary::-webkit-details-marker{display:none;}
+.hoi summary::after{content:'+';color:var(--mo);font-size:22px;font-weight:400;transition:transform .2s;}
+.hoi details[open] summary::after{transform:rotate(45deg);}
+.hoi details p{margin-top:12px;color:var(--mo);font-size:15px;max-width:78ch;}
+
+/* ---------- kêu gọi cuối ---------- */
+.cuoi{
+  text-align:center;background:linear-gradient(135deg,#16161b,#0f0f12);
+  border:1px solid var(--vien);border-radius:var(--r20);padding:64px 32px;
+}
+.cuoi h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;}
+.cuoi p{margin:16px auto 0;max-width:56ch;color:var(--mo);font-size:17px;}
+.cuoi .nhom{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px;}
+
+/* ---------- chân trang ---------- */
+footer{border-top:1px solid var(--vien);padding:52px 0 40px;margin-top:20px;}
+.chan{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;}
+.chan p{margin-top:14px;font-size:14px;color:var(--mo);max-width:36ch;}
+.chan h4{margin:0 0 14px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mo2);}
+.chan ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:14.5px;color:var(--mo);}
+.chan ul a:hover{color:var(--chu);}
+.day{
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  margin-top:44px;padding-top:24px;border-top:1px solid var(--vien);
+  font-size:13.5px;color:var(--mo2);
+}
+
+/* ---------- hiện dần ---------- */
+.js .len{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.js .len.ra{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .js .len{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ---------- điện thoại ---------- */
+@media (max-width:980px){
+  .luoi,.buoc{grid-template-columns:repeat(2,1fr);}
+  .dai{grid-template-columns:repeat(2,1fr);}
+  .chan{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  nav{display:none;}
+  nav.mo{
+    display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:64px;
+    background:var(--nen);border-bottom:1px solid var(--vien);padding:8px 20px 16px;
+  }
+  nav.mo a{padding:12px 0;border-bottom:1px solid var(--vien-mo);}
+  header .nut{display:none;}
+  .mo-menu{display:block;}
+  .hero{padding:58px 0 50px;}
+  section{padding:62px 0;}
+  .luoi,.buoc,.vi{grid-template-columns:1fr;}
+  .nguoi{grid-template-columns:1fr;text-align:left;padding:30px 24px;}
+  .cuoi{padding:48px 22px;}
+  .chan{grid-template-columns:1fr;gap:28px;}
+  .hero .nhom .nut,.cuoi .nhom .nut{flex:1 1 100%;}
+}
+</style>
+</head>
+
+<body>
+<div class="sang"></div>
+
+<header id="tren">
+  <div class="boc thanh">
+    <a class="hieu" href="#tren" aria-label="Tân Seven — về đầu trang">
+      <svg viewBox="0 0 120 120" role="img" aria-label="Logo Tân Seven">
+        <rect width="120" height="120" rx="28" fill="#0b0b0d"/>
+        <rect x="18" y="26" width="84" height="15" rx="4" fill="#f7f8f8"/>
+        <path d="M86 41 L62 100 L44 100 L68 41 Z" fill="#f7f8f8"/>
+        <rect x="52" y="41" width="15" height="59" rx="4" fill="#e5484d"/>
+      </svg>
+      <span>TÂN SEVEN <i>/ T7</i></span>
+    </a>
+    <button class="mo-menu" id="nut-menu" aria-label="Mở menu" aria-expanded="false">☰</button>
+    <nav id="menu">
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#cach-lam">Cách làm</a>
+      <a href="#vi-sao">Vì sao T7</a>
+      <a href="#nguoi">Người sáng lập</a>
+      <a href="#hoi-dap">Hỏi đáp</a>
+    </nav>
+    <a class="nut chinh" href="https://tanseven.net/">Dùng thử MMT.AI</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="boc">
+    <div class="nhan len"><span class="cham"></span> <b>MMT.AI</b> đang mở gói dùng thử &nbsp;·&nbsp; Việt Nam</div>
+    <h1 class="len">Một ý tưởng vào. Một <em>video YouTube</em> ra.</h1>
+    <p class="dan len">
+      Tân Seven là xưởng công cụ AI cho người làm YouTube. Chúng tôi viết phần mềm lo trọn
+      dây chuyền — nghiên cứu thị trường, viết content, giọng đọc, dựng hình, thumbnail, SEO —
+      rồi tự chạy nó mỗi ngày trên chính kênh của mình trước khi bán cho ai.
+    </p>
+    <div class="nhom len">
+      <a class="nut chinh to" href="https://tanseven.net/">Dùng thử MMT.AI</a>
+      <a class="nut to" href="#san-pham">Xem toàn bộ sản phẩm</a>
+    </div>
+    <p class="ghi len">Chạy trên máy của bạn · Nối thẳng vào Claude / ChatGPT qua MCP · Hỗ trợ tiếng Việt</p>
+
+    <div class="dai len">
+      <div><b>9</b><small>công cụ trong hệ sinh thái</small></div>
+      <div><b>6</b><small>bước khép kín A → Z</small></div>
+      <div><b>40+</b><small>ngôn ngữ giọng đọc</small></div>
+      <div><b>15</b><small>phong cách ảnh AI</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SẢN PHẨM ============ -->
+<section id="san-pham">
+  <div class="boc">
+    <div class="dau len">
+      <div class="cho">Hệ sinh thái</div>
+      <h2>Chín công cụ, một dây chuyền</h2>
+      <p>
+        Mỗi công cụ giải một khúc của nghề làm video. Ghép lại thành dây chuyền chạy từ
+        lúc chưa có ý tưởng đến lúc video sẵn sàng lên sóng.
+      </p>
+    </div>
+
+    <div class="luoi">
+      <article class="the len">
+        <div class="bieu">🎬</div>
+        <h3>MMT.AI <span class="co ban">Đang bán</span></h3>
+        <p>
+          Công cụ chủ lực. Dựng video YouTube từ A đến Z: nghiên cứu thị trường, viết content,
+          tạo giọng đọc, dựng Video Thật hoặc Video AI + Thật, thumbnail và SEO.
+        </p>
+        <a class="di" href="https://tanseven.net/">Vào trang sản phẩm →</a>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">🖼</div>
+        <h3>T-AI <span class="co ban">Đang bán</span></h3>
+        <p>
+          Tạo ảnh hàng loạt trên Google Flow. Đặt hàng trăm ảnh theo một phong cách thống nhất,
+          máy chạy nền, bạn đi làm việc khác.
+        </p>
+        <a class="di" href="https://tanseven.net/t-ai/">Vào trang sản phẩm →</a>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">🎙</div>
+        <h3>Tân Seven Voice <span class="co ban">Đang bán</span></h3>
+        <p>
+          Giọng đọc AI tiếng Việt và hơn 40 ngôn ngữ. Hàng trăm giọng, nghe thử thoải mái
+          trước khi quyết định dùng.
+        </p>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">📰</div>
+        <h3>Tân Seven Tin Tức</h3>
+        <p>
+          Dây chuyền video tin tức tự động: lấy tư liệu từ bài báo, viết lại, đọc, dựng hình,
+          ghép đúng nhân vật, xuất kèm mô tả SEO.
+        </p>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">⚽</div>
+        <h3>AI Bóng Đá</h3>
+        <p>
+          Bản chuyên bóng đá: bám tin chuyển nhượng và kết quả trận, ra video nhanh khi tin
+          còn nóng.
+        </p>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">😄</div>
+        <h3>AI Tổng Hợp</h3>
+        <p>
+          Gom nhiều clip ngắn thành bản tổng hợp giải trí có nhịp, có chữ, có nhạc —
+          không phải ghép thô.
+        </p>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">🎨</div>
+        <h3>T-Thumbnail</h3>
+        <p>
+          Vẽ ảnh bìa YouTube. Học phong cách của từng kênh rồi giữ đúng nhận diện đó qua
+          mọi video sau.
+        </p>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">📤</div>
+        <h3>AI Đăng Page <span class="co trong">Đang làm</span></h3>
+        <p>
+          Đưa video từ YouTube sang Facebook Page và gắn link affiliate — mở thêm một cửa
+          doanh thu cho cùng một nội dung.
+        </p>
+      </article>
+
+      <article class="the len">
+        <div class="bieu">🧠</div>
+        <h3>SẾP Tân Seven</h3>
+        <p>
+          Bộ não điều phối nội bộ: giao việc cho từng công cụ, theo dõi tiến độ, soi kênh
+          đối thủ và báo cáo hằng ngày.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÁCH LÀM ============ -->
+<section id="cach-lam">
+  <div class="boc">
+    <div class="dau len">
+      <div class="cho">Dây chuyền</div>
+      <h2>Sáu bước, không bỏ bước nào cho bạn tự xoay</h2>
+      <p>
+        Phần lớn công cụ trên thị trường chỉ làm một khúc rồi trả bạn về Photoshop và
+        trình dựng. Chúng tôi làm hết cả sáu.
+      </p>
+    </div>
+
+    <div class="buoc">
+      <article class="len">
+        <h3>Nghiên cứu thị trường</h3>
+        <p>Tìm video outlier — những video ăn khách gấp nhiều lần mức trung bình của kênh — soi trend theo quốc gia và theo dõi kênh đối thủ.</p>
+      </article>
+      <article class="len">
+        <h3>Viết content</h3>
+        <p>Bóc phụ đề video đối thủ, viết lại theo giọng văn của bạn, dựng hook mở đầu. Không phải bản dịch máy.</p>
+      </article>
+      <article class="len">
+        <h3>Tạo giọng đọc</h3>
+        <p>Hàng trăm giọng, hơn 40 ngôn ngữ. Nghe thử trước, ưng rồi mới chạy cả bài.</p>
+      </article>
+      <article class="len">
+        <h3>Dựng video</h3>
+        <p>Máy tự chia cảnh, tìm clip quay thật khớp nội dung hoặc sinh ảnh AI, rồi chèn chữ, nhạc, tiếng động và logo.</p>
+      </article>
+      <article class="len">
+        <h3>Thumbnail</h3>
+        <p>Ảnh bìa theo đúng phong cách kênh, chữ đập vào mắt, giữ nhận diện đồng nhất qua từng video.</p>
+      </article>
+      <article class="len">
+        <h3>SEO &amp; xuất bản</h3>
+        <p>Tiêu đề, mô tả, thẻ tag viết sẵn cạnh file video. Bạn đọc lại, thấy ổn thì đăng.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VÌ SAO ============ -->
+<section id="vi-sao">
+  <div class="boc">
+    <div class="dau len">
+      <div class="cho">Vì sao Tân Seven</div>
+      <h2>Chúng tôi là khách hàng khó tính nhất của chính mình</h2>
+    </div>
+
+    <div class="vi">
+      <article class="len">
+        <div class="bieu">🔁</div>
+        <div>
+          <h3>Tự dùng trước, bán sau</h3>
+          <p>Mỗi tính năng đều chạy trên kênh thật của chúng tôi trước. Cái gì không dùng nổi thì không đưa ra bán.</p>
+        </div>
+      </article>
+      <article class="len">
+        <div class="bieu">💻</div>
+        <div>
+          <h3>Chạy trên máy bạn</h3>
+          <p>Công cụ cài về máy, file video và tư liệu nằm trong ổ cứng của bạn, không phải kho của chúng tôi.</p>
+        </div>
+      </article>
+      <article class="len">
+        <div class="bieu">🔌</div>
+        <div>
+          <h3>Nối thẳng vào AI của bạn</h3>
+          <p>Có sẵn cổng MCP: Claude, ChatGPT hay công cụ AI khác gọi trực tiếp vào tài khoản, làm hộ bạn từ khung chat.</p>
+        </div>
+      </article>
+      <article class="len">
+        <div class="bieu">🇻🇳</div>
+        <div>
+          <h3>Làm cho người Việt</h3>
+          <p>Giao diện tiếng Việt, giọng đọc tiếng Việt, hỗ trợ bằng tiếng Việt. Không phải bản dịch vội của phần mềm nước ngoài.</p>
+        </div>
+      </article>
+      <article class="len">
+        <div class="bieu">⚖️</div>
+        <div>
+          <h3>Nói thật về giới hạn</h3>
+          <p>Chúng tôi không hứa video chắc chắn được YouTube bật kiếm tiền. Công cụ lo phần sản xuất; phần nội dung và chính sách vẫn là việc của bạn.</p>
+        </div>
+      </article>
+      <article class="len">
+        <div class="bieu">🛠</div>
+        <div>
+          <h3>Sửa liên tục</h3>
+          <p>YouTube đổi luật, nền tảng đổi giao diện, công cụ đổi theo. Bản cập nhật ra đều, không để bạn kẹt với bản cũ.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NGƯỜI SÁNG LẬP ============ -->
+<section id="nguoi">
+  <div class="boc">
+    <div class="nguoi len">
+      <div class="anh">
+        <svg viewBox="0 0 120 120" role="img" aria-label="Logo Tân Seven">
+          <rect x="18" y="26" width="84" height="15" rx="4" fill="#f7f8f8"/>
+          <path d="M86 41 L62 100 L44 100 L68 41 Z" fill="#f7f8f8"/>
+          <rect x="52" y="41" width="15" height="59" rx="4" fill="#e5484d"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Tân Seven</h3>
+        <div class="vai">Người sáng lập &amp; điều hành</div>
+        <p>
+          Bắt đầu từ chính việc nuôi kênh YouTube: thiếu công cụ nào thì tự viết công cụ đó.
+          Chín phần mềm trong trang này đều sinh ra từ một việc có thật cần làm cho nhanh hơn,
+          chứ không phải từ một bản kế hoạch kinh doanh. Ai muốn hỏi thẳng về sản phẩm,
+          về hợp tác hay về nghề, cứ nhắn Facebook.
+        </p>
+        <div class="lien">
+          <a class="nut" href="https://www.facebook.com/tan.seven.833631/" target="_blank" rel="noopener">Nhắn Facebook →</a>
+          <a class="nut" href="https://tanseven.net/">Trang sản phẩm MMT.AI</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HỎI ĐÁP ============ -->
+<section id="hoi-dap">
+  <div class="boc">
+    <div class="dau len">
+      <div class="cho">Hỏi đáp</div>
+      <h2>Những câu hay được hỏi nhất</h2>
+    </div>
+
+    <div class="hoi len">
+      <details open>
+        <summary>Tân Seven bán công cụ hay nhận làm video thuê?</summary>
+        <p>Chúng tôi bán công cụ. Bạn cài về máy và tự chạy, tự giữ toàn quyền với kênh và nội dung của mình. Việc dựng thuê chỉ nhận theo từng trường hợp, nhắn Facebook để trao đổi riêng.</p>
+      </details>
+      <details>
+        <summary>Chưa biết gì về dựng video thì dùng được không?</summary>
+        <p>Được. Dây chuyền đi theo sáu bước có thứ tự sẵn, mỗi bước chỉ cần bạn đọc lại và bấm duyệt. Phần khó — chia cảnh, tìm clip, khớp tiếng — máy lo.</p>
+      </details>
+      <details>
+        <summary>Giá bao nhiêu?</summary>
+        <p>Bảng giá và gói dùng thử nằm ở trang sản phẩm MMT.AI. Tài khoản mới được tặng gói VIP dùng thử để chạy hết một video trước khi quyết định.</p>
+      </details>
+      <details>
+        <summary>Có chắc kênh sẽ được bật kiếm tiền không?</summary>
+        <p>Không ai chắc được điều đó, và chúng tôi không hứa. YouTube xét theo nội dung và chính sách từng thời điểm. Công cụ giúp bạn sản xuất nhanh và đều hơn — phần còn lại nằm ở nội dung bạn chọn làm.</p>
+      </details>
+      <details>
+        <summary>Máy yếu có chạy được không?</summary>
+        <p>Phần nặng — sinh ảnh, tạo giọng, xử lý AI — chạy trên máy chủ của chúng tôi. Máy bạn chủ yếu lo khâu ghép video cuối. Máy văn phòng thông thường dùng được.</p>
+      </details>
+      <details>
+        <summary>Muốn AI làm hộ toàn bộ thì sao?</summary>
+        <p>Đăng nhập trang sản phẩm, vào bảng tài khoản, mục Kết nối AI và chép link MCP dán vào Claude hoặc ChatGPT. Từ đó bạn ra lệnh bằng lời, AI gọi thẳng vào công cụ.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KÊU GỌI ============ -->
+<section>
+  <div class="boc">
+    <div class="cuoi len">
+      <h2>Thử một video, rồi hãy tin</h2>
+      <p>
+        Tài khoản mới có gói dùng thử. Chạy trọn một video từ ý tưởng đến file xuất ra,
+        xem có đáng không rồi quyết.
+      </p>
+      <div class="nhom">
+        <a class="nut chinh to" href="https://tanseven.net/">Bắt đầu với MMT.AI</a>
+        <a class="nut to" href="https://www.facebook.com/tan.seven.833631/" target="_blank" rel="noopener">Nhắn Facebook cho Tân</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="boc">
+    <div class="chan">
+      <div>
+        <a class="hieu" href="#tren">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Logo Tân Seven">
+            <rect width="120" height="120" rx="28" fill="#0b0b0d"/>
+            <rect x="18" y="26" width="84" height="15" rx="4" fill="#f7f8f8"/>
+            <path d="M86 41 L62 100 L44 100 L68 41 Z" fill="#f7f8f8"/>
+            <rect x="52" y="41" width="15" height="59" rx="4" fill="#e5484d"/>
+          </svg>
+          <span>TÂN SEVEN <i>/ T7</i></span>
+        </a>
+        <p>Xưởng công cụ AI cho người làm YouTube. Tự làm, tự dùng, rồi mới bán.</p>
+      </div>
+      <div>
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li><a href="https://tanseven.net/">MMT.AI</a></li>
+          <li><a href="https://tanseven.net/t-ai/">T-AI — tạo ảnh</a></li>
+          <li><a href="#san-pham">Tân Seven Voice</a></li>
+          <li><a href="#san-pham">Tân Seven Tin Tức</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Công ty</h4>
+        <ul>
+          <li><a href="#vi-sao">Vì sao Tân Seven</a></li>
+          <li><a href="#cach-lam">Cách chúng tôi làm</a></li>
+          <li><a href="#nguoi">Người sáng lập</a></li>
+          <li><a href="#hoi-dap">Hỏi đáp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/tan.seven.833631/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://tanseven.net/">tanseven.net</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <span>© 2026 Tân Seven (T7). Mọi quyền được bảo lưu.</span>
+      <span>Làm tại Việt Nam 🇻🇳</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// viền thanh trên khi cuộn
+var tren = document.getElementById('tren');
+addEventListener('scroll', function(){
+  tren.classList.toggle('dinh', scrollY > 8);
+}, {passive:true});
+
+// menu điện thoại
+var nutMenu = document.getElementById('nut-menu'), menu = document.getElementById('menu');
+nutMenu.addEventListener('click', function(){
+  var mo = menu.classList.toggle('mo');
+  nutMenu.setAttribute('aria-expanded', mo ? 'true' : 'false');
+  nutMenu.textContent = mo ? '✕' : '☰';
+});
+menu.addEventListener('click', function(e){
+  if (e.target.tagName === 'A') {
+    menu.classList.remove('mo');
+    nutMenu.setAttribute('aria-expanded','false');
+    nutMenu.textContent = '☰';
+  }
+});
+
+// hiện dần khi cuộn tới
+if ('IntersectionObserver' in window) {
+  var soi = new IntersectionObserver(function(mucs){
+    mucs.forEach(function(m, i){
+      if (m.isIntersecting) {
+        m.target.style.transitionDelay = Math.min(i * 60, 240) + 'ms';
+        m.target.classList.add('ra');
+        soi.unobserve(m.target);
+      }
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
+  document.querySelectorAll('.len').forEach(function(e){ soi.observe(e); });
+} else {
+  document.querySelectorAll('.len').forEach(function(e){ e.classList.add('ra'); });
+}
+
+// lưới an toàn: dù IntersectionObserver có trục trặc, sau 3 giây mọi thứ vẫn phải hiện
+setTimeout(function(){
+  document.querySelectorAll('.len:not(.ra)').forEach(function(e){
+    e.style.transitionDelay = '0ms';
+    e.classList.add('ra');
+  });
+}, 3000);
+</script>
+</body>
+</html>
