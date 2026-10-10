@@ -230,7 +230,7 @@ const CAI_DAT = {
   $("#nam").textContent = new Date().getFullYear();
   if (C.link_youtube) { const a = $("[data-youtube]"); a.href = C.link_youtube; a.hidden = false; }
   if (C.email_lien_he) { const a = $("[data-email]"); a.href = "mailto:" + C.email_lien_he; a.textContent = C.email_lien_he; $("#hoi-lien-he").hidden = false; }
-  if (C.cho_hang_thang && !C.paypal_me) $("#ky").hidden = false;   // paypal.me không có định kỳ
+  if (C.cho_hang_thang && C.paypal_nut_id && !C.paypal_me && !C.paypal_email) $("#ky").hidden = false;   // định kỳ chỉ có ở nút Donate
 
   const muc = $("#muc");
   [...C.cac_muc, "Other"].forEach(v => {
@@ -260,8 +260,13 @@ const CAI_DAT = {
   function link(n){
     if (C.paypal_me) return "https://www.paypal.com/paypalme/" + encodeURIComponent(C.paypal_me) + "/" + n + "USD";
     const q = new URLSearchParams();
-    if (C.paypal_email) { q.set("business", C.paypal_email); q.set("item_name", "Support " + C.ten_kenh); }
-    else if (C.paypal_nut_id) q.set("hosted_button_id", C.paypal_nut_id);
+    if (C.paypal_email) {
+      // PayPal Việt Nam KHÔNG nhận qua luồng /donate ("Quyên góp không được hỗ trợ ở quốc gia này") → dùng link thanh toán thường
+      q.set("cmd", "_xclick"); q.set("business", C.paypal_email); q.set("item_name", "Support " + C.ten_kenh);
+      q.set("amount", n); q.set("currency_code", "USD"); q.set("no_shipping", "1"); q.set("no_note", "1");
+      return "https://www.paypal.com/cgi-bin/webscr?" + q;
+    }
+    if (C.paypal_nut_id) q.set("hosted_button_id", C.paypal_nut_id);
     else return "";
     q.set("amount", n); q.set("currency_code", "USD"); q.set("no_recurring", ky === "thang" ? "0" : "1");
     return "https://www.paypal.com/donate/?" + q;
