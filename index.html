@@ -133,6 +133,17 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:14px}
 .tt-ck dd{font-weight:700;word-break:break-word}
 .tt-ck dd.vang{color:var(--vang2)}
 .nut-zalo{background:#0068FF;color:#fff;width:100%;margin-top:18px}
+.nhan-o{display:block;text-align:left;font-size:13px;color:var(--mo);margin-bottom:6px}
+.o-nhap{width:100%;background:#0d0d10;border:1px solid var(--vien);border-radius:12px;color:var(--chu);font:700 18px Consolas,monospace;letter-spacing:.06em;text-align:center;padding:14px;text-transform:uppercase}
+.o-nhap:focus{outline:none;border-color:var(--vang)}
+.bao{min-height:20px;margin-top:10px;font-size:14px;color:#ff6b6b}
+.cho{margin-top:14px;font-size:14px;color:var(--vang2);display:flex;align-items:center;justify-content:center;gap:8px}
+.cham{width:9px;height:9px;border-radius:50%;background:var(--xanh);animation:nhay 1s infinite}
+@keyframes nhay{50%{opacity:.2}}
+.lien-ket{background:none;border:0;color:var(--mo);font:inherit;font-size:13px;cursor:pointer;margin-top:8px;text-decoration:underline}
+.xong{font-size:22px;font-weight:900;color:var(--xanh)}
+.o-key{font:800 17px Consolas,monospace;background:#0d0d10;border:1px dashed var(--vang);border-radius:12px;padding:16px;color:var(--vang2);word-break:break-all}
+.ho-tro{display:inline-flex;align-items:center;gap:6px}
 
 /* yeu cau + faq */
 .yc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
@@ -181,6 +192,7 @@ footer a{color:var(--mo)}
       <a href="#tinh-nang">Tính năng</a>
       <a href="#gia">Bảng giá</a>
       <a href="#hoi-dap">Hỏi đáp</a>
+      <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo</a>
       <a class="nut nut-do" href="#gia">Mua ngay</a>
     </nav>
   </div>
@@ -284,7 +296,7 @@ footer a{color:var(--mo)}
           <li>Đủ mọi tính năng</li>
           <li>Làm video không giới hạn</li>
           <li>Nhận bản cập nhật trong hạn</li>
-          <li>Hỗ trợ cài đặt qua Zalo</li>
+          <li>Vào nhóm Zalo hỗ trợ</li>
         </ul>
         <a class="nut nut-vien" href="#mua" data-goi="thang">Chọn gói 1 tháng</a>
       </div>
@@ -297,7 +309,7 @@ footer a{color:var(--mo)}
           <li>Đủ mọi tính năng</li>
           <li>Làm video không giới hạn</li>
           <li>Cập nhật miễn phí mãi mãi</li>
-          <li>Hỗ trợ ưu tiên qua Zalo</li>
+          <li>Nhóm Zalo hỗ trợ, ưu tiên trả lời</li>
         </ul>
         <a class="nut nut-do" href="#mua" data-goi="vv">Chọn gói vĩnh viễn</a>
       </div>
@@ -308,12 +320,13 @@ footer a{color:var(--mo)}
 <section id="mua">
   <div class="boc">
     <span class="nho">Cách mua</span>
-    <h2>Chuyển khoản, nhận KEY, dùng ngay.</h2>
+    <h2>Quét QR, KEY tự hiện ra.</h2>
+    <p class="phu">Thanh toán tự động qua SePay: chuyển khoản xong vài giây là trang này hiện KEY, không phải chờ ai trả lời.</p>
     <div class="mua">
       <div class="cac-buoc">
-        <div class="o"><b>1</b><div><h3>Tải và mở tool</h3><p>Tải bản cài, giải nén, bấm <strong>T-TONG HOP.exe</strong>. Tool hiện <strong>MÃ MÁY</strong> của anh chị.</p><a class="nut nut-vien" style="margin-top:12px;padding:10px 16px;font-size:14px" href="https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip">⬇ Tải bản cài (Windows)</a></div></div>
-        <div class="o"><b>2</b><div><h3>Quét QR chuyển khoản</h3><p>Chọn gói bên cạnh, mở app ngân hàng quét mã. Số tiền và nội dung đã điền sẵn.</p></div></div>
-        <div class="o"><b>3</b><div><h3>Gửi MÃ MÁY qua Zalo</h3><p>Nhắn Zalo Tân Seven: ảnh chuyển khoản + MÃ MÁY. Nhận <strong>KEY</strong>, dán vào tool, bấm KÍCH HOẠT.</p></div></div>
+        <div class="o"><b>1</b><div><h3>Tải và mở tool</h3><p>Tải bản cài, giải nén, bấm <strong>T-TONG HOP.exe</strong>. Tool hiện <strong>MÃ MÁY</strong> của anh chị, bấm Chép.</p><a class="nut nut-vien" style="margin-top:12px;padding:10px 16px;font-size:14px" href="https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip">⬇ Tải bản cài (Windows)</a></div></div>
+        <div class="o"><b>2</b><div><h3>Dán MÃ MÁY, chọn gói, quét QR</h3><p>Mở app ngân hàng quét mã. Số tiền và nội dung chuyển khoản đã điền sẵn, đừng sửa nội dung.</p></div></div>
+        <div class="o"><b>3</b><div><h3>Nhận KEY ngay trên trang</h3><p>Tiền về là KEY hiện ra. Chép KEY, dán vào tool, bấm <strong>KÍCH HOẠT</strong>.</p></div></div>
       </div>
 
       <div class="hop-qr">
@@ -321,15 +334,33 @@ footer a{color:var(--mo)}
           <button type="button" class="on" data-chon="thang">1 tháng · 1tr</button>
           <button type="button" data-chon="vv">Vĩnh viễn · 5tr</button>
         </div>
-        <div class="qr" id="qr"></div>
-        <dl class="tt-ck">
-          <dt>Ngân hàng</dt><dd id="ck-nh">—</dd>
-          <dt>Số tài khoản</dt><dd id="ck-stk">—</dd>
-          <dt>Chủ tài khoản</dt><dd id="ck-chu">—</dd>
-          <dt>Số tiền</dt><dd class="vang" id="ck-tien">1.000.000đ</dd>
-          <dt>Nội dung</dt><dd class="vang" id="ck-nd">TTONGHOP 1THANG</dd>
-        </dl>
-        <a class="nut nut-zalo" id="nut-zalo" href="#" target="_blank" rel="noopener">Nhắn Zalo gửi MÃ MÁY</a>
+        <div id="b-nhap">
+          <label class="nhan-o" for="o-ma">MÃ MÁY (trong tool, dạng XXXX-XXXX-XXXX-XXXX)</label>
+          <input id="o-ma" class="o-nhap" placeholder="6F5E-9304-B0EA-487D" autocomplete="off" spellcheck="false" maxlength="19">
+          <button type="button" class="nut nut-do" id="nut-tao" style="width:100%;margin-top:12px">Tạo mã thanh toán <span id="tien-nut">1.000.000đ</span></button>
+          <p class="bao" id="bao-nhap"></p>
+        </div>
+        <div id="b-qr" hidden>
+          <div class="qr" id="qr"></div>
+          <dl class="tt-ck">
+            <dt>Ngân hàng</dt><dd id="ck-nh">—</dd>
+            <dt>Số tài khoản</dt><dd id="ck-stk">—</dd>
+            <dt>Chủ tài khoản</dt><dd id="ck-chu">—</dd>
+            <dt>Số tiền</dt><dd class="vang" id="ck-tien">—</dd>
+            <dt>Nội dung</dt><dd class="vang" id="ck-nd">—</dd>
+            <dt>MÃ MÁY</dt><dd id="ck-may">—</dd>
+          </dl>
+          <p class="cho"><span class="cham"></span>Đang chờ tiền về… trang tự hiện KEY, đừng đóng trang.</p>
+          <button type="button" class="lien-ket" id="nut-lai">← Đổi mã máy / gói</button>
+        </div>
+        <div id="b-key" hidden>
+          <div class="xong">✓ Đã nhận tiền</div>
+          <p style="color:var(--mo);font-size:14px;margin:8px 0 10px">KEY của anh chị (gói <b id="key-goi"></b>):</p>
+          <div class="o-key" id="o-key"></div>
+          <button type="button" class="nut nut-do" id="nut-chep-key" style="width:100%;margin-top:12px">Chép KEY</button>
+          <p style="color:var(--mo);font-size:13px;margin-top:10px">Dán vào tool → bấm KÍCH HOẠT. Nên chụp lại KEY này để giữ.</p>
+        </div>
+        <a class="nut nut-zalo" href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo hỗ trợ</a>
       </div>
     </div>
   </div>
@@ -354,10 +385,11 @@ footer a{color:var(--mo)}
     <h2>Hay được hỏi.</h2>
     <div class="faq">
       <details><summary>Tôi không biết dựng video, dùng được không?</summary><p>Được. Tool làm hết phần dựng. Anh chị chọn từ khoá, chọn độ dài, bấm LÀM VIDEO rồi chờ tới 100%.</p></details>
+      <details><summary>Chuyển khoản rồi mà chưa thấy KEY?</summary><p>Thường chỉ vài giây. Nếu quá 5 phút, hoặc lỡ sửa nội dung chuyển khoản, vào <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">nhóm Zalo hỗ trợ</a> gửi ảnh chuyển khoản + MÃ MÁY, Tân Seven cấp KEY tay.</p></details>
       <details><summary>Có tốn thêm tiền gì ngoài gói không?</summary><p>Phần AI nghe và chấm điểm cảnh dùng khoá OpenAI của chính anh chị, trả theo lượng dùng, thường vài nghìn đồng mỗi video. Tool không thu thêm phí nào khác.</p></details>
       <details><summary>Một KEY dùng được mấy máy?</summary><p>Một KEY gắn với một máy. Muốn dùng máy thứ hai thì mua thêm một KEY cho mã máy đó.</p></details>
-      <details><summary>Đổi máy hoặc cài lại Windows thì sao?</summary><p>Mã máy có thể đổi. Nhắn Zalo kèm mã máy mới, Tân Seven cấp lại KEY cho đúng gói còn hạn.</p></details>
-      <details><summary>Gói 1 tháng hết hạn thì sao?</summary><p>Tool báo hết hạn và hiện lại mã máy. Chuyển khoản gia hạn, nhận KEY mới, dán vào là chạy tiếp, video cũ giữ nguyên.</p></details>
+      <details><summary>Đổi máy hoặc cài lại Windows thì sao?</summary><p>Mã máy có thể đổi. Nhắn <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">nhóm Zalo hỗ trợ</a> kèm KEY cũ và mã máy mới, Tân Seven cấp lại KEY cho đúng gói còn hạn.</p></details>
+      <details><summary>Gói 1 tháng hết hạn thì sao?</summary><p>Tool báo hết hạn và hiện lại mã máy. Bấm "Mở trang mua", quét QR gia hạn, KEY mới hiện ngay, dán vào là chạy tiếp. Video cũ giữ nguyên.</p></details>
       <details><summary>Video làm ra có bị bản quyền không?</summary><p>Tool chỉ dựng từ nguồn anh chị đưa vào. Anh chị tự chịu trách nhiệm về nguồn clip và cách đăng. Nên dùng clip được phép dùng lại và đọc kỹ chính sách YouTube về nội dung tổng hợp.</p></details>
     </div>
   </div>
@@ -378,47 +410,69 @@ footer a{color:var(--mo)}
 <footer>
   <div class="boc">
     <span>© 2026 Tân Seven · T-TỔNG HỢP</span>
-    <span><a href="t7/">Về Tân Seven</a> · <a href="t7/terms/">Điều khoản</a> · <a href="t7/privacy/">Quyền riêng tư</a></span>
+    <span><a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo hỗ trợ</a> · <a href="t7/">Về Tân Seven</a> · <a href="t7/terms/">Điều khoản</a> · <a href="t7/privacy/">Quyền riêng tư</a></span>
   </div>
 </footer>
 
 <script>
-/* ===== ANH TÂN ĐIỀN 4 DÒNG NÀY LÀ TRANG TỰ RA QR ===== */
-var BAN = {
-  ma_ngan_hang: "",   // mã VietQR, vd: "MB", "VCB", "TCB", "ACB", "VPB"
-  ten_ngan_hang: "",  // tên hiện cho khách, vd: "MB Bank"
-  so_tk: "",
-  chu_tk: "",         // VIẾT HOA KHÔNG DẤU, vd: "NGUYEN VAN TAN"
-  zalo: ""            // số Zalo, vd: "0901234567"
-};
-/* ===================================================== */
-var GOI = {
-  thang: { tien: 1000000, chu: "1.000.000đ", nd: "TTONGHOP 1THANG" },
-  vv:    { tien: 5000000, chu: "5.000.000đ", nd: "TTONGHOP VINHVIEN" }
-};
+var API = "https://api.tanseven.net";
+var GOI = { thang: { chu: "1.000.000đ", ten: "1 tháng" }, vv: { chu: "5.000.000đ", ten: "Vĩnh viễn" } };
+var goi = "thang", hen = null;
 function $(id){ return document.getElementById(id); }
-function ve(goi){
-  var g = GOI[goi];
-  document.querySelectorAll("[data-chon]").forEach(function(b){ b.classList.toggle("on", b.dataset.chon === goi); });
-  $("ck-tien").textContent = g.chu;
-  $("ck-nd").textContent = g.nd;
-  $("ck-nh").textContent = BAN.ten_ngan_hang || "Nhắn Zalo để nhận";
-  $("ck-stk").textContent = BAN.so_tk || "—";
-  $("ck-chu").textContent = BAN.chu_tk || "—";
-  if (BAN.ma_ngan_hang && BAN.so_tk) {
-    var u = "https://img.vietqr.io/image/" + encodeURIComponent(BAN.ma_ngan_hang) + "-" + encodeURIComponent(BAN.so_tk) +
-      "-compact2.png?amount=" + g.tien + "&addInfo=" + encodeURIComponent(g.nd) + "&accountName=" + encodeURIComponent(BAN.chu_tk);
-    $("qr").innerHTML = '<img alt="Mã QR chuyển khoản ' + g.chu + '" src="' + u + '">';
-  } else {
-    $("qr").innerHTML = '<div class="trong">Nhắn Zalo để nhận số tài khoản chuyển khoản gói <b>' + g.chu + '</b>.</div>';
-  }
-  var z = $("nut-zalo");
-  if (BAN.zalo) { z.href = "https://zalo.me/" + BAN.zalo.replace(/\D/g, ""); z.textContent = "Nhắn Zalo " + BAN.zalo + " gửi MÃ MÁY"; }
-  else { z.removeAttribute("href"); z.textContent = "Zalo Tân Seven (sắp có)"; }
+function vnd(n){ return n.toLocaleString("vi-VN") + "đ"; }
+function chonGoi(g){
+  goi = g;
+  document.querySelectorAll("[data-chon]").forEach(function(b){ b.classList.toggle("on", b.dataset.chon === g); });
+  $("tien-nut").textContent = GOI[g].chu;
 }
-document.querySelectorAll("[data-chon]").forEach(function(b){ b.addEventListener("click", function(){ ve(b.dataset.chon); }); });
-document.querySelectorAll("[data-goi]").forEach(function(a){ a.addEventListener("click", function(){ ve(a.dataset.goi); }); });
-ve(location.hash === "#gia-vv" ? "vv" : "thang");
+function hien(khoi){ ["b-nhap","b-qr","b-key"].forEach(function(k){ $(k).hidden = (k !== khoi); }); }
+function chuanMa(v){
+  var c = (v || "").toUpperCase().replace(/[^0-9A-F]/g, "").slice(0, 16);
+  return c.replace(/(.{4})(?=.)/g, "$1-");
+}
+$("o-ma").addEventListener("input", function(e){ e.target.value = chuanMa(e.target.value); $("bao-nhap").textContent = ""; });
+document.querySelectorAll("[data-chon]").forEach(function(b){ b.addEventListener("click", function(){ if (!$("b-nhap").hidden) chonGoi(b.dataset.chon); }); });
+document.querySelectorAll("[data-goi]").forEach(function(a){ a.addEventListener("click", function(){ if (!$("b-nhap").hidden) chonGoi(a.dataset.goi); }); });
+$("nut-tao").addEventListener("click", function(){
+  var ma = chuanMa($("o-ma").value);
+  if (!/^[0-9A-F]{4}(-[0-9A-F]{4}){3}$/.test(ma)) { $("bao-nhap").textContent = "MÃ MÁY chưa đúng. Mở tool, bấm Chép rồi dán vào đây."; return; }
+  var nut = this; nut.disabled = true; nut.style.opacity = .6;
+  fetch(API + "/api/tth/don", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ma_may: ma, goi: goi }) })
+    .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.detail || "Lỗi máy chủ"); return d; }); })
+    .then(function(d){
+      $("qr").innerHTML = '<img alt="Mã QR chuyển khoản ' + vnd(d.so_tien) + '" src="' + d.qr + '">';
+      $("ck-nh").textContent = d.ngan_hang; $("ck-stk").textContent = d.stk; $("ck-chu").textContent = d.chu_tk || "—";
+      $("ck-tien").textContent = vnd(d.so_tien); $("ck-nd").textContent = d.ma; $("ck-may").textContent = d.ma_may;
+      try { localStorage.setItem("tth_don", d.ma); } catch (e) {}
+      hien("b-qr"); hoi(d.ma);
+    })
+    .catch(function(e){ $("bao-nhap").textContent = "Chưa tạo được mã thanh toán (" + e.message + "). Thử lại, hoặc vào nhóm Zalo hỗ trợ."; })
+    .finally(function(){ nut.disabled = false; nut.style.opacity = 1; });
+});
+function hoi(ma){
+  clearTimeout(hen);
+  fetch(API + "/api/tth/don/" + encodeURIComponent(ma)).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if (d && d.trang_thai === "da_tra" && d.key) {
+      $("o-key").textContent = d.key; $("key-goi").textContent = GOI[d.goi] ? GOI[d.goi].ten : d.goi;
+      hien("b-key"); return;
+    }
+    if (d) hen = setTimeout(function(){ hoi(ma); }, 4000);
+  }).catch(function(){ hen = setTimeout(function(){ hoi(ma); }, 8000); });
+}
+$("nut-lai").addEventListener("click", function(){ clearTimeout(hen); try { localStorage.removeItem("tth_don"); } catch (e) {} hien("b-nhap"); });
+$("nut-chep-key").addEventListener("click", function(){
+  var k = $("o-key").textContent, nut = this;
+  (navigator.clipboard ? navigator.clipboard.writeText(k) : Promise.reject()).then(function(){ nut.textContent = "✓ Đã chép KEY"; }, function(){ nut.textContent = "Bôi đen KEY để chép"; });
+});
+// tool mở trang kèm ?ma=<MÃ MÁY>; khách tải lại trang giữa chừng thì hỏi tiếp đơn cũ
+var q = new URLSearchParams(location.search);
+if (q.get("ma")) $("o-ma").value = chuanMa(q.get("ma"));
+if (q.get("goi") && GOI[q.get("goi")]) chonGoi(q.get("goi"));
+try { var cu = localStorage.getItem("tth_don"); if (cu) fetch(API + "/api/tth/don/" + cu).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+  if (!d) return;
+  if (d.trang_thai === "da_tra") { $("o-key").textContent = d.key; $("key-goi").textContent = GOI[d.goi].ten; hien("b-key"); }
+  else { $("ck-nd").textContent = d.ma; $("ck-may").textContent = d.ma_may; $("ck-tien").textContent = vnd(d.so_tien); $("qr").innerHTML = '<div class="trong">Đơn ' + d.ma + ' đang chờ tiền. Quét lại mã: bấm "Đổi mã máy / gói" và tạo lại.</div>'; hien("b-qr"); hoi(d.ma); }
+}).catch(function(){}); } catch (e) {}
 </script>
 </body>
 </html>

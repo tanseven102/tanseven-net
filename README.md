@@ -12,6 +12,6 @@ chiếu ra ngoài. Dựng lại bằng `landing/dung.py` bên repo mã nguồn.
 
 | Đường dẫn | Là gì | Dựng lại bằng |
 |---|---|---|
-| `/` | **Sale page T-TỔNG HỢP** (gói 1 tháng 1tr, vĩnh viễn 5tr; QR + Zalo ở khối `BAN` cuối file) | viết tay, sửa thẳng `index.html` |
+| `/` | **Sale page T-TỔNG HỢP** (gói 1 tháng 1tr, vĩnh viễn 5tr). Mua: khách nhập MÃ MÁY → `api.tanseven.net/api/tth/don` ra QR SePay → tiền về tự hiện KEY. Nhóm Zalo hỗ trợ | viết tay, sửa thẳng `index.html` |
 | `/t-ai/` | Trang T-AI + trang kết nối | `landing/t-ai/` bên repo mã nguồn |
 | `/t7/` | **Web thương hiệu Tân Seven (T7)** — giới thiệu công ty, hệ sinh thái 9 công cụ, người sáng lập | viết tay, sửa thẳng `t7/index.html` |
