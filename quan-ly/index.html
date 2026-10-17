@@ -47,6 +47,10 @@ tr:last-child td{border-bottom:0}
 .dang-nhap input{width:100%;background:var(--the);border:1px solid var(--vien);border-radius:12px;color:var(--chu);font:700 17px Consolas,monospace;text-align:center;padding:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
 .bao{color:#ff6b6b;font-size:14px;min-height:20px;margin-top:8px}
 .gio{color:var(--mo);font-size:12px}
+.du-phong{margin-top:22px;text-align:left}
+.du-phong summary{cursor:pointer;color:var(--mo);font-size:13px;text-align:center;list-style:none}
+.du-phong summary::-webkit-details-marker{display:none}
+.ai{color:var(--mo);font-size:13px;font-weight:500}
 @media (max-width:760px){.kpi{grid-template-columns:repeat(2,1fr)}.o .so{font-size:24px}}
 </style>
 </head>
@@ -56,15 +60,19 @@ tr:last-child td{border-bottom:0}
 <div id="man-vao" class="dang-nhap" hidden>
   <img src="../t7/logo.svg" width="56" height="56" alt="">
   <h1>Quản lý khách T-TỔNG HỢP</h1>
-  <p>Nhập mã quản lý để xem khách mua.</p>
-  <input id="o-ma" placeholder="MÃ QUẢN LÝ" autocomplete="off" spellcheck="false">
-  <button class="nut nut-do" id="nut-vao" style="width:100%;padding:12px">Vào</button>
+  <p>Đăng nhập bằng Gmail quản lý để xem khách mua.</p>
+  <div id="nut-google" style="display:flex;justify-content:center;min-height:44px"></div>
   <p class="bao" id="bao-vao"></p>
+  <details class="du-phong"><summary>Dùng mã quản lý</summary>
+    <input id="o-ma" placeholder="MÃ QUẢN LÝ" autocomplete="off" spellcheck="false" style="margin-top:12px">
+    <button class="nut" id="nut-vao" style="width:100%;padding:11px">Vào bằng mã</button>
+  </details>
 </div>
 
 <div id="man-chinh" hidden>
   <div class="dau">
     <h1><img src="../t7/logo.svg" width="30" height="30" alt="">Khách T-TỔNG HỢP <small id="cap-nhat"></small></h1>
+    <span class="ai" id="ai-vao"></span>
     <div style="display:flex;gap:8px">
       <button class="nut" id="nut-tai">↻ Tải lại</button>
       <button class="nut" id="nut-csv">⬇ Xuất Excel (CSV)</button>
@@ -92,6 +100,7 @@ tr:last-child td{border-bottom:0}
 </div>
 
 </div>
+<script src="https://accounts.google.com/gsi/client" async defer onload="veNutGoogle()"></script>
 <script>
 var API = "https://api.tanseven.net";
 var TEN_GOI = { thang: "1 tháng", vv: "Vĩnh viễn" };
@@ -154,7 +163,7 @@ $("nut-vao").addEventListener("click", function(){
 });
 $("o-ma").addEventListener("keydown", function(e){ if (e.key === "Enter") $("nut-vao").click(); });
 $("nut-tai").addEventListener("click", function(){ tai(laMa()).catch(function(e){ alertNho(e.message); }); });
-$("nut-ra").addEventListener("click", function(){ luuMa(""); duLieu = null; clearTimeout(hen); $("man-chinh").hidden = true; $("man-vao").hidden = false; $("o-ma").value = ""; });
+$("nut-ra").addEventListener("click", function(){ luuMa(""); try { localStorage.removeItem("tth_gmail"); window.google && google.accounts.id.disableAutoSelect(); } catch (e) {} duLieu = null; clearTimeout(hen); $("man-chinh").hidden = true; $("man-vao").hidden = false; $("o-ma").value = ""; });
 $("o-tim").addEventListener("input", ve);
 document.querySelectorAll("[data-loc]").forEach(function(b){ b.addEventListener("click", function(){
   loc = b.dataset.loc; document.querySelectorAll("[data-loc]").forEach(function(x){ x.classList.toggle("on", x === b); }); ve();
@@ -175,6 +184,21 @@ $("nut-csv").addEventListener("click", function(){
   a.download = "khach-t-tong-hop-" + new Date().toISOString().slice(0, 10) + ".csv"; a.click();
 });
 
+function veNutGoogle(){
+  fetch(API + "/api/tk/cau-hinh").then(function(r){ return r.json(); }).then(function(c){
+    if (!c.google_client_id || !window.google) return;
+    google.accounts.id.initialize({ client_id: c.google_client_id, callback: function(res){
+      $("bao-vao").textContent = "";
+      fetch(API + "/api/tth/quan-ly/google", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ credential: res.credential }) })
+        .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.detail || "Đăng nhập không được"); return d; }); })
+        .then(function(d){ try { localStorage.setItem("tth_gmail", d.email); } catch (e) {} tai(d.token, true).catch(function(){}); })
+        .catch(function(e){ $("bao-vao").textContent = e.message; });
+    } });
+    google.accounts.id.renderButton($("nut-google"), { theme: "filled_black", size: "large", shape: "pill", text: "signin_with", locale: "vi" });
+  }).catch(function(){});
+}
+function hienAi(){ var g = ""; try { g = localStorage.getItem("tth_gmail") || ""; } catch (e) {} $("ai-vao").textContent = laMa().indexOf("G.") === 0 && g ? "Đăng nhập: " + g : ""; }
+var _veCu = ve; ve = function(){ _veCu(); hienAi(); };
 var cu = laMa();
 if (cu) tai(cu).catch(function(){}); else $("man-vao").hidden = false;
 </script>
