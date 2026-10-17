@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quản lý khách T-TỔNG HỢP</title>
+<link rel="icon" href="../t7/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--nen:#0A0A0B;--the:#141416;--vien:#26262A;--chu:#F4F4F5;--mo:#9A9AA4;--vang:#C8AA6E;--vang2:#F0E6D2;--do:#C0161D;--xanh:#0AC8B9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--nen);color:var(--chu);font-family:"Be Vietnam Pro",system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.boc{max-width:1180px;margin:0 auto;padding:24px 16px 60px}
+.dau{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.dau h1{font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px}
+.dau h1 small{color:var(--mo);font-weight:500;font-size:14px}
+.nut{border:1px solid var(--vien);background:var(--the);color:var(--chu);font:inherit;font-weight:700;font-size:14px;padding:9px 14px;border-radius:10px;cursor:pointer}
+.nut:hover{border-color:var(--vang)}
+.nut-do{background:var(--do);border-color:var(--do);color:#fff}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.o{background:var(--the);border:1px solid var(--vien);border-radius:14px;padding:16px 18px}
+.o .ten{color:var(--mo);font-size:13px;font-weight:600}
+.o .so{font-size:30px;font-weight:800;margin-top:4px;letter-spacing:-.02em}
+.o .phu{color:var(--mo);font-size:12px;margin-top:2px}
+.loc{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.loc button{border:1px solid var(--vien);background:transparent;color:var(--mo);font:inherit;font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;cursor:pointer}
+.loc button.on{background:var(--vang);border-color:var(--vang);color:#111}
+.loc input{flex:1;min-width:180px;background:var(--the);border:1px solid var(--vien);border-radius:10px;color:var(--chu);font:inherit;font-size:14px;padding:8px 12px}
+.bang{background:var(--the);border:1px solid var(--vien);border-radius:14px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:860px}
+th{text-align:left;color:var(--mo);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:12px 14px;border-bottom:1px solid var(--vien);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid #1d1d21;vertical-align:top}
+tr:last-child td{border-bottom:0}
+.mono{font-family:Consolas,monospace;font-size:13px;white-space:nowrap}
+.the{display:inline-block;font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px}
+.tra{background:rgba(10,200,185,.14);color:var(--xanh)}
+.cho{background:rgba(154,154,164,.14);color:var(--mo)}
+.vv{color:var(--vang2);font-weight:700}
+.chep{background:none;border:0;color:var(--vang);cursor:pointer;font:inherit;font-size:12px;margin-left:6px}
+.trong{padding:40px;text-align:center;color:var(--mo)}
+.dang-nhap{max-width:380px;margin:12vh auto 0;text-align:center}
+.dang-nhap h1{font-size:22px;margin:14px 0 6px}
+.dang-nhap p{color:var(--mo);font-size:14px;margin-bottom:18px}
+.dang-nhap input{width:100%;background:var(--the);border:1px solid var(--vien);border-radius:12px;color:var(--chu);font:700 17px Consolas,monospace;text-align:center;padding:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.bao{color:#ff6b6b;font-size:14px;min-height:20px;margin-top:8px}
+.gio{color:var(--mo);font-size:12px}
+@media (max-width:760px){.kpi{grid-template-columns:repeat(2,1fr)}.o .so{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="boc">
+
+<div id="man-vao" class="dang-nhap" hidden>
+  <img src="../t7/logo.svg" width="56" height="56" alt="">
+  <h1>Quản lý khách T-TỔNG HỢP</h1>
+  <p>Nhập mã quản lý để xem khách mua.</p>
+  <input id="o-ma" placeholder="MÃ QUẢN LÝ" autocomplete="off" spellcheck="false">
+  <button class="nut nut-do" id="nut-vao" style="width:100%;padding:12px">Vào</button>
+  <p class="bao" id="bao-vao"></p>
+</div>
+
+<div id="man-chinh" hidden>
+  <div class="dau">
+    <h1><img src="../t7/logo.svg" width="30" height="30" alt="">Khách T-TỔNG HỢP <small id="cap-nhat"></small></h1>
+    <div style="display:flex;gap:8px">
+      <button class="nut" id="nut-tai">↻ Tải lại</button>
+      <button class="nut" id="nut-csv">⬇ Xuất Excel (CSV)</button>
+      <button class="nut" id="nut-ra">Thoát</button>
+    </div>
+  </div>
+  <div class="kpi">
+    <div class="o"><div class="ten">Khách đã mua</div><div class="so" id="k-khach">0</div><div class="phu">tính theo mã máy</div></div>
+    <div class="o"><div class="ten">Doanh thu</div><div class="so" id="k-tien">0đ</div><div class="phu" id="k-tien-phu">&nbsp;</div></div>
+    <div class="o"><div class="ten">Gói đã bán</div><div class="so" id="k-goi">0</div><div class="phu" id="k-goi-phu">&nbsp;</div></div>
+    <div class="o"><div class="ten">Đơn chờ tiền</div><div class="so" id="k-cho">0</div><div class="phu">tạo QR nhưng chưa trả</div></div>
+  </div>
+  <div class="loc">
+    <button data-loc="tat_ca" class="on">Tất cả</button>
+    <button data-loc="da_tra">Đã trả</button>
+    <button data-loc="cho">Chờ tiền</button>
+    <input id="o-tim" placeholder="Tìm mã máy, mã đơn, SĐT, KEY…">
+  </div>
+  <div class="bang">
+    <table>
+      <thead><tr><th>Lúc tạo</th><th>Trạng thái</th><th>Gói</th><th>Số tiền</th><th>Mã máy</th><th>Liên hệ</th><th>Mã đơn</th><th>KEY</th><th>Lúc trả</th></tr></thead>
+      <tbody id="ds"></tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+<script>
+var API = "https://api.tanseven.net";
+var TEN_GOI = { thang: "1 tháng", vv: "Vĩnh viễn" };
+var duLieu = null, loc = "tat_ca", hen = null;
+function $(id){ return document.getElementById(id); }
+function vnd(n){ return (n || 0).toLocaleString("vi-VN") + "đ"; }
+function gio(t){ if (!t) return ""; var d = new Date(t * 1000); return d.toLocaleDateString("vi-VN") + " " + d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }); }
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function laMa(){ try { return localStorage.getItem("tth_quan_ly") || ""; } catch (e) { return ""; } }
+function luuMa(m){ try { m ? localStorage.setItem("tth_quan_ly", m) : localStorage.removeItem("tth_quan_ly"); } catch (e) {} }
+
+function tai(ma, tuVao){
+  return fetch(API + "/api/tth/quan-ly", { headers: { Authorization: "Bearer " + ma } })
+    .then(function(r){ if (r.status === 401) throw new Error("Sai mã quản lý"); if (!r.ok) throw new Error("Máy chủ lỗi " + r.status); return r.json(); })
+    .then(function(d){
+      duLieu = d; luuMa(ma);
+      $("man-vao").hidden = true; $("man-chinh").hidden = false;
+      ve(); $("cap-nhat").textContent = "cập nhật " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      clearTimeout(hen); hen = setTimeout(function(){ tai(ma).catch(function(){}); }, 30000);
+    })
+    .catch(function(e){
+      if (tuVao || !duLieu) { $("man-chinh").hidden = true; $("man-vao").hidden = false; $("bao-vao").textContent = e.message; }
+      throw e;
+    });
+}
+
+function ve(){
+  var d = duLieu;
+  $("k-khach").textContent = d.so_khach;
+  $("k-tien").textContent = vnd(d.doanh_thu);
+  $("k-tien-phu").textContent = d.so_don_tra + " đơn đã trả";
+  $("k-goi").textContent = d.so_don_tra;
+  $("k-goi-phu").textContent = (d.theo_goi.thang || 0) + " gói 1 tháng · " + (d.theo_goi.vv || 0) + " vĩnh viễn";
+  $("k-cho").textContent = d.so_don_cho;
+  var q = $("o-tim").value.trim().toUpperCase();
+  var hang = d.don.filter(function(x){
+    if (loc !== "tat_ca" && x.trang_thai !== loc) return false;
+    if (!q) return true;
+    return [x.ma, x.ma_may, x.lien_he, x.key].join(" ").toUpperCase().indexOf(q) >= 0;
+  });
+  if (!hang.length) { $("ds").innerHTML = '<tr><td colspan="9" class="trong">Chưa có đơn nào' + (q || loc !== "tat_ca" ? " khớp bộ lọc" : "") + '.</td></tr>'; return; }
+  $("ds").innerHTML = hang.map(function(x){
+    var tra = x.trang_thai === "da_tra";
+    return "<tr>" +
+      '<td class="gio">' + gio(x.tao_luc) + "</td>" +
+      '<td><span class="the ' + (tra ? "tra" : "cho") + '">' + (tra ? "Đã trả" : "Chờ tiền") + "</span></td>" +
+      '<td class="' + (x.goi === "vv" ? "vv" : "") + '">' + esc(TEN_GOI[x.goi] || x.goi) + "</td>" +
+      "<td>" + vnd(x.so_tien) + "</td>" +
+      '<td class="mono">' + esc(x.ma_may) + "</td>" +
+      "<td>" + (esc(x.lien_he) || '<span class="gio">—</span>') + "</td>" +
+      '<td class="mono">' + esc(x.ma) + "</td>" +
+      '<td class="mono">' + (x.key ? esc(x.key) + '<button class="chep" data-chep="' + esc(x.key) + '">chép</button>' : '<span class="gio">—</span>') + "</td>" +
+      '<td class="gio">' + gio(x.tra_luc) + "</td></tr>";
+  }).join("");
+}
+
+$("nut-vao").addEventListener("click", function(){
+  var m = $("o-ma").value.trim().toUpperCase(); if (!m) return;
+  $("bao-vao").textContent = ""; tai(m, true).catch(function(){});
+});
+$("o-ma").addEventListener("keydown", function(e){ if (e.key === "Enter") $("nut-vao").click(); });
+$("nut-tai").addEventListener("click", function(){ tai(laMa()).catch(function(e){ alertNho(e.message); }); });
+$("nut-ra").addEventListener("click", function(){ luuMa(""); duLieu = null; clearTimeout(hen); $("man-chinh").hidden = true; $("man-vao").hidden = false; $("o-ma").value = ""; });
+$("o-tim").addEventListener("input", ve);
+document.querySelectorAll("[data-loc]").forEach(function(b){ b.addEventListener("click", function(){
+  loc = b.dataset.loc; document.querySelectorAll("[data-loc]").forEach(function(x){ x.classList.toggle("on", x === b); }); ve();
+}); });
+$("ds").addEventListener("click", function(e){
+  var k = e.target.dataset && e.target.dataset.chep; if (!k) return;
+  navigator.clipboard && navigator.clipboard.writeText(k).then(function(){ e.target.textContent = "✓"; });
+});
+function alertNho(m){ $("cap-nhat").textContent = m; }
+$("nut-csv").addEventListener("click", function(){
+  if (!duLieu) return;
+  var dong = [["Lúc tạo","Trạng thái","Gói","Số tiền","Mã máy","Liên hệ","Mã đơn","KEY","Lúc trả"]].concat(duLieu.don.map(function(x){
+    return [gio(x.tao_luc), x.trang_thai === "da_tra" ? "Đã trả" : "Chờ tiền", TEN_GOI[x.goi] || x.goi, x.so_tien, x.ma_may, x.lien_he, x.ma, x.key, gio(x.tra_luc)];
+  }));
+  var csv = "﻿" + dong.map(function(r){ return r.map(function(c){ return '"' + String(c == null ? "" : c).replace(/"/g, '""') + '"'; }).join(","); }).join("\r\n");
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+  a.download = "khach-t-tong-hop-" + new Date().toISOString().slice(0, 10) + ".csv"; a.click();
+});
+
+var cu = laMa();
+if (cu) tai(cu).catch(function(){}); else $("man-vao").hidden = false;
+</script>
+</body>
+</html>

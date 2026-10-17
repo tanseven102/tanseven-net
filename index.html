@@ -337,6 +337,8 @@ footer a{color:var(--mo)}
         <div id="b-nhap">
           <label class="nhan-o" for="o-ma">MÃ MÁY (trong tool, dạng XXXX-XXXX-XXXX-XXXX)</label>
           <input id="o-ma" class="o-nhap" placeholder="6F5E-9304-B0EA-487D" autocomplete="off" spellcheck="false" maxlength="19">
+          <label class="nhan-o" for="o-lh" style="margin-top:12px">SĐT / Zalo của anh chị (không bắt buộc, để hỗ trợ)</label>
+          <input id="o-lh" class="o-nhap" style="font:500 16px 'Be Vietnam Pro',sans-serif;letter-spacing:0;text-transform:none;padding:12px" placeholder="0901 234 567" autocomplete="tel" maxlength="60">
           <button type="button" class="nut nut-do" id="nut-tao" style="width:100%;margin-top:12px">Tạo mã thanh toán <span id="tien-nut">1.000.000đ</span></button>
           <p class="bao" id="bao-nhap"></p>
         </div>
@@ -437,7 +439,7 @@ $("nut-tao").addEventListener("click", function(){
   var ma = chuanMa($("o-ma").value);
   if (!/^[0-9A-F]{4}(-[0-9A-F]{4}){3}$/.test(ma)) { $("bao-nhap").textContent = "MÃ MÁY chưa đúng. Mở tool, bấm Chép rồi dán vào đây."; return; }
   var nut = this; nut.disabled = true; nut.style.opacity = .6;
-  fetch(API + "/api/tth/don", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ma_may: ma, goi: goi }) })
+  fetch(API + "/api/tth/don", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ma_may: ma, goi: goi, lien_he: $("o-lh").value.trim() }) })
     .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.detail || "Lỗi máy chủ"); return d; }); })
     .then(function(d){
       $("qr").innerHTML = '<img alt="Mã QR chuyển khoản ' + vnd(d.so_tien) + '" src="' + d.qr + '">';
