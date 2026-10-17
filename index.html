@@ -145,6 +145,21 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:14px}
 .o-key{font:800 17px Consolas,monospace;background:#0d0d10;border:1px dashed var(--vang);border-radius:12px;padding:16px;color:var(--vang2);word-break:break-all}
 .ho-tro{display:inline-flex;align-items:center;gap:6px}
 
+/* cach lay api */
+.api-luoi{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.api-o{padding:26px}
+.api-dau{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.api-dau h3{font-size:20px;font-weight:800}
+.the-bb,.the-mp{font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px}
+.the-bb{background:rgba(192,22,29,.18);color:#ff7b7b}
+.the-mp{background:rgba(10,200,185,.14);color:var(--xanh)}
+.api-vi{color:var(--mo);font-size:15px;margin:10px 0 16px}
+.api-buoc{padding-left:20px;display:flex;flex-direction:column;gap:9px;font-size:15px}
+.api-buoc a,.api-ghi a{color:var(--vang2)}
+.api-buoc code,.api-ghi code{font-family:Consolas,monospace;background:#1d1d21;border:1px solid var(--vien);padding:1px 6px;border-radius:6px;font-size:13px}
+.api-ghi{color:var(--mo);font-size:14px;margin-top:18px}
+@media (max-width:760px){.api-luoi{grid-template-columns:1fr}}
+
 /* yeu cau + faq */
 .yc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
 .yc .o{padding:18px}
@@ -191,6 +206,7 @@ footer a{color:var(--mo)}
       <a href="#cach-lam">Cách làm</a>
       <a href="#tinh-nang">Tính năng</a>
       <a href="#gia">Bảng giá</a>
+      <a href="#api">Cách lấy API</a>
       <a href="#hoi-dap">Hỏi đáp</a>
       <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo</a>
       <a class="nut nut-do" href="#gia">Mua ngay</a>
@@ -368,6 +384,39 @@ footer a{color:var(--mo)}
   </div>
 </section>
 
+<section id="api">
+  <div class="boc">
+    <span class="nho">Cách lấy API</span>
+    <h2>Hai khoá, làm một lần là xong.</h2>
+    <p class="phu">Tool dùng khoá API của chính anh chị nên chi phí AI minh bạch, trả bao nhiêu dùng bấy nhiêu. Dán khoá vào file cạnh tool, không phải gõ lại lần nào nữa.</p>
+    <div class="api-luoi">
+      <div class="o api-o">
+        <div class="api-dau"><h3>1. Khoá OpenAI</h3><span class="the-bb">Bắt buộc</span></div>
+        <p class="api-vi">AI xem từng cảnh, chấm điểm khoảnh khắc buồn cười, chọn ảnh bìa. Dùng model gpt-4o-mini, rẻ nhất của OpenAI: thường vài nghìn đồng một video.</p>
+        <ol class="api-buoc">
+          <li>Vào <a href="https://platform.openai.com/signup" target="_blank" rel="noopener">platform.openai.com</a>, đăng ký hoặc đăng nhập bằng Gmail.</li>
+          <li>Vào <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener">Settings → Billing</a>, bấm <b>Add payment details</b>, thêm thẻ Visa/Mastercard rồi nạp tối thiểu <b>5 USD</b> (khoảng 130.000đ, dùng được rất nhiều video).</li>
+          <li>Vào <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">API keys</a>, bấm <b>Create new secret key</b>, đặt tên “T-TONG HOP”, bấm <b>Create</b>.</li>
+          <li>Chép dãy bắt đầu bằng <code>sk-</code> (chỉ hiện <b>một lần</b>, nên dán ngay).</li>
+          <li>Mở thư mục tool, mở file <code>api_key.txt</code>, dán khoá vào dòng dưới cùng, bấm <b>Ctrl + S</b> để lưu.</li>
+        </ol>
+      </div>
+      <div class="o api-o">
+        <div class="api-dau"><h3>2. Khoá GIPHY</h3><span class="the-mp">Miễn phí · không bắt buộc</span></div>
+        <p class="api-vi">Cho tool tự tải thêm meme từ kho GIPHY. Không có khoá này tool vẫn làm video bình thường bằng kho meme có sẵn.</p>
+        <ol class="api-buoc">
+          <li>Vào <a href="https://developers.giphy.com/dashboard/" target="_blank" rel="noopener">developers.giphy.com/dashboard</a>, bấm <b>Sign Up</b> đăng ký bằng email.</li>
+          <li>Bấm <b>Create an App</b>, chọn <b>API</b> (không chọn SDK), bấm <b>Next Step</b>.</li>
+          <li>Tên app gõ “T-TONG HOP”, mô tả gõ “video compilation tool”, tích đồng ý, bấm <b>Create App</b>.</li>
+          <li>Chép dãy chữ số hiện ra (đó là khoá).</li>
+          <li>Mở file <code>giphy_key.txt</code> trong thư mục tool, dán vào dòng dưới cùng, <b>Ctrl + S</b>.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="api-ghi">Kẹt ở bước nào, chụp màn hình gửi <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">nhóm Zalo hỗ trợ</a>, Tân Seven chỉ tận nơi. Đừng gửi khoá API cho bất kỳ ai, kể cả trong nhóm.</p>
+  </div>
+</section>
+
 <section>
   <div class="boc">
     <span class="nho">Máy cần gì</span>
@@ -376,7 +425,7 @@ footer a{color:var(--mo)}
       <div class="o"><h3>Hệ điều hành</h3><p>Windows 10 / 11, 64-bit</p></div>
       <div class="o"><h3>RAM</h3><p>8 GB trở lên</p></div>
       <div class="o"><h3>Ổ trống</h3><p>20 GB cho clip và video</p></div>
-      <div class="o"><h3>Khoá OpenAI</h3><p>Tự dán, trả theo dùng</p></div>
+      <div class="o"><h3>Khoá OpenAI</h3><p><a href="#api" style="color:var(--vang2)">Xem cách lấy ↓</a></p></div>
     </div>
   </div>
 </section>
