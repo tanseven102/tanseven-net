@@ -123,6 +123,15 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:14px}
 .goi ul{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:9px;font-size:15px}
 .goi li::before{content:"✓";color:var(--xanh);font-weight:900;margin-right:10px}
 .goi .nut{margin-top:auto;width:100%}
+.goi .tien s{display:block;font-size:18px;color:var(--mo);font-weight:600;letter-spacing:0}
+.giam{max-width:560px;margin:28px auto 0;background:var(--the);border:1px dashed var(--vien);border-radius:16px;padding:18px 20px}
+.giam label{display:block;font-weight:700;font-size:14px;margin-bottom:10px}
+.giam .hang{display:flex;gap:10px}
+.giam input{flex:1;min-width:0;background:#111114;border:1px solid var(--vien);border-radius:10px;color:inherit;font:700 16px ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;padding:12px}
+.giam button{flex:none;padding:12px 18px;font-size:14px}
+.giam .bao-giam{margin:10px 0 0;font-size:14px;min-height:1em}
+.giam .bao-giam.ok{color:var(--xanh)}
+.giam .bao-giam.loi{color:var(--do)}
 
 /* mua */
 .mua{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;align-items:start}
@@ -333,7 +342,7 @@ footer a{color:var(--mo)}
     <div class="gia">
       <div class="goi">
         <h3>Gói 1 tháng</h3>
-        <div class="tien">1.000.000đ <small>/ tháng</small></div>
+        <div class="tien"><span data-gia="thang">1.000.000đ</span> <small>/ tháng</small></div>
         <p class="ghi">Dùng thử sức kênh trong 30 ngày. Hết hạn mua tiếp là KEY mới, không cài lại.</p>
         <ul>
           <li>Đủ mọi tính năng</li>
@@ -346,7 +355,7 @@ footer a{color:var(--mo)}
       <div class="goi hot">
         <span class="nhan">LỜI NHẤT</span>
         <h3>Gói vĩnh viễn</h3>
-        <div class="tien">5.000.000đ <small>một lần</small></div>
+        <div class="tien"><span data-gia="vv">5.000.000đ</span> <small>một lần</small></div>
         <p class="ghi">Trả một lần, dùng mãi. Bằng tiền 5 tháng, dùng không giới hạn thời gian.</p>
         <ul>
           <li>Đủ mọi tính năng</li>
@@ -356,6 +365,14 @@ footer a{color:var(--mo)}
         </ul>
         <a class="nut nut-do" href="#mua" data-goi="vv">Chọn gói vĩnh viễn</a>
       </div>
+    </div>
+    <div class="giam">
+      <label for="o-giam">Có mã giảm giá? (học viên)</label>
+      <div class="hang">
+        <input id="o-giam" placeholder="HV40-XXXXXX" autocomplete="off" spellcheck="false" maxlength="20">
+        <button type="button" class="nut nut-vien" id="nut-giam">Áp dụng</button>
+      </div>
+      <p class="bao-giam" id="bao-giam"></p>
     </div>
   </div>
 </section>
@@ -382,6 +399,7 @@ footer a{color:var(--mo)}
           <input id="o-ma" class="o-nhap" placeholder="6F5E-9304-B0EA-487D" autocomplete="off" spellcheck="false" maxlength="19">
           <label class="nhan-o" for="o-lh" style="margin-top:12px">SĐT / Zalo của anh chị (không bắt buộc, để hỗ trợ)</label>
           <input id="o-lh" class="o-nhap" style="font:500 16px 'Be Vietnam Pro',sans-serif;letter-spacing:0;text-transform:none;padding:12px" placeholder="0901 234 567" autocomplete="tel" maxlength="60">
+          <p class="bao" id="da-giam" style="color:var(--xanh)" hidden></p>
           <button type="button" class="nut nut-do" id="nut-tao" style="width:100%;margin-top:12px">Tạo mã thanh toán <span id="tien-nut">1.000.000đ</span></button>
           <p class="bao" id="bao-nhap"></p>
         </div>
@@ -494,15 +512,36 @@ footer a{color:var(--mo)}
 
 <script>
 var API = "https://api.tanseven.net";
-var GOI = { thang: { chu: "1.000.000đ", ten: "1 tháng" }, vv: { chu: "5.000.000đ", ten: "Vĩnh viễn" } };
-var goi = "thang", hen = null;
+var GOI = { thang: { tien: 1000000, ten: "1 tháng" }, vv: { tien: 5000000, ten: "Vĩnh viễn" } };
+var goi = "thang", hen = null, maGiam = "", phanTram = 0;
 function $(id){ return document.getElementById(id); }
 function vnd(n){ return n.toLocaleString("vi-VN") + "đ"; }
+function giaSau(g){ return Math.floor(GOI[g].tien * (100 - phanTram) / 100); }
 function chonGoi(g){
   goi = g;
   document.querySelectorAll("[data-chon]").forEach(function(b){ b.classList.toggle("on", b.dataset.chon === g); });
-  $("tien-nut").textContent = GOI[g].chu;
+  $("tien-nut").textContent = vnd(giaSau(g));
 }
+function veGia(){
+  document.querySelectorAll("[data-gia]").forEach(function(el){
+    var g = el.dataset.gia;
+    el.innerHTML = phanTram ? "<s>" + vnd(GOI[g].tien) + "</s>" + vnd(giaSau(g)) : vnd(GOI[g].tien);
+  });
+  $("da-giam").hidden = !phanTram;
+  $("da-giam").textContent = phanTram ? "Đã áp mã " + maGiam + ": giảm " + phanTram + "%" : "";
+  chonGoi(goi);
+}
+$("nut-giam").addEventListener("click", function(){
+  var ma = $("o-giam").value.trim().toUpperCase(), bao = $("bao-giam");
+  if (!ma) { maGiam = ""; phanTram = 0; veGia(); bao.textContent = ""; return; }
+  var nut = this; nut.disabled = true;
+  fetch(API + "/api/tth/ma-giam/" + encodeURIComponent(ma) + "?ma_may=" + encodeURIComponent(chuanMa($("o-ma").value)))
+    .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.detail || "Lỗi máy chủ"); return d; }); })
+    .then(function(d){ maGiam = d.ma; phanTram = d.phan_tram; bao.className = "bao-giam ok"; bao.textContent = "✓ Mã " + d.ma + " giảm " + d.phan_tram + "%. Giá mới đã hiện ở trên, thanh toán ở mục Cách mua."; veGia(); })
+    .catch(function(e){ maGiam = ""; phanTram = 0; bao.className = "bao-giam loi"; bao.textContent = e.message; veGia(); })
+    .finally(function(){ nut.disabled = false; });
+});
+$("o-giam").addEventListener("keydown", function(e){ if (e.key === "Enter") $("nut-giam").click(); });
 function hien(khoi){ ["b-nhap","b-qr","b-key"].forEach(function(k){ $(k).hidden = (k !== khoi); }); }
 function chuanMa(v){
   var c = (v || "").toUpperCase().replace(/[^0-9A-F]/g, "").slice(0, 16);
@@ -515,7 +554,7 @@ $("nut-tao").addEventListener("click", function(){
   var ma = chuanMa($("o-ma").value);
   if (!/^[0-9A-F]{4}(-[0-9A-F]{4}){3}$/.test(ma)) { $("bao-nhap").textContent = "MÃ MÁY chưa đúng. Mở tool, bấm Chép rồi dán vào đây."; return; }
   var nut = this; nut.disabled = true; nut.style.opacity = .6;
-  fetch(API + "/api/tth/don", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ma_may: ma, goi: goi, lien_he: $("o-lh").value.trim() }) })
+  fetch(API + "/api/tth/don", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ma_may: ma, goi: goi, lien_he: $("o-lh").value.trim(), ma_giam: maGiam }) })
     .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.detail || "Lỗi máy chủ"); return d; }); })
     .then(function(d){
       $("qr").innerHTML = '<img alt="Mã QR chuyển khoản ' + vnd(d.so_tien) + '" src="' + d.qr + '">';
@@ -545,6 +584,7 @@ $("nut-chep-key").addEventListener("click", function(){
 // tool mở trang kèm ?ma=<MÃ MÁY>; khách tải lại trang giữa chừng thì hỏi tiếp đơn cũ
 var q = new URLSearchParams(location.search);
 if (q.get("ma")) $("o-ma").value = chuanMa(q.get("ma"));
+if (q.get("giam")) { $("o-giam").value = q.get("giam"); $("nut-giam").click(); }
 if (q.get("goi") && GOI[q.get("goi")]) chonGoi(q.get("goi"));
 try { var cu = localStorage.getItem("tth_don"); if (cu) fetch(API + "/api/tth/don/" + cu).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
   if (!d) return;
