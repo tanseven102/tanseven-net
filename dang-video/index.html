@@ -29,17 +29,17 @@
 
   <h2>What the app does</h2>
   <div class="grid">
-    <div class="card"><h3>1 · Pick a finished video</h3><p>Our production apps write each video with a matching title, description, tags and thumbnail file. The app lists them per channel.</p></div>
+    <div class="card"><h3>1 · Pick a finished video</h3><p>The creator's production tools write each video with a matching title, description, tags and thumbnail file. The app lists them per channel.</p></div>
     <div class="card"><h3>2 · Check before upload</h3><p>It checks length, thumbnail and channel rules, and shows a full preview. Videos that break a rule are blocked.</p></div>
     <div class="card"><h3>3 · Upload as private</h3><p>It uploads the video file to the selected channel with <code>privacyStatus=private</code>, sets the thumbnail and declares AI-generated content where applicable.</p></div>
-    <div class="card"><h3>4 · Human review</h3><p>The app returns the YouTube Studio link. A team member reviews the video and decides whether to publish it.</p></div>
+    <div class="card"><h3>4 · Human review</h3><p>The app returns the YouTube Studio link. The creator reviews the video and decides whether to publish it.</p></div>
   </div>
 
   <h2>How we use Google user data</h2>
   <p>Each user signs in with Google and connects only the YouTube channel(s) they own or manage. The app requests:</p>
   <div class="tbl"><table>
     <tr><th>Scope</th><th>Why we need it</th></tr>
-    <tr><td><code>https://www.googleapis.com/auth/youtube.upload</code></td><td>To upload our own video files to our own channel (<code>videos.insert</code>) and set their custom thumbnails (<code>thumbnails.set</code>).</td></tr>
+    <tr><td><code>https://www.googleapis.com/auth/youtube.upload</code></td><td>To upload the user's own video files to the user's own channel (<code>videos.insert</code>) and set their custom thumbnails (<code>thumbnails.set</code>).</td></tr>
     <tr><td><code>https://www.googleapis.com/auth/youtube.readonly</code></td><td>To read the name and ID of the channel that was just authorized (<code>channels.list mine=true</code>), so the upload goes to the correct channel.</td></tr>
   </table></div>
   <p>The app never deletes, edits or comments on content, never reads viewers' data, and never shares Google user data with anyone — Tan Seven does not receive it.
