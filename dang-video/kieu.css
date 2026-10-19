@@ -34,3 +34,4 @@ code{font-size:13.5px;background:var(--acc-soft);padding:1px 6px;border-radius:5
 footer{border-top:1px solid var(--vien);margin-top:50px;padding:22px 0;color:var(--mo);font-size:14px}
 footer .wrap{display:flex;gap:16px;flex-wrap:wrap}
 .tbl{overflow-x:auto}
+.ytb{display:block;margin:18px 0 4px;padding:12px 14px;border:1px solid var(--vien);border-radius:12px;background:var(--the);font-size:14.5px}
