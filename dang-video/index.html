@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tan Seven Publisher</title>
+<meta name="description" content="Tan Seven Publisher (T-ĐĂNG VIDEO) uploads finished videos to YouTube channels owned by Tan Seven, as private videos, with their prepared title, description, tags and thumbnail.">
+<link rel="icon" href="/dang-video/logo.png">
+<link rel="stylesheet" href="/dang-video/kieu.css">
+</head>
+<body>
+<header><div class="wrap">
+  <img src="/dang-video/logo.png" alt="Tan Seven Publisher logo"><b>Tan Seven Publisher</b>
+  <nav><a href="/dang-video/privacy/">Privacy Policy</a><a href="/dang-video/terms/">Terms of Service</a><a href="mailto:tanseven5@gmail.com">Contact</a></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="badge">Internal tool · Tan Seven</span>
+    <h1>Upload finished videos to our own YouTube channels — privately, with the right metadata.</h1>
+    <p>Tan Seven Publisher (Vietnamese name <b>T-ĐĂNG VIDEO</b>) is a desktop tool used by the Tan Seven team to upload
+      videos we produce to the YouTube channels that Tan Seven owns and manages. Every upload is <b>private by default</b>;
+      a person reviews it in YouTube Studio before anything becomes public.</p>
+  </section>
+
+  <div class="shot"><img src="/dang-video/app.jpg" alt="Screenshot of Tan Seven Publisher: list of finished videos waiting to be uploaded, with SEO, thumbnail and channel-rule checks" width="1440" height="760"></div>
+  <p class="cap">The upload queue: each finished video shows its channel, prepared metadata and thumbnail before it is uploaded.</p>
+
+  <h2>What the app does</h2>
+  <div class="grid">
+    <div class="card"><h3>1 · Pick a finished video</h3><p>Our production apps write each video with a matching title, description, tags and thumbnail file. The app lists them per channel.</p></div>
+    <div class="card"><h3>2 · Check before upload</h3><p>It checks length, thumbnail and channel rules, and shows a full preview. Videos that break a rule are blocked.</p></div>
+    <div class="card"><h3>3 · Upload as private</h3><p>It uploads the video file to the selected channel with <code>privacyStatus=private</code>, sets the thumbnail and declares AI-generated content where applicable.</p></div>
+    <div class="card"><h3>4 · Human review</h3><p>The app returns the YouTube Studio link. A team member reviews the video and decides whether to publish it.</p></div>
+  </div>
+
+  <h2>How we use Google user data</h2>
+  <p>The app signs in with Google only for YouTube channels owned by Tan Seven. It requests:</p>
+  <div class="tbl"><table>
+    <tr><th>Scope</th><th>Why we need it</th></tr>
+    <tr><td><code>https://www.googleapis.com/auth/youtube.upload</code></td><td>To upload our own video files to our own channel (<code>videos.insert</code>) and set their custom thumbnails (<code>thumbnails.set</code>).</td></tr>
+    <tr><td><code>https://www.googleapis.com/auth/youtube.readonly</code></td><td>To read the name and ID of the channel that was just authorized (<code>channels.list mine=true</code>), so the upload goes to the correct channel.</td></tr>
+  </table></div>
+  <p>The app never deletes, edits or comments on content, never reads viewers' data, and never shares Google user data with anyone.
+    Use of information received from Google APIs adheres to the
+    <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.
+    Details: <a href="/dang-video/privacy/">Privacy Policy</a>.</p>
+
+  <h2>Who can use it</h2>
+  <p>The tool is not offered to the public. It runs on Tan Seven's own computers and is used only by the Tan Seven team for channels the company owns.
+    By using it you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and our <a href="/dang-video/terms/">Terms of Service</a>.</p>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Tan Seven, Vietnam</span>
+  <a href="/dang-video/privacy/">Privacy Policy</a><a href="/dang-video/terms/">Terms of Service</a><a href="mailto:tanseven5@gmail.com">tanseven5@gmail.com</a>
+</div></footer>
+</body>
+</html>

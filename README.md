@@ -15,4 +15,5 @@ chiếu ra ngoài. Dựng lại bằng `landing/dung.py` bên repo mã nguồn.
 | `/` | **Sale page T-TỔNG HỢP** (gói 1 tháng 1tr, vĩnh viễn 5tr). Mua: khách nhập MÃ MÁY → `api.tanseven.net/api/tth/don` ra QR SePay → tiền về tự hiện KEY. Nhóm Zalo hỗ trợ | viết tay, sửa thẳng `index.html` |
 | `/t-ai/` | Trang T-AI + trang kết nối | `landing/t-ai/` bên repo mã nguồn |
 | `/quan-ly/` | Trang quản lý khách T-TỔNG HỢP (noindex, cần mã quản lý; gọi `api.tanseven.net/api/tth/quan-ly`) | viết tay |
+| `/dang-video/` | **Tan Seven Publisher (T-ĐĂNG VIDEO)** — trang giới thiệu + `privacy/` + `terms/` để nộp Google duyệt OAuth `youtube.upload` (PUBLISH-0065). App thật chạy trên máy anh Tân | viết tay |
 | `/t7/` | **Web thương hiệu Tân Seven (T7)** — giới thiệu công ty, hệ sinh thái 9 công cụ, người sáng lập | viết tay, sửa thẳng `t7/index.html` |
