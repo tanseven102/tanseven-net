@@ -63,4 +63,4 @@ Chuyển khoản QR tự động (SePay): tiền về vài giây là KEY hiện 
 ### Video có bị bản quyền không?
 Tool lọc sẵn nhiều lớp (tắt tiếng gốc, chặn phim/CGI, né nguồn hãng claim, xoá logo, thêm lời bình), nhưng người dùng vẫn tự chịu trách nhiệm về nguồn clip và cách đăng.
 
-Cập nhật: 2026-10-21
+Cập nhật: 2026-10-22
