@@ -11,9 +11,15 @@ Hãng: Tân Seven · Phiên bản: 2026.10.20.2 · Máy: Windows 10/11 64-bit, R
 - Bản đầy đủ cho AI đọc: https://tanseven.net/llms-full.txt
 
 ## Trang chính
-- [Trang bán hàng + bảng giá + mua bằng QR](https://tanseven.net/)
+- [Trang chủ](https://tanseven.net/) · [English version](https://tanseven.net/en/)
+- [Bảng giá + mua KEY bằng QR](https://tanseven.net/bang-gia/)
+- [Một người chạy 15 kênh, 9 thị trường](https://tanseven.net/chay-15-kenh/)
+- [6 chủ đề](https://tanseven.net/chu-de/)
+- [An toàn kênh](https://tanseven.net/an-toan/)
+- [Cách lấy khoá API](https://tanseven.net/lay-api/)
+- [Hỏi đáp](https://tanseven.net/hoi-dap/)
 - [Video hướng dẫn cài đặt và gắn giọng đọc](https://tanseven.net/huong-dan/)
-- [Tài khoản + chương trình đối tác 20%](https://tanseven.net/tai-khoan/)
+- [AFFILIATE 20%](https://tanseven.net/affiliate/) · [Tài khoản lấy link](https://tanseven.net/tai-khoan/)
 - [Dùng T-TỔNG HỢP trong Claude / ChatGPT](https://tanseven.net/ai/)
 - [Tải bản cài Windows](https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip)
 

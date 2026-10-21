@@ -1,0 +1,42 @@
+<section id="api">
+  <div class="boc">
+    <span class="nho">Cách lấy API</span>
+    <h2>Ba khoá, làm một lần là xong.</h2>
+    <p class="phu">Tool dùng khoá API của chính anh chị nên chi phí AI minh bạch, trả bao nhiêu dùng bấy nhiêu. Dán khoá vào file cạnh tool, không phải gõ lại lần nào nữa.</p>
+    <div class="api-luoi">
+      <div class="o api-o">
+        <div class="api-dau"><h3>1. Khoá OpenAI</h3><span class="the-bb">Bắt buộc</span></div>
+        <p class="api-vi">AI xem từng cảnh, chấm điểm khoảnh khắc buồn cười, chọn ảnh bìa. Dùng model gpt-4o-mini, rẻ nhất của OpenAI: thường vài nghìn đồng một video.</p>
+        <ol class="api-buoc">
+          <li>Vào <a href="https://platform.openai.com/signup" target="_blank" rel="noopener">platform.openai.com</a>, đăng ký hoặc đăng nhập bằng Gmail.</li>
+          <li>Vào <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener">Settings → Billing</a>, bấm <b>Add payment details</b>, thêm thẻ Visa/Mastercard rồi nạp tối thiểu <b>5 USD</b> (khoảng 130.000đ, dùng được rất nhiều video).</li>
+          <li>Vào <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">API keys</a>, bấm <b>Create new secret key</b>, đặt tên “T-TONG HOP”, bấm <b>Create</b>.</li>
+          <li>Chép dãy bắt đầu bằng <code>sk-</code> (chỉ hiện <b>một lần</b>, nên dán ngay).</li>
+          <li>Mở thư mục tool, mở file <code>api_key.txt</code>, dán khoá vào dòng dưới cùng, bấm <b>Ctrl + S</b> để lưu.</li>
+        </ol>
+      </div>
+      <div class="o api-o">
+        <div class="api-dau"><h3>2. Khoá GIPHY</h3><span class="the-mp">Miễn phí · không bắt buộc</span></div>
+        <p class="api-vi">Cho tool tự tải thêm meme từ kho GIPHY. Không có khoá này tool vẫn làm video bình thường bằng kho meme có sẵn.</p>
+        <ol class="api-buoc">
+          <li>Vào <a href="https://developers.giphy.com/dashboard/" target="_blank" rel="noopener">developers.giphy.com/dashboard</a>, bấm <b>Sign Up</b> đăng ký bằng email.</li>
+          <li>Bấm <b>Create an App</b>, chọn <b>API</b> (không chọn SDK), bấm <b>Next Step</b>.</li>
+          <li>Tên app gõ “T-TONG HOP”, mô tả gõ “video compilation tool”, tích đồng ý, bấm <b>Create App</b>.</li>
+          <li>Chép dãy chữ số hiện ra (đó là khoá).</li>
+          <li>Mở file <code>giphy_key.txt</code> trong thư mục tool, dán vào dòng dưới cùng, <b>Ctrl + S</b>.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="o api-o api-video">
+      <div class="api-dau"><h3>3. Khoá T-GIỌNG ĐỌC (tanseven.com)</h3><span class="the-bb">Bắt buộc cho 5 chủ đề có lời bình</span></div>
+      <p class="api-vi">Đọc lời bình cho các chủ đề Tai nạn ô tô, Thiên tai, Máy bay &amp; tàu biển, Camera an ninh, Động vật hoang dã (9 thứ tiếng). Gói Cơ bản 99.000đ = 1,1 triệu ký tự, Pro 299.000đ = 3,8 triệu ký tự, ký tự dùng vĩnh viễn. Xem <a href="#video-2" style="color:var(--vang2)">VIDEO 2</a> làm theo từng nút.</p>
+      <ol class="api-buoc">
+        <li>Vào <a href="https://tanseven.com/tai-khoan.html" target="_blank" rel="noopener">tanseven.com → Tài khoản</a>, bấm <b>Đăng ký</b> (tặng 2.000 ký tự dùng thử).</li>
+        <li>Bấm <b>Nạp thêm</b>, chọn gói, quét QR bằng app ngân hàng, chuyển đúng số tiền và nội dung. 1–2 phút sau ký tự tự cộng.</li>
+        <li>Kéo xuống mục <b>Khoá API</b>, gõ tên “T-TỔNG HỢP”, bấm <b>Tạo khoá mới</b>, bấm <b>Sao chép</b> dãy bắt đầu bằng <code>tsv_</code> (chỉ hiện <b>một lần</b>).</li>
+        <li>Trong tool bấm nút <b>Khoá API</b> ở góc trên, dán vào ô <b>Khoá T-GIỌNG ĐỌC</b>, bấm <b>LƯU</b>. Hiện chữ xanh “còn … ký tự” là xong.</li>
+      </ol>
+    </div>
+    <p class="api-ghi">Kẹt ở bước nào, chụp màn hình gửi <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">nhóm Zalo hỗ trợ</a>, Tân Seven chỉ tận nơi. Đừng gửi khoá API cho bất kỳ ai, kể cả trong nhóm.</p>
+  </div>
+</section>

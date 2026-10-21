@@ -1,0 +1,51 @@
+<section id="mua">
+  <div class="boc">
+    <span class="nho">How to buy</span>
+    <h2>Scan the QR, your KEY appears.</h2>
+    <p class="phu">Automatic payment via SePay: seconds after your bank transfer, this page shows your KEY. No waiting for anyone. Payment is by Vietnamese bank transfer (VietQR); paying from abroad? Message us in the Zalo group.</p>
+    <div class="mua">
+      <div class="cac-buoc">
+        <div class="o"><b>1</b><div><h3>Download &amp; open the app</h3><p>Download, unzip, run <strong>T-TONG HOP.exe</strong>. The app shows your <strong>MACHINE CODE</strong>; click Copy.</p><a class="nut nut-vien" style="margin-top:12px;padding:10px 16px;font-size:14px" href="https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip">⬇ Download (Windows)</a></div></div>
+        <div class="o"><b>2</b><div><h3>Paste the MACHINE CODE, pick a plan, scan</h3><p>Scan with your banking app. Amount and transfer note are pre-filled; don't change the note.</p></div></div>
+        <div class="o"><b>3</b><div><h3>Get your KEY right here</h3><p>As soon as the money arrives, the KEY appears. Copy it, paste it into the app, click <strong>ACTIVATE</strong>.</p></div></div>
+      </div>
+
+      <div class="hop-qr">
+        <div class="chon-goi" role="tablist">
+          <button type="button" class="on" data-chon="thang">1 month · 1M VND</button>
+          <button type="button" data-chon="vv">Lifetime · 5M VND</button>
+        </div>
+        <div id="b-nhap">
+          <label class="nhan-o" for="o-ma">MACHINE CODE (shown in the app, XXXX-XXXX-XXXX-XXXX)</label>
+          <input id="o-ma" class="o-nhap" placeholder="6F5E-9304-B0EA-487D" autocomplete="off" spellcheck="false" maxlength="19">
+          <label class="nhan-o" for="o-lh" style="margin-top:12px">Phone / Zalo / Telegram (optional, for support)</label>
+          <input id="o-lh" class="o-nhap" style="font:500 16px 'Be Vietnam Pro',sans-serif;letter-spacing:0;text-transform:none;padding:12px" placeholder="+84 901 234 567" autocomplete="tel" maxlength="60">
+          <p class="bao" id="da-giam" style="color:var(--xanh)" hidden></p>
+          <button type="button" class="nut nut-do" id="nut-tao" style="width:100%;margin-top:12px">Create payment QR <span id="tien-nut">1.000.000đ</span></button>
+          <p class="bao" id="bao-nhap"></p>
+        </div>
+        <div id="b-qr" hidden>
+          <div class="qr" id="qr"></div>
+          <dl class="tt-ck">
+            <dt>Bank</dt><dd id="ck-nh">—</dd>
+            <dt>Account no.</dt><dd id="ck-stk">—</dd>
+            <dt>Account name</dt><dd id="ck-chu">—</dd>
+            <dt>Amount</dt><dd class="vang" id="ck-tien">—</dd>
+            <dt>Transfer note</dt><dd class="vang" id="ck-nd">—</dd>
+            <dt>MACHINE CODE</dt><dd id="ck-may">—</dd>
+          </dl>
+          <p class="cho"><span class="cham"></span>Waiting for payment… your KEY will appear here; keep this page open.</p>
+          <button type="button" class="lien-ket" id="nut-lai">← Change machine code / plan</button>
+        </div>
+        <div id="b-key" hidden>
+          <div class="xong">✓ Payment received</div>
+          <p style="color:var(--mo);font-size:14px;margin:8px 0 10px">Your KEY (<b id="key-goi"></b> plan):</p>
+          <div class="o-key" id="o-key"></div>
+          <button type="button" class="nut nut-do" id="nut-chep-key" style="width:100%;margin-top:12px">Copy KEY</button>
+          <p style="color:var(--mo);font-size:13px;margin-top:10px">Paste into the app → click ACTIVATE. Keep a copy of this KEY.</p>
+        </div>
+        <a class="nut nut-zalo" href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Zalo support group</a>
+      </div>
+    </div>
+  </div>
+</section>

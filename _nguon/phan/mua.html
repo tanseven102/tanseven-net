@@ -1,0 +1,51 @@
+<section id="mua">
+  <div class="boc">
+    <span class="nho">Cách mua</span>
+    <h2>Quét QR, KEY tự hiện ra.</h2>
+    <p class="phu">Thanh toán tự động qua SePay: chuyển khoản xong vài giây là trang này hiện KEY, không phải chờ ai trả lời.</p>
+    <div class="mua">
+      <div class="cac-buoc">
+        <div class="o"><b>1</b><div><h3>Tải và mở tool</h3><p>Tải bản cài, giải nén, bấm <strong>T-TONG HOP.exe</strong>. Tool hiện <strong>MÃ MÁY</strong> của anh chị, bấm Chép.</p><a class="nut nut-vien" style="margin-top:12px;padding:10px 16px;font-size:14px" href="https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip">⬇ Tải bản cài (Windows)</a></div></div>
+        <div class="o"><b>2</b><div><h3>Dán MÃ MÁY, chọn gói, quét QR</h3><p>Mở app ngân hàng quét mã. Số tiền và nội dung chuyển khoản đã điền sẵn, đừng sửa nội dung.</p></div></div>
+        <div class="o"><b>3</b><div><h3>Nhận KEY ngay trên trang</h3><p>Tiền về là KEY hiện ra. Chép KEY, dán vào tool, bấm <strong>KÍCH HOẠT</strong>.</p></div></div>
+      </div>
+
+      <div class="hop-qr">
+        <div class="chon-goi" role="tablist">
+          <button type="button" class="on" data-chon="thang">1 tháng · 1tr</button>
+          <button type="button" data-chon="vv">Vĩnh viễn · 5tr</button>
+        </div>
+        <div id="b-nhap">
+          <label class="nhan-o" for="o-ma">MÃ MÁY (trong tool, dạng XXXX-XXXX-XXXX-XXXX)</label>
+          <input id="o-ma" class="o-nhap" placeholder="6F5E-9304-B0EA-487D" autocomplete="off" spellcheck="false" maxlength="19">
+          <label class="nhan-o" for="o-lh" style="margin-top:12px">SĐT / Zalo của anh chị (không bắt buộc, để hỗ trợ)</label>
+          <input id="o-lh" class="o-nhap" style="font:500 16px 'Be Vietnam Pro',sans-serif;letter-spacing:0;text-transform:none;padding:12px" placeholder="0901 234 567" autocomplete="tel" maxlength="60">
+          <p class="bao" id="da-giam" style="color:var(--xanh)" hidden></p>
+          <button type="button" class="nut nut-do" id="nut-tao" style="width:100%;margin-top:12px">Tạo mã thanh toán <span id="tien-nut">1.000.000đ</span></button>
+          <p class="bao" id="bao-nhap"></p>
+        </div>
+        <div id="b-qr" hidden>
+          <div class="qr" id="qr"></div>
+          <dl class="tt-ck">
+            <dt>Ngân hàng</dt><dd id="ck-nh">—</dd>
+            <dt>Số tài khoản</dt><dd id="ck-stk">—</dd>
+            <dt>Chủ tài khoản</dt><dd id="ck-chu">—</dd>
+            <dt>Số tiền</dt><dd class="vang" id="ck-tien">—</dd>
+            <dt>Nội dung</dt><dd class="vang" id="ck-nd">—</dd>
+            <dt>MÃ MÁY</dt><dd id="ck-may">—</dd>
+          </dl>
+          <p class="cho"><span class="cham"></span>Đang chờ tiền về… trang tự hiện KEY, đừng đóng trang.</p>
+          <button type="button" class="lien-ket" id="nut-lai">← Đổi mã máy / gói</button>
+        </div>
+        <div id="b-key" hidden>
+          <div class="xong">✓ Đã nhận tiền</div>
+          <p style="color:var(--mo);font-size:14px;margin:8px 0 10px">KEY của anh chị (gói <b id="key-goi"></b>):</p>
+          <div class="o-key" id="o-key"></div>
+          <button type="button" class="nut nut-do" id="nut-chep-key" style="width:100%;margin-top:12px">Chép KEY</button>
+          <p style="color:var(--mo);font-size:13px;margin-top:10px">Dán vào tool → bấm KÍCH HOẠT. Nên chụp lại KEY này để giữ.</p>
+        </div>
+        <a class="nut nut-zalo" href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo hỗ trợ</a>
+      </div>
+    </div>
+  </div>
+</section>

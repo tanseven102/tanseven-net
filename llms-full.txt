@@ -41,7 +41,7 @@ English, Tiếng Việt, Español, Português, Français, Italiano, हिन्
 
 ## Cách mua
 1. Tải và mở tool, chép MÃ MÁY (dạng XXXX-XXXX-XXXX-XXXX).
-2. Trên https://tanseven.net/#mua dán MÃ MÁY, chọn gói, quét QR. Hoặc AI gọi tool mua_key qua MCP.
+2. Trên https://tanseven.net/bang-gia/ dán MÃ MÁY, chọn gói, quét QR. Hoặc AI gọi tool mua_key qua MCP.
 3. Tiền về là KEY hiện ra; dán vào tool, bấm KÍCH HOẠT.
 
 ## Chương trình đối tác

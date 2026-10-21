@@ -44,9 +44,15 @@ Hãng: {S['hang']} · Phiên bản: {S['phien_ban']} · Máy: {S['he_dieu_hanh']
 - Bản đầy đủ cho AI đọc: {T}/llms-full.txt
 
 ## Trang chính
-- [Trang bán hàng + bảng giá + mua bằng QR]({T}/)
+- [Trang chủ]({T}/) · [English version]({T}/en/)
+- [Bảng giá + mua KEY bằng QR]({T}/bang-gia/)
+- [Một người chạy 15 kênh, 9 thị trường]({T}/chay-15-kenh/)
+- [6 chủ đề]({T}/chu-de/)
+- [An toàn kênh]({T}/an-toan/)
+- [Cách lấy khoá API]({T}/lay-api/)
+- [Hỏi đáp]({T}/hoi-dap/)
 - [Video hướng dẫn cài đặt và gắn giọng đọc]({S['huong_dan']})
-- [Tài khoản + chương trình đối tác {dt['ty_le']}%]({dt['trang']})
+- [AFFILIATE {dt['ty_le']}%]({T}/affiliate/) · [Tài khoản lấy link]({dt['trang']})
 - [Dùng T-TỔNG HỢP trong Claude / ChatGPT]({T}/ai/)
 - [Tải bản cài Windows]({S['tai']})
 
@@ -84,7 +90,7 @@ Chi phí dùng thêm: {S['chi_phi_them']}
 
 ## Cách mua
 1. Tải và mở tool, chép MÃ MÁY (dạng XXXX-XXXX-XXXX-XXXX).
-2. Trên {T}/#mua dán MÃ MÁY, chọn gói, quét QR. Hoặc AI gọi tool mua_key qua MCP.
+2. Trên {T}/bang-gia/ dán MÃ MÁY, chọn gói, quét QR. Hoặc AI gọi tool mua_key qua MCP.
 3. Tiền về là KEY hiện ra; dán vào tool, bấm KÍCH HOẠT.
 
 ## Chương trình đối tác
@@ -116,7 +122,7 @@ Sitemap: {T}/sitemap.xml
 hom_nay = datetime.date.today().isoformat()
 ghi("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{T}{p}</loc><lastmod>{hom_nay}</lastmod></url>\n"
-            for p in ("/", "/huong-dan/", "/ai/", "/tai-khoan/", "/llms.txt", "/llms-full.txt", "/t7/")) +
+            for p in ("/", "/chay-15-kenh/", "/chu-de/", "/an-toan/", "/huong-dan/", "/bang-gia/", "/lay-api/", "/affiliate/", "/hoi-dap/", "/en/", "/en/chay-15-kenh/", "/en/chu-de/", "/en/an-toan/", "/en/huong-dan/", "/en/bang-gia/", "/en/lay-api/", "/en/affiliate/", "/en/hoi-dap/", "/ai/", "/tai-khoan/", "/llms.txt", "/llms-full.txt", "/t7/")) +
     "</urlset>\n")
 
 # JSON-LD: SoftwareApplication + Offer + FAQPage, chèn giữa hai dấu trong index.html
@@ -127,7 +133,7 @@ ld = [{
     "inLanguage": ["vi", "en"], "publisher": {"@type": "Organization", "name": S["hang"], "url": T},
     "featureList": S["tinh_nang"],
     "offers": [{"@type": "Offer", "name": g["ten"], "price": g["gia_vnd"], "priceCurrency": "VND",
-                "availability": "https://schema.org/InStock", "url": T + "/#gia"} for g in S["goi"]],
+                "availability": "https://schema.org/InStock", "url": T + "/bang-gia/"} for g in S["goi"]],
 }, {
     "@context": "https://schema.org", "@type": "FAQPage",
     "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
