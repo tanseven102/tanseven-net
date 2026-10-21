@@ -21,7 +21,7 @@ def doc(ten, nn="vi"):
 TRANG = [
     ("", None, "T-TỔNG HỢP — Một người chạy 15 kênh, lời bình 9 thứ tiếng | Tân Seven",
      "T-TỔNG HỢP: tool Windows làm video tổng hợp tự động, 6 chủ đề, lời bình 9 thứ tiếng, tắt tiếng gốc tránh nhạc bản quyền. Một người chạy được nhiều kênh nhiều nước.",
-     ["hero", "so-lieu", "kham-pha", "chot"]),
+     ["hero", "so-lieu", "10-kenh", "kham-pha", "chot"]),
     ("chay-15-kenh", "Chạy 15 kênh", "Một người chạy 15 kênh, 9 thị trường | T-TỔNG HỢP",
      "Ví dụ một người chạy 15 kênh tổng hợp ở 9 thị trường với T-TỔNG HỢP: mỗi kênh một ngách, một thứ tiếng, mỗi kênh một lượt bấm.",
      ["10-kenh", "ngon-ngu", "cach-lam", "dieu-huong"]),
