@@ -51,6 +51,13 @@ tr:last-child td{border-bottom:0}
 .du-phong summary{cursor:pointer;color:var(--mo);font-size:13px;text-align:center;list-style:none}
 .du-phong summary::-webkit-details-marker{display:none}
 .ai{color:var(--mo);font-size:13px;font-weight:500}
+.muc-aff{font-size:20px;font-weight:800;margin:34px 0 12px}
+.muc-aff small{color:var(--mo);font-weight:500;font-size:13px;margin-left:8px}
+.rut{display:flex;gap:16px;align-items:center;background:var(--the);border:1px solid var(--vang);border-radius:14px;padding:14px;margin-top:10px;flex-wrap:wrap}
+.rut img{width:170px;height:170px;border-radius:10px;background:#fff}
+.rut .tt{flex:1;min-width:220px;font-size:14px}
+.rut .tt b{font-size:22px;color:var(--vang2)}
+.huy-hh{background:none;border:0;color:#ff7b7b;cursor:pointer;font:inherit;font-size:12px;margin-left:6px}
 @media (max-width:760px){.kpi{grid-template-columns:repeat(2,1fr)}.o .so{font-size:24px}}
 </style>
 </head>
@@ -93,8 +100,17 @@ tr:last-child td{border-bottom:0}
   </div>
   <div class="bang">
     <table>
-      <thead><tr><th>Lúc tạo</th><th>Trạng thái</th><th>Gói</th><th>Số tiền</th><th>Mã máy</th><th>Liên hệ</th><th>Mã đơn</th><th>KEY</th><th>Lúc trả</th></tr></thead>
+      <thead><tr><th>Lúc tạo</th><th>Trạng thái</th><th>Gói</th><th>Số tiền</th><th>Mã máy</th><th>Liên hệ</th><th>Mã đơn</th><th>KEY</th><th>Lúc trả</th><th>Đối tác · HH</th></tr></thead>
       <tbody id="ds"></tbody>
+    </table>
+  </div>
+
+  <h2 class="muc-aff">Tiếp thị liên kết · <span id="aff-tyle">20</span>% <small>đối tác lấy link ở tanseven.net/tai-khoan</small></h2>
+  <div id="aff-rut"></div>
+  <div class="bang" style="margin-top:12px">
+    <table>
+      <thead><tr><th>Đối tác</th><th>Mã</th><th>Đăng ký qua link</th><th>Đơn</th><th>Doanh số</th><th>HH tổng</th><th>Chờ 30 ngày</th><th>Rút được</th><th>Đang rút</th><th>Đã trả</th></tr></thead>
+      <tbody id="aff-ds"></tbody>
     </table>
   </div>
 </div>
@@ -141,7 +157,7 @@ function ve(){
     if (!q) return true;
     return [x.ma, x.ma_may, x.lien_he, x.key].join(" ").toUpperCase().indexOf(q) >= 0;
   });
-  if (!hang.length) { $("ds").innerHTML = '<tr><td colspan="9" class="trong">Chưa có đơn nào' + (q || loc !== "tat_ca" ? " khớp bộ lọc" : "") + '.</td></tr>'; return; }
+  if (!hang.length) { $("ds").innerHTML = '<tr><td colspan="10" class="trong">Chưa có đơn nào' + (q || loc !== "tat_ca" ? " khớp bộ lọc" : "") + '.</td></tr>'; return; }
   $("ds").innerHTML = hang.map(function(x){
     var tra = x.trang_thai === "da_tra";
     return "<tr>" +
@@ -153,7 +169,8 @@ function ve(){
       "<td>" + (esc(x.lien_he) || '<span class="gio">—</span>') + "</td>" +
       '<td class="mono">' + esc(x.ma) + "</td>" +
       '<td class="mono">' + (x.key ? esc(x.key) + '<button class="chep" data-chep="' + esc(x.key) + '">chép</button>' : '<span class="gio">—</span>') + "</td>" +
-      '<td class="gio">' + gio(x.tra_luc) + "</td></tr>";
+      '<td class="gio">' + gio(x.tra_luc) + "</td>" +
+      "<td>" + (x.gt ? '<span class="mono">' + esc(x.gt) + "</span> " + (x.huy_hh ? '<span class="gio">huỷ HH</span><button class="huy-hh" data-hh="' + esc(x.ma) + '" data-huy="0">khôi phục</button>' : (x.hh ? vnd(x.hh) + '<button class="huy-hh" data-hh="' + esc(x.ma) + '" data-huy="1">huỷ HH</button>' : "")) : '<span class="gio">—</span>') + "</td></tr>";
   }).join("");
 }
 
@@ -197,8 +214,40 @@ function veNutGoogle(){
     google.accounts.id.renderButton($("nut-google"), { theme: "filled_black", size: "large", shape: "pill", text: "signin_with", locale: "vi" });
   }).catch(function(){});
 }
+function goiQl(duong, than){
+  return fetch(API + duong, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + laMa() }, body: JSON.stringify(than || {}) })
+    .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.detail || "Lỗi " + r.status); return d; }); });
+}
+function veAff(){
+  var a = duLieu && duLieu.aff; if (!a) return;
+  $("aff-tyle").textContent = a.ty_le;
+  var cho = a.rut.filter(function(r){ return r.trang_thai === "cho"; });
+  $("aff-rut").innerHTML = cho.length ? cho.map(function(r){
+    var qr = "https://img.vietqr.io/image/" + encodeURIComponent(r.ngan_hang) + "-" + encodeURIComponent(r.stk) + "-compact2.png?amount=" + r.so_tien +
+      "&addInfo=" + encodeURIComponent("TTH hoa hong " + r.id) + "&accountName=" + encodeURIComponent(r.chu_tk);
+    return '<div class="rut"><img alt="QR trả hoa hồng" src="' + qr + '"><div class="tt"><div class="gio">Lệnh rút #' + r.id + " · " + gio(r.tao_luc) + "</div><b>" + vnd(r.so_tien) + "</b><div>" + esc(r.email || "") + "</div><div>" + esc(r.ngan_hang) + ' · <span class="mono">' + esc(r.stk) + "</span> · " + esc(r.chu_tk) +
+      '</div><div style="margin-top:10px;display:flex;gap:8px"><button class="nut nut-do" data-rut="' + r.id + '" data-tt="da_tra">✓ Đã chuyển</button><button class="nut" data-rut="' + r.id + '" data-tt="huy">Huỷ lệnh</button></div></div></div>';
+  }).join("") : '<p class="gio">Không có lệnh rút nào đang chờ.</p>';
+  $("aff-ds").innerHTML = a.doi_tac.length ? a.doi_tac.map(function(d){
+    return "<tr><td>" + esc(d.ten || "") + '<div class="gio">' + esc(d.email) + '</div></td><td class="mono">' + esc(d.ma_gt) + "</td><td>" + d.so_dang_ky_gt + "</td><td>" + d.so_don_gt + "</td><td>" + vnd(d.doanh_so_gt) +
+      "</td><td>" + vnd(d.hh_tong) + "</td><td>" + vnd(d.hh_cho) + "</td><td><b>" + vnd(d.hh_rut_duoc) + "</b></td><td>" + vnd(d.hh_dang_rut) + "</td><td>" + vnd(d.hh_da_nhan) + "</td></tr>";
+  }).join("") : '<tr><td colspan="10" class="trong">Chưa có đối tác nào đăng nhập.</td></tr>';
+}
+$("aff-rut").addEventListener("click", function(e){
+  var id = e.target.dataset && e.target.dataset.rut; if (!id) return;
+  var tt = e.target.dataset.tt, ghi = "";
+  if (tt === "huy") { ghi = prompt("Lý do huỷ lệnh rút (đối tác sẽ thấy):", "") ; if (ghi === null) return; }
+  else if (!confirm("Anh đã chuyển khoản xong lệnh #" + id + "?")) return;
+  goiQl("/api/tth/quan-ly/rut/" + id, { trang_thai: tt, ghi_chu: ghi }).then(function(){ return tai(laMa()); }).catch(function(er){ alert(er.message); });
+});
+$("ds").addEventListener("click", function(e){
+  var ma = e.target.dataset && e.target.dataset.hh; if (!ma) return;
+  var huy = e.target.dataset.huy === "1";
+  if (huy && !confirm("Huỷ hoa hồng của đơn " + ma + "? (đơn hoàn tiền / gian lận)")) return;
+  goiQl("/api/tth/quan-ly/don/" + ma + "/huy-hh", { huy: huy }).then(function(){ return tai(laMa()); }).catch(function(er){ alert(er.message); });
+});
 function hienAi(){ var g = ""; try { g = localStorage.getItem("tth_gmail") || ""; } catch (e) {} $("ai-vao").textContent = laMa().indexOf("G.") === 0 && g ? "Đăng nhập: " + g : ""; }
-var _veCu = ve; ve = function(){ _veCu(); hienAi(); };
+var _veCu = ve; ve = function(){ _veCu(); hienAi(); veAff(); };
 var cu = laMa();
 if (cu) tai(cu).catch(function(){}); else $("man-vao").hidden = false;
 </script>

@@ -258,7 +258,7 @@ footer a{color:var(--mo)}
       <a href="#video">Hướng dẫn</a>
       <a href="#gia">Bảng giá</a>
       <a href="#api">Lấy API</a>
-      <a href="#hoi-dap">Hỏi đáp</a>
+      <a href="#doi-tac">Nhận 20%</a>
       <a class="nut nut-vien" href="tai-khoan/" id="nut-tk">Tài khoản</a>
       <a class="nut nut-do" href="#gia">Mua ngay</a>
     </nav>
@@ -578,6 +578,24 @@ footer a{color:var(--mo)}
   </div>
 </section>
 
+<section id="doi-tac">
+  <div class="boc">
+    <span class="nho">Chương trình đối tác</span>
+    <h2>Giới thiệu T-TỔNG HỢP, nhận 20%.</h2>
+    <p class="phu">Đăng nhập Google, lấy link giới thiệu riêng. Ai mua qua link, anh chị nhận 20% số tiền họ trả, kể cả mỗi lần họ gia hạn về sau.</p>
+    <div class="luoi3">
+      <div class="o"><span class="so">1.000.000đ</span><h3>Mỗi gói vĩnh viễn</h3><p>Khách mua gói 5.000.000đ qua link, anh chị nhận 1.000.000đ.</p></div>
+      <div class="o"><span class="so">200.000đ / tháng</span><h3>Mỗi khách gói tháng</h3><p>Khách gia hạn tháng nào, anh chị nhận tháng đó, không phải gửi lại link.</p></div>
+      <div class="o"><span class="so">60 ngày</span><h3>Link nhớ lâu</h3><p>Khách mở link hôm nay, 60 ngày sau mới mua vẫn tính cho anh chị. Rút về ngân hàng từ 200.000đ.</p></div>
+    </div>
+    <div class="hang-nut" style="margin-top:26px">
+      <a class="nut nut-do" href="tai-khoan/">Lấy link giới thiệu</a>
+      <a class="nut nut-vien" href="tai-khoan/#luat">Xem luật chương trình</a>
+    </div>
+    <p class="ghi-nho">Hoa hồng giữ 30 ngày để đối soát rồi mới rút được. Đơn hoàn tiền hoặc tự mua qua link của mình thì không tính.</p>
+  </div>
+</section>
+
 <section id="hoi-dap">
   <div class="boc">
     <span class="nho">Hỏi đáp</span>
@@ -588,6 +606,7 @@ footer a{color:var(--mo)}
       <details><summary>Có tốn thêm tiền gì ngoài gói không?</summary><p>Hai khoản trả theo lượng dùng: khoá OpenAI của chính anh chị (AI xem cảnh, viết lời bình, thường vài nghìn đồng mỗi video) và ký tự giọng đọc mua ở <a href="https://tanseven.com" target="_blank" rel="noopener" style="color:var(--vang2)">tanseven.com</a> cho 5 chủ đề có lời bình (gói 99.000đ = 1,1 triệu ký tự, dùng vĩnh viễn). Chủ đề Hài hước không cần giọng đọc. Tool không thu thêm phí nào khác.</p></details>
       <details><summary>Chạy 15 kênh có cần 15 máy không?</summary><p>Không. Một máy, một KEY làm được video cho bao nhiêu kênh cũng được: tool làm lần lượt từng video, mỗi video lưu vào thư mục của kênh đó. Muốn ra nhanh gấp đôi thì chạy thêm máy thứ hai, mỗi máy một KEY.</p></details>
       <details><summary>Tôi không biết tiếng Tây Ban Nha, Nhật… thì sao?</summary><p>Không cần biết. AI viết lời bình thẳng bằng thứ tiếng đó và giọng đọc đọc luôn. Anh chị chỉ cần viết tiêu đề, mô tả cùng thứ tiếng (dùng Google Dịch hoặc ChatGPT là đủ).</p></details>
+      <details><summary>Làm đối tác giới thiệu có mất phí không?</summary><p>Không. Đăng nhập Google ở <a href="tai-khoan/" style="color:var(--vang2)">trang Tài khoản</a> là có link riêng, không cần mua tool. Ai mua qua link, anh chị nhận 20% (gói vĩnh viễn 1.000.000đ, gói tháng 200.000đ mỗi lần gia hạn), rút về ngân hàng từ 200.000đ.</p></details>
       <details><summary>Một KEY dùng được mấy máy?</summary><p>Một KEY gắn với một máy. Muốn dùng máy thứ hai thì mua thêm một KEY cho mã máy đó.</p></details>
       <details><summary>Đổi máy hoặc cài lại Windows thì sao?</summary><p>Mã máy có thể đổi. Nhắn <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">nhóm Zalo hỗ trợ</a> kèm KEY cũ và mã máy mới, Tân Seven cấp lại KEY cho đúng gói còn hạn.</p></details>
       <details><summary>Gói 1 tháng hết hạn thì sao?</summary><p>Tool báo hết hạn và hiện lại mã máy. Bấm "Mở trang mua", quét QR gia hạn, KEY mới hiện ngay, dán vào là chạy tiếp. Video cũ giữ nguyên.</p></details>
@@ -647,7 +666,7 @@ $("nut-giam").addEventListener("click", function(){
     .finally(function(){ nut.disabled = false; });
 });
 $("o-giam").addEventListener("keydown", function(e){ if (e.key === "Enter") $("nut-giam").click(); });
-function laGt(){ try { var o = JSON.parse(localStorage.getItem("tth_gt") || "null"); if (o && Date.now() - o.t < 60 * 864e5) return o.m; } catch (e) {} return ""; }
+function laGt(){ try { var o = JSON.parse(localStorage.getItem("tth_gt") || "null"), toi = JSON.parse(localStorage.getItem("tth_tk") || "null"); if (o && Date.now() - o.t < 60 * 864e5 && !(toi && toi.ma_gt === o.m)) return o.m; } catch (e) {} return ""; }
 function hien(khoi){ ["b-nhap","b-qr","b-key"].forEach(function(k){ $(k).hidden = (k !== khoi); }); }
 function chuanMa(v){
   var c = (v || "").toUpperCase().replace(/[^0-9A-F]/g, "").slice(0, 16);

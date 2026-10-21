@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tài khoản T-TỔNG HỢP | Tân Seven</title>
+<title>Tài khoản · Đối tác T-TỔNG HỢP | Tân Seven</title>
 <meta name="description" content="Đăng nhập bằng Google để nhận link giới thiệu T-TỔNG HỢP riêng của anh chị.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../t7/logo.svg">
@@ -45,6 +45,26 @@ h1{font-size:clamp(28px,4.4vw,42px);font-weight:800;line-height:1.2;margin-botto
 .ghi{color:var(--mo);font-size:14px;margin-top:14px}
 .ghi b{color:var(--vang2)}
 .lien-ket{background:none;border:0;color:var(--mo);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;margin-top:16px}
+.so4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.so4 div{background:#101013;border:1px solid var(--vien);border-radius:14px;padding:14px}
+.so4 div.noi{border-color:var(--vang)}
+.so4 b{display:block;font-size:22px;font-weight:900;color:var(--vang2)}
+.so4 .noi b{color:var(--vang)}
+.so4 span{color:var(--mo);font-size:12px}
+.nh{display:grid;grid-template-columns:1.1fr 1fr 1.4fr auto;gap:8px;margin-top:10px}
+.nh select,.nh input{background:#0d0d10;border:1px solid var(--vien);border-radius:10px;color:var(--chu);font:500 15px "Be Vietnam Pro",sans-serif;padding:11px;min-width:0}
+.bang{overflow-x:auto;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--mo);font-weight:600;font-size:12px;padding:8px;border-bottom:1px solid var(--vien);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid #1d1d21;white-space:nowrap}
+td.trong{color:var(--mo);text-align:center;padding:16px}
+.the{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px}
+.the.xanh{background:rgba(10,200,185,.14);color:var(--xanh)}.the.vang{background:rgba(200,170,110,.16);color:var(--vang2)}.the.do{background:rgba(192,22,29,.18);color:#ff7b7b}
+.luat summary{cursor:pointer;font-weight:800}
+.luat ul{margin:12px 0 0 20px;color:var(--mo);font-size:14px;display:flex;flex-direction:column;gap:6px}
+.luat b{color:var(--vang2)}
+.bao.ok{color:var(--xanh)}
+@media (max-width:760px){.so4{grid-template-columns:repeat(2,minmax(0,1fr))}.nh{grid-template-columns:1fr}}
 footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size:14px}
 @media (max-width:640px){.boc{padding:0 16px}.so3{grid-template-columns:1fr}.link{flex-direction:column}.hang-nut .nut{flex:1 1 100%}}
 </style>
@@ -61,7 +81,7 @@ footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size
     <div id="man-vao">
       <span class="nho">Tài khoản</span>
       <h1>Đăng nhập bằng Google.</h1>
-      <p class="phu">Có tài khoản là anh chị có ngay <b style="color:var(--vang2)">link giới thiệu riêng</b>. Bạn bè mua T-TỔNG HỢP qua link đó sẽ được ghi lại cho anh chị, để tham gia chương trình tiếp thị liên kết sắp mở.</p>
+      <p class="phu">Có tài khoản là anh chị có ngay <b style="color:var(--vang2)">link giới thiệu riêng</b>. Ai mua T-TỔNG HỢP qua link đó, anh chị nhận <b style="color:var(--vang2)">20% hoa hồng</b>, kể cả các lần người đó gia hạn về sau.</p>
       <div class="o">
         <b>Một bấm, không cần mật khẩu</b>
         <p class="ghi" style="margin-top:4px">Chỉ dùng tên và Gmail để nhận ra anh chị. Không đụng tới Drive, YouTube hay danh bạ.</p>
@@ -82,8 +102,49 @@ footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size
           <div><b id="tk-don">0</b><span>đơn đã mua qua link</span></div>
           <div><b id="tk-ds">0đ</b><span>doanh số qua link</span></div>
         </div>
-        <p class="ghi">Chương trình tiếp thị liên kết <b>sắp mở</b>: mức hoa hồng và cách nhận tiền sẽ công bố trong nhóm Zalo. Mọi đơn mua qua link từ hôm nay đều đã được ghi lại.</p>
       </div>
+
+      <div class="o">
+        <b>Ví hoa hồng · 20%</b>
+        <div class="so4">
+          <div><b id="v-cho">0đ</b><span>chờ đối soát 30 ngày</span></div>
+          <div class="noi"><b id="v-rut">0đ</b><span>rút được ngay</span></div>
+          <div><b id="v-dang">0đ</b><span>đang chuyển về</span></div>
+          <div><b id="v-nhan">0đ</b><span>đã nhận</span></div>
+        </div>
+        <div class="hang-nut" style="margin-top:16px">
+          <button type="button" class="nut nut-do" id="nut-rut">Rút hoa hồng</button>
+        </div>
+        <p class="bao" id="bao-rut"></p>
+
+        <b style="display:block;margin-top:18px">Tài khoản nhận tiền</b>
+        <div class="nh">
+          <select id="nh-ngan-hang"><option value="">Ngân hàng…</option></select>
+          <input id="nh-stk" placeholder="Số tài khoản" inputmode="numeric" maxlength="30">
+          <input id="nh-chu" placeholder="Tên chủ tài khoản (không dấu)" maxlength="60">
+          <button type="button" class="nut nut-vien" id="nut-luu-nh">Lưu</button>
+        </div>
+        <p class="bao" id="bao-nh"></p>
+      </div>
+
+      <div class="o">
+        <b>Đơn qua link của anh chị</b>
+        <div class="bang"><table><thead><tr><th>Ngày</th><th>Gói</th><th>Khách trả</th><th>Hoa hồng</th><th>Trạng thái</th></tr></thead><tbody id="ds-don"></tbody></table></div>
+        <b style="display:block;margin-top:18px">Lịch sử rút</b>
+        <div class="bang"><table><thead><tr><th>Ngày</th><th>Số tiền</th><th>Về tài khoản</th><th>Trạng thái</th></tr></thead><tbody id="ds-rut"></tbody></table></div>
+      </div>
+
+      <details class="o luat" id="luat" open>
+        <summary>Luật chương trình đối tác</summary>
+        <ul>
+          <li><b>20%</b> số tiền khách thực trả (sau mã giảm giá) cho mỗi đơn mua qua link của anh chị.</li>
+          <li>Khách mở link rồi mua trong <b>60 ngày</b> vẫn được tính. Khách đó <b>gia hạn về sau</b> (cùng máy) vẫn tính cho anh chị.</li>
+          <li>Hoa hồng giữ <b>30 ngày</b> để đối soát (hoàn tiền, đơn lỗi) rồi mới rút được.</li>
+          <li>Rút từ <b>200.000đ</b>, chuyển khoản ngân hàng trong vài ngày làm việc.</li>
+          <li>Tự mua qua link của chính mình, spam, chạy quảng cáo vào tên “T-TỔNG HỢP” / “Tân Seven”, hứa hẹn thu nhập sai sự thật: huỷ hoa hồng.</li>
+          <li>Đơn bị hoàn tiền thì hoa hồng của đơn đó bị huỷ. Tân Seven có thể đổi luật, báo trước trong nhóm Zalo.</li>
+        </ul>
+      </details>
       <div class="hang-nut">
         <a class="nut nut-do" href="../#gia">Mua KEY</a>
         <a class="nut nut-vien" href="../huong-dan/">Video hướng dẫn</a>
@@ -94,7 +155,6 @@ footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size
   </div>
 </main>
 <footer><div class="boc">© 2026 Tân Seven · T-TỔNG HỢP · <a href="../t7/terms/">Điều khoản</a> · <a href="../t7/privacy/">Quyền riêng tư</a></div></footer>
-<script src="https://accounts.google.com/gsi/client" async defer onload="veNutGoogle()"></script>
 <script>
 var API = "https://api.tanseven.net";
 function $(id){ return document.getElementById(id); }
@@ -110,6 +170,7 @@ function hienTk(tk){
   if (tk.anh) $("tk-anh").src = tk.anh; else $("tk-anh").hidden = true;
   $("tk-link").value = "https://tanseven.net/?gt=" + tk.ma_gt;
   $("tk-dk").textContent = tk.so_dang_ky_gt || 0;
+  veVi(tk);
   $("tk-don").textContent = tk.so_don_gt || 0;
   $("tk-ds").textContent = vnd(tk.doanh_so_gt);
   dat("tth_tk", JSON.stringify({ ten: tk.ten || "", ma_gt: tk.ma_gt }));
@@ -131,6 +192,43 @@ function veNutGoogle(){
   }).catch(function(){ hienVao("Không kết nối được máy chủ. Thử lại sau ít phút."); });
 }
 
+var NGAN_HANG = [["VCB","Vietcombank"],["BIDV","BIDV"],["ICB","VietinBank"],["VBA","Agribank"],["MB","MB Bank"],["TCB","Techcombank"],["ACB","ACB"],["VPB","VPBank"],["TPB","TPBank"],["STB","Sacombank"],["HDB","HDBank"],["VIB","VIB"],["SHB","SHB"],["EIB","Eximbank"],["MSB","MSB"],["OCB","OCB"],["LPB","LPBank"],["SEAB","SeABank"],["NAB","Nam A Bank"],["BAB","Bac A Bank"],["KLB","KienlongBank"],["CAKE","CAKE"],["TIMO","Timo"]];
+NGAN_HANG.forEach(function(n){ var o = document.createElement("option"); o.value = n[0]; o.textContent = n[1]; $("nh-ngan-hang").appendChild(o); });
+var TEN_GOI = { thang: "1 tháng", vv: "Vĩnh viễn" };
+function ngay(t){ return t ? new Date(t * 1000).toLocaleDateString("vi-VN") : ""; }
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function veVi(tk){
+  $("v-cho").textContent = vnd(tk.hh_cho); $("v-rut").textContent = vnd(tk.hh_rut_duoc);
+  $("v-dang").textContent = vnd(tk.hh_dang_rut); $("v-nhan").textContent = vnd(tk.hh_da_nhan);
+  $("nut-rut").disabled = !(tk.hh_rut_duoc >= tk.hh_toi_thieu) || tk.hh_dang_rut > 0;
+  $("nut-rut").style.opacity = $("nut-rut").disabled ? .5 : 1;
+  $("nut-rut").textContent = tk.hh_dang_rut > 0 ? "Đang chuyển " + vnd(tk.hh_dang_rut) : tk.hh_rut_duoc >= tk.hh_toi_thieu ? "Rút " + vnd(tk.hh_rut_duoc) : "Rút từ " + vnd(tk.hh_toi_thieu);
+  if (tk.ngan_hang) $("nh-ngan-hang").value = tk.ngan_hang;
+  $("nh-stk").value = tk.stk || ""; $("nh-chu").value = tk.chu_tk || "";
+  var bay = Date.now() / 1000;
+  $("ds-don").innerHTML = (tk.ds_don_gt || []).length ? tk.ds_don_gt.map(function(d){
+    var tt = d.huy_hh ? '<span class="the do">Huỷ</span>' : d.luc_rut_duoc > bay ? '<span class="the vang">Rút được từ ' + ngay(d.luc_rut_duoc) + "</span>" : '<span class="the xanh">Đã đối soát</span>';
+    return "<tr><td>" + ngay(d.tra_luc) + "</td><td>" + esc(TEN_GOI[d.goi] || d.goi) + "</td><td>" + vnd(d.so_tien) + "</td><td><b>" + vnd(d.hh) + "</b></td><td>" + tt + "</td></tr>";
+  }).join("") : '<tr><td colspan="5" class="trong">Chưa có đơn nào. Gửi link cho bạn bè để bắt đầu.</td></tr>';
+  $("ds-rut").innerHTML = (tk.ds_rut || []).length ? tk.ds_rut.map(function(r){
+    var tt = r.trang_thai === "da_tra" ? '<span class="the xanh">Đã chuyển ' + ngay(r.xong_luc) + "</span>" : r.trang_thai === "huy" ? '<span class="the do">Huỷ' + (r.ghi_chu ? ": " + esc(r.ghi_chu) : "") + "</span>" : '<span class="the vang">Đang chuyển</span>';
+    return "<tr><td>" + ngay(r.tao_luc) + "</td><td><b>" + vnd(r.so_tien) + "</b></td><td>" + esc(r.ngan_hang) + " · " + esc(r.stk) + "</td><td>" + tt + "</td></tr>";
+  }).join("") : '<tr><td colspan="4" class="trong">Chưa rút lần nào.</td></tr>';
+}
+function goiTk(duong, than){
+  return fetch(API + duong, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + lay("tth_tk_ve") }, body: JSON.stringify(than || {}) }).then(doc);
+}
+$("nut-luu-nh").addEventListener("click", function(){
+  var b = $("bao-nh"); b.className = "bao"; b.textContent = "";
+  goiTk("/api/tth/tk/ngan-hang", { ngan_hang: $("nh-ngan-hang").value, stk: $("nh-stk").value, chu_tk: $("nh-chu").value })
+    .then(function(d){ hienTk(d.tk); b.className = "bao ok"; b.textContent = "✓ Đã lưu tài khoản nhận tiền"; })
+    .catch(function(e){ b.textContent = e.message; });
+});
+$("nut-rut").addEventListener("click", function(){
+  var b = $("bao-rut"); b.className = "bao"; b.textContent = "";
+  goiTk("/api/tth/tk/rut").then(function(d){ hienTk(d.tk); b.className = "bao ok"; b.textContent = "✓ Đã gửi lệnh rút " + vnd(d.lenh.so_tien) + ". Tân Seven chuyển khoản trong vài ngày làm việc."; })
+    .catch(function(e){ b.textContent = e.message; });
+});
 $("nut-chep").addEventListener("click", function(){
   var v = $("tk-link").value, nut = this;
   (navigator.clipboard ? navigator.clipboard.writeText(v) : Promise.reject()).then(function(){ nut.textContent = "✓ Đã chép"; }, function(){ $("tk-link").select(); nut.textContent = "Bấm Ctrl+C"; });
@@ -146,5 +244,6 @@ if (ve) fetch(API + "/api/tth/tk/toi", { headers: { Authorization: "Bearer " + v
   .then(function(d){ hienTk(d.tk); })
   .catch(function(e){ if (e.ma === 401) { dat("tth_tk_ve", ""); dat("tth_tk", ""); } });
 </script>
+<script src="https://accounts.google.com/gsi/client" async defer onload="veNutGoogle()"></script>
 </body>
 </html>
