@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tài khoản T-TỔNG HỢP | Tân Seven</title>
+<meta name="description" content="Đăng nhập bằng Google để nhận link giới thiệu T-TỔNG HỢP riêng của anh chị.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../t7/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--nen:#0A0A0B;--the:#141416;--vien:#26262A;--chu:#F4F4F5;--mo:#9A9AA4;--vang:#C8AA6E;--vang2:#F0E6D2;--do:#C0161D;--xanh:#0AC8B9;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--nen);color:var(--chu);font-family:"Be Vietnam Pro",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.boc{max-width:880px;margin:0 auto;padding:0 20px}
+.dau{border-bottom:1px solid var(--vien)}
+.dau .boc{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;text-decoration:none;white-space:nowrap}
+.logo b{color:var(--vang)}
+main{padding:48px 0 72px}
+.nho{color:var(--vang);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;display:block}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:800;line-height:1.2;margin-bottom:12px}
+.phu{color:var(--mo);font-size:17px;max-width:640px}
+.o{background:var(--the);border:1px solid var(--vien);border-radius:var(--r);padding:26px;margin-top:26px}
+.nut{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:800;text-decoration:none;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+.nut-do{background:var(--do);color:#fff}
+.nut-vien{border:1px solid var(--vien);color:var(--chu);background:transparent}
+.nut-zalo{background:#0068FF;color:#fff}
+.hang-nut{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+#nut-google{margin-top:18px;min-height:44px}
+.bao{color:#ff7b7b;font-size:14px;margin-top:12px;min-height:1em}
+.nguoi{display:flex;align-items:center;gap:16px}
+.nguoi img{width:56px;height:56px;border-radius:50%;background:#222}
+.nguoi b{display:block;font-size:20px}
+.nguoi span{color:var(--mo);font-size:14px}
+.link{display:flex;gap:10px;margin-top:12px}
+.link input{flex:1;min-width:0;background:#0d0d10;border:1px dashed var(--vang);border-radius:12px;color:var(--vang2);font:700 16px Consolas,monospace;padding:13px}
+.so3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.so3 div{background:#101013;border:1px solid var(--vien);border-radius:14px;padding:16px}
+.so3 b{display:block;font-size:30px;font-weight:900;color:var(--vang)}
+.so3 span{color:var(--mo);font-size:13px}
+.ghi{color:var(--mo);font-size:14px;margin-top:14px}
+.ghi b{color:var(--vang2)}
+.lien-ket{background:none;border:0;color:var(--mo);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;margin-top:16px}
+footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size:14px}
+@media (max-width:640px){.boc{padding:0 16px}.so3{grid-template-columns:1fr}.link{flex-direction:column}.hang-nut .nut{flex:1 1 100%}}
+</style>
+</head>
+<body>
+<header class="dau">
+  <div class="boc">
+    <a class="logo" href="../"><img src="../t7/logo.svg" alt="" width="30" height="30">T-<b>TỔNG HỢP</b></a>
+    <a href="../" style="color:var(--mo);text-decoration:none;font-size:15px">Trang chính →</a>
+  </div>
+</header>
+<main>
+  <div class="boc">
+    <div id="man-vao">
+      <span class="nho">Tài khoản</span>
+      <h1>Đăng nhập bằng Google.</h1>
+      <p class="phu">Có tài khoản là anh chị có ngay <b style="color:var(--vang2)">link giới thiệu riêng</b>. Bạn bè mua T-TỔNG HỢP qua link đó sẽ được ghi lại cho anh chị, để tham gia chương trình tiếp thị liên kết sắp mở.</p>
+      <div class="o">
+        <b>Một bấm, không cần mật khẩu</b>
+        <p class="ghi" style="margin-top:4px">Chỉ dùng tên và Gmail để nhận ra anh chị. Không đụng tới Drive, YouTube hay danh bạ.</p>
+        <div id="nut-google"></div>
+        <p class="bao" id="bao-vao"></p>
+      </div>
+    </div>
+
+    <div id="man-tk" hidden>
+      <span class="nho">Tài khoản</span>
+      <div class="nguoi"><img id="tk-anh" alt="" referrerpolicy="no-referrer"><div><b id="tk-ten"></b><span id="tk-email"></span></div></div>
+      <div class="o">
+        <b>Link giới thiệu của anh chị</b>
+        <div class="link"><input id="tk-link" readonly><button type="button" class="nut nut-do" id="nut-chep">Chép link</button></div>
+        <p class="ghi">Gửi link này cho bạn bè, nhóm Facebook, Zalo. Ai mở link rồi mua trong vòng <b>60 ngày</b> đều được tính cho anh chị.</p>
+        <div class="so3">
+          <div><b id="tk-dk">0</b><span>người đăng ký qua link</span></div>
+          <div><b id="tk-don">0</b><span>đơn đã mua qua link</span></div>
+          <div><b id="tk-ds">0đ</b><span>doanh số qua link</span></div>
+        </div>
+        <p class="ghi">Chương trình tiếp thị liên kết <b>sắp mở</b>: mức hoa hồng và cách nhận tiền sẽ công bố trong nhóm Zalo. Mọi đơn mua qua link từ hôm nay đều đã được ghi lại.</p>
+      </div>
+      <div class="hang-nut">
+        <a class="nut nut-do" href="../#gia">Mua KEY</a>
+        <a class="nut nut-vien" href="../huong-dan/">Video hướng dẫn</a>
+        <a class="nut nut-zalo" href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo hỗ trợ</a>
+      </div>
+      <button type="button" class="lien-ket" id="nut-thoat">Đăng xuất</button>
+    </div>
+  </div>
+</main>
+<footer><div class="boc">© 2026 Tân Seven · T-TỔNG HỢP · <a href="../t7/terms/">Điều khoản</a> · <a href="../t7/privacy/">Quyền riêng tư</a></div></footer>
+<script src="https://accounts.google.com/gsi/client" async defer onload="veNutGoogle()"></script>
+<script>
+var API = "https://api.tanseven.net";
+function $(id){ return document.getElementById(id); }
+function vnd(n){ return (n || 0).toLocaleString("vi-VN") + "đ"; }
+function lay(k){ try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } }
+function dat(k, v){ try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} }
+function laGt(){ try { var o = JSON.parse(lay("tth_gt") || "null"); if (o && Date.now() - o.t < 60 * 864e5) return o.m; } catch (e) {} return ""; }
+function doc(r){ return r.json().catch(function(){ return {}; }).then(function(d){ if (!r.ok) { var e = new Error(d.detail || ("Máy chủ lỗi " + r.status)); e.ma = r.status; throw e; } return d; }); }
+
+function hienTk(tk){
+  daVao = true; $("man-vao").hidden = true; $("man-tk").hidden = false;
+  $("tk-ten").textContent = tk.ten || tk.email; $("tk-email").textContent = tk.email;
+  if (tk.anh) $("tk-anh").src = tk.anh; else $("tk-anh").hidden = true;
+  $("tk-link").value = "https://tanseven.net/?gt=" + tk.ma_gt;
+  $("tk-dk").textContent = tk.so_dang_ky_gt || 0;
+  $("tk-don").textContent = tk.so_don_gt || 0;
+  $("tk-ds").textContent = vnd(tk.doanh_so_gt);
+  dat("tth_tk", JSON.stringify({ ten: tk.ten || "", ma_gt: tk.ma_gt }));
+}
+var daVao = false;
+function hienVao(bao){ if (daVao && bao) return; daVao = false; $("man-tk").hidden = true; $("man-vao").hidden = false; $("bao-vao").textContent = bao || ""; }
+
+function veNutGoogle(){
+  fetch(API + "/api/tk/cau-hinh").then(doc).then(function(c){
+    if (!c.google_client_id || !window.google) { hienVao("Chưa mở được nút Google, tải lại trang giúp em."); return; }
+    google.accounts.id.initialize({ client_id: c.google_client_id, callback: function(res){
+      $("bao-vao").textContent = "Đang đăng nhập…";
+      fetch(API + "/api/tth/tk/google", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ credential: res.credential, gt: laGt() }) })
+        .then(doc).then(function(d){ dat("tth_tk_ve", d.token); hienTk(d.tk); })
+        .catch(function(e){ hienVao(e.ma === 404 ? "Máy chủ đang cập nhật, anh chị thử lại sau ít phút." : "Chưa đăng nhập được: " + e.message); });
+    } });
+    google.accounts.id.renderButton($("nut-google"), { theme: "filled_black", size: "large", shape: "pill", text: "signin_with", locale: "vi" });
+  }).catch(function(){ hienVao("Không kết nối được máy chủ. Thử lại sau ít phút."); });
+}
+
+$("nut-chep").addEventListener("click", function(){
+  var v = $("tk-link").value, nut = this;
+  (navigator.clipboard ? navigator.clipboard.writeText(v) : Promise.reject()).then(function(){ nut.textContent = "✓ Đã chép"; }, function(){ $("tk-link").select(); nut.textContent = "Bấm Ctrl+C"; });
+});
+$("nut-thoat").addEventListener("click", function(){
+  dat("tth_tk_ve", ""); dat("tth_tk", "");
+  if (window.google) google.accounts.id.disableAutoSelect();
+  daVao = false; hienVao("");
+});
+
+var ve = lay("tth_tk_ve");
+if (ve) fetch(API + "/api/tth/tk/toi", { headers: { Authorization: "Bearer " + ve } }).then(doc)
+  .then(function(d){ hienTk(d.tk); })
+  .catch(function(e){ if (e.ma === 401) { dat("tth_tk_ve", ""); dat("tth_tk", ""); } });
+</script>
+</body>
+</html>

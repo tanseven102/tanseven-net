@@ -259,6 +259,7 @@ footer a{color:var(--mo)}
       <a href="#gia">Bảng giá</a>
       <a href="#api">Lấy API</a>
       <a href="#hoi-dap">Hỏi đáp</a>
+      <a class="nut nut-vien" href="tai-khoan/" id="nut-tk">Tài khoản</a>
       <a class="nut nut-do" href="#gia">Mua ngay</a>
     </nav>
   </div>
@@ -646,6 +647,7 @@ $("nut-giam").addEventListener("click", function(){
     .finally(function(){ nut.disabled = false; });
 });
 $("o-giam").addEventListener("keydown", function(e){ if (e.key === "Enter") $("nut-giam").click(); });
+function laGt(){ try { var o = JSON.parse(localStorage.getItem("tth_gt") || "null"); if (o && Date.now() - o.t < 60 * 864e5) return o.m; } catch (e) {} return ""; }
 function hien(khoi){ ["b-nhap","b-qr","b-key"].forEach(function(k){ $(k).hidden = (k !== khoi); }); }
 function chuanMa(v){
   var c = (v || "").toUpperCase().replace(/[^0-9A-F]/g, "").slice(0, 16);
@@ -658,7 +660,7 @@ $("nut-tao").addEventListener("click", function(){
   var ma = chuanMa($("o-ma").value);
   if (!/^[0-9A-F]{4}(-[0-9A-F]{4}){3}$/.test(ma)) { $("bao-nhap").textContent = "MÃ MÁY chưa đúng. Mở tool, bấm Chép rồi dán vào đây."; return; }
   var nut = this; nut.disabled = true; nut.style.opacity = .6;
-  fetch(API + "/api/tth/don", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ma_may: ma, goi: goi, lien_he: $("o-lh").value.trim(), ma_giam: maGiam }) })
+  fetch(API + "/api/tth/don", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ma_may: ma, goi: goi, lien_he: $("o-lh").value.trim(), ma_giam: maGiam, gt: laGt() }) })
     .then(function(r){ return r.json().then(function(d){ if (!r.ok) throw new Error(d.detail || "Lỗi máy chủ"); return d; }); })
     .then(function(d){
       $("qr").innerHTML = '<img alt="Mã QR chuyển khoản ' + vnd(d.so_tien) + '" src="' + d.qr + '">';
@@ -687,6 +689,9 @@ $("nut-chep-key").addEventListener("click", function(){
 });
 // tool mở trang kèm ?ma=<MÃ MÁY>; khách tải lại trang giữa chừng thì hỏi tiếp đơn cũ
 var q = new URLSearchParams(location.search);
+// link giới thiệu tanseven.net/?gt=MÃ (21/10/2026): nhớ 60 ngày, gửi kèm đơn + lúc đăng ký tài khoản
+try { if (/^[A-Za-z0-9]{6}$/.test(q.get("gt") || "")) localStorage.setItem("tth_gt", JSON.stringify({ m: q.get("gt").toUpperCase(), t: Date.now() })); } catch (e) {}
+try { var tk = JSON.parse(localStorage.getItem("tth_tk") || "null"); if (tk && tk.ten) $("nut-tk").textContent = "👤 " + tk.ten.split(" ").pop(); } catch (e) {}
 if (q.get("ma")) $("o-ma").value = chuanMa(q.get("ma"));
 if (q.get("giam")) { $("o-giam").value = q.get("giam"); $("nut-giam").click(); }
 if (q.get("goi") && GOI[q.get("goi")]) chonGoi(q.get("goi"));
