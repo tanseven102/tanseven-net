@@ -57,7 +57,7 @@ footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size
 </header>
 <main>
   <div class="boc">
-    <span class="nho">Video hướng dẫn · 4 phút 50</span>
+    <span class="nho">VIDEO 1 · 4 phút 50</span>
     <h1>Cài đặt, gắn KEY, ra video đầu tiên.</h1>
     <p class="phu">Quay trên tool thật, từng nút một. Xem hết một lượt là tự cài được, không cần biết dựng video.</p>
     <div class="khung-video">
@@ -74,11 +74,20 @@ footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size
       <a href="#" data-t="147"><b>2:27 · PHẦN 3</b><span>Dán khoá OpenAI</span></a>
       <a href="#" data-t="195"><b>3:15 · PHẦN 4</b><span>Làm video đầu tiên</span></a>
     </div>
+    <span class="nho" id="video-2" style="margin-top:56px">VIDEO 2 · 1 phút 45</span>
+    <h1>Gắn API giọng đọc cho lời bình.</h1>
+    <p class="phu">Nạp tiền ở tanseven.com, tạo khoá <b>tsv_</b>, dán vào nút Khoá API trong tool. Bắt buộc cho 5 chủ đề có lời bình.</p>
+    <div class="khung-video">
+      <video controls preload="metadata" playsinline poster="bia-giong-doc.jpg" src="t-tong-hop-gan-giong-doc.mp4"></video>
+    </div>
+    <div class="hang-nut">
+      <a class="nut nut-do" href="https://tanseven.com/tai-khoan.html" target="_blank" rel="noopener">Mua giọng đọc ở tanseven.com</a>
+    </div>
   </div>
 </main>
 <footer><div class="boc">© 2026 Tân Seven · T-TỔNG HỢP · <a href="../#api">Cách lấy khoá API</a> · <a href="../#hoi-dap">Hỏi đáp</a></div></footer>
 <script>
-document.querySelectorAll(".muc a").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var v=document.querySelector("video");v.currentTime=+a.dataset.t;v.play();v.scrollIntoView({behavior:"smooth",block:"center"});});});
+document.querySelectorAll(".muc a").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var v=document.querySelectorAll("video")[0];v.currentTime=+a.dataset.t;v.play();v.scrollIntoView({behavior:"smooth",block:"center"});});});
 </script>
 </body>
 </html>

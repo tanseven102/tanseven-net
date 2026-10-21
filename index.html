@@ -40,6 +40,10 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:14px}
 .khung-video video{display:block;width:100%;height:100%}
 .video-duoi{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;align-items:center}
 .video-duoi .ghi{color:var(--mo);font-size:14px}
+.video-ten{margin-top:32px;font-size:18px;font-weight:800;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.video-ten span{background:var(--vang);color:#0A0A0B;font-size:12px;letter-spacing:.12em;padding:4px 10px;border-radius:999px}
+.video-ten+.khung-video{margin-top:14px}
+.api-video{margin-top:18px}
 
 /* thanh tren */
 .dau{position:sticky;top:0;z-index:20;background:rgba(10,10,11,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--vien)}
@@ -275,11 +279,16 @@ footer a{color:var(--mo)}
 
 <section id="video">
   <div class="boc">
-    <span class="nho">Video hướng dẫn · 4 phút 50</span>
+    <span class="nho">Video hướng dẫn · 2 video</span>
     <h2>Xem một lượt là cài được.</h2>
     <p class="phu">Tải tool, mua và gắn KEY, dán khoá OpenAI, rồi làm video đầu tiên. Quay trên tool thật, từng nút một.</p>
+    <h3 class="video-ten"><span>VIDEO 1</span>Cài đặt, gắn KEY, ra video đầu tiên · 4 phút 50</h3>
     <div class="khung-video">
       <video controls preload="none" playsinline poster="huong-dan/bia.jpg" src="huong-dan/t-tong-hop-huong-dan.mp4"></video>
+    </div>
+    <h3 class="video-ten" id="video-2"><span>VIDEO 2</span>Gắn API giọng đọc: nạp tiền ở tanseven.com, lấy khoá, dán vào tool · 1 phút 45</h3>
+    <div class="khung-video">
+      <video controls preload="none" playsinline poster="huong-dan/bia-giong-doc.jpg" src="huong-dan/t-tong-hop-gan-giong-doc.mp4"></video>
     </div>
     <div class="video-duoi">
       <a class="nut nut-do" href="#mua">Mua KEY</a>
@@ -432,7 +441,7 @@ footer a{color:var(--mo)}
 <section id="api">
   <div class="boc">
     <span class="nho">Cách lấy API</span>
-    <h2>Hai khoá, làm một lần là xong.</h2>
+    <h2>Ba khoá, làm một lần là xong.</h2>
     <p class="phu">Tool dùng khoá API của chính anh chị nên chi phí AI minh bạch, trả bao nhiêu dùng bấy nhiêu. Dán khoá vào file cạnh tool, không phải gõ lại lần nào nữa.</p>
     <div class="api-luoi">
       <div class="o api-o">
@@ -457,6 +466,16 @@ footer a{color:var(--mo)}
           <li>Mở file <code>giphy_key.txt</code> trong thư mục tool, dán vào dòng dưới cùng, <b>Ctrl + S</b>.</li>
         </ol>
       </div>
+    </div>
+    <div class="o api-o api-video">
+      <div class="api-dau"><h3>3. Khoá T-GIỌNG ĐỌC (tanseven.com)</h3><span class="the-bb">Bắt buộc cho 5 chủ đề có lời bình</span></div>
+      <p class="api-vi">Đọc lời bình cho các chủ đề Tai nạn ô tô, Thiên tai, Máy bay &amp; tàu biển, Camera an ninh, Động vật hoang dã (9 thứ tiếng). Gói Cơ bản 99.000đ = 1,1 triệu ký tự, Pro 299.000đ = 3,8 triệu ký tự, ký tự dùng vĩnh viễn. Xem <a href="#video-2" style="color:var(--vang2)">VIDEO 2</a> làm theo từng nút.</p>
+      <ol class="api-buoc">
+        <li>Vào <a href="https://tanseven.com/tai-khoan.html" target="_blank" rel="noopener">tanseven.com → Tài khoản</a>, bấm <b>Đăng ký</b> (tặng 2.000 ký tự dùng thử).</li>
+        <li>Bấm <b>Nạp thêm</b>, chọn gói, quét QR bằng app ngân hàng, chuyển đúng số tiền và nội dung. 1–2 phút sau ký tự tự cộng.</li>
+        <li>Kéo xuống mục <b>Khoá API</b>, gõ tên “T-TỔNG HỢP”, bấm <b>Tạo khoá mới</b>, bấm <b>Sao chép</b> dãy bắt đầu bằng <code>tsv_</code> (chỉ hiện <b>một lần</b>).</li>
+        <li>Trong tool bấm nút <b>Khoá API</b> ở góc trên, dán vào ô <b>Khoá T-GIỌNG ĐỌC</b>, bấm <b>LƯU</b>. Hiện chữ xanh “còn … ký tự” là xong.</li>
+      </ol>
     </div>
     <p class="api-ghi">Kẹt ở bước nào, chụp màn hình gửi <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">nhóm Zalo hỗ trợ</a>, Tân Seven chỉ tận nơi. Đừng gửi khoá API cho bất kỳ ai, kể cả trong nhóm.</p>
   </div>
