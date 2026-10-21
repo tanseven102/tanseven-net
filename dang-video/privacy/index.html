@@ -14,7 +14,7 @@
 </div></header>
 <main class="wrap doc">
 <h1>Privacy Policy</h1>
-<small>Tan Seven Publisher (T-ĐĂNG VIDEO) · Last updated: October 19, 2026</small>
+<small>Tan Seven Publisher (T-ĐĂNG VIDEO) · Last updated: October 22, 2026</small>
 
 <p>Tan Seven Publisher ("the app") is a Windows desktop app made by Tan Seven ("we") that uploads videos a user has produced to the
 user's own YouTube channel. It is used by Tan Seven for its own channels and offered to other YouTube creators. This policy explains what
@@ -43,16 +43,30 @@ Google user data the app accesses and how it is handled.</p>
 <li>The app has no Tan Seven server in the upload path; it only listens on the local computer (127.0.0.1) and talks directly to Google's YouTube Data API.</li>
 </ul>
 
-<h2>4. Sharing</h2>
+<h2>4. Data protection mechanisms</h2>
+<p>We treat OAuth tokens and all Google user data as sensitive data and protect them as follows:</p>
+<ul>
+<li><b>Encryption in transit:</b> every request to Google (sign-in, token exchange, token refresh, upload, thumbnail, revoke) uses HTTPS with TLS encryption. The app never sends Google user data over unencrypted connections.</li>
+<li><b>No central server:</b> tokens and channel data never leave the user's computer and are never sent to or stored on any Tan Seven server, so there is no central database of user data that could be breached.</li>
+<li><b>Access control at rest:</b> tokens are saved in a private app folder readable only by the user's own operating-system account (folder permission 700, file permission 600). Other users of the computer cannot read them. We recommend users keep their computer's disk encryption (e.g. BitLocker) turned on.</li>
+<li><b>Local-only app interface:</b> the app's interface listens only on the local loopback address 127.0.0.1, so it cannot be reached from the network or the internet.</li>
+<li><b>Secure sign-in:</b> Google sign-in uses the OAuth 2.0 flow for installed apps with a random one-time <code>state</code> value to block forged sign-in requests. The app never sees or stores the user's Google password.</li>
+<li><b>Least privilege:</b> the app requests only two scopes, <code>youtube.upload</code> and <code>youtube.readonly</code>, and uses them only for the purposes described above.</li>
+<li><b>Short-lived access:</b> access tokens expire after about one hour and are refreshed only when an upload is made. Pressing "Disconnect" revokes the token with Google and deletes it from the computer.</li>
+<li><b>No logging of secrets:</b> tokens are not written to log files and are not shown in the interface.</li>
+<li><b>Incident response:</b> if we learn of a security issue affecting user data, we will fix it promptly and notify affected users by email.</li>
+</ul>
+
+<h2>5. Sharing</h2>
 <p>We do not sell, rent, transfer or disclose Google user data to any third party. Data is sent only to Google's own YouTube Data API endpoints to perform the upload.</p>
 
-<h2>5. Limited Use</h2>
+<h2>6. Limited Use</h2>
 <p>Tan Seven Publisher's use and transfer of information received from Google APIs adheres to the
 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.
 The app uses YouTube API Services; see the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and the
 <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 
-<h2>6. Retention and deletion</h2>
+<h2>7. Retention and deletion</h2>
 <ul>
 <li>Tokens are kept while the channel stays connected. Pressing <b>"Disconnect"</b> in the app revokes the token with Google and deletes it from the computer immediately.</li>
 <li>You can also revoke access at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> or
@@ -60,10 +74,10 @@ The app uses YouTube API Services; see the <a href="https://www.youtube.com/t/te
 <li>Upload records stay on the user's computer; the user can delete them at any time by deleting the app's data folder.</li>
 </ul>
 
-<h2>7. Contact</h2>
+<h2>8. Contact</h2>
 <p>Questions or deletion requests: <a href="mailto:tanseven5@gmail.com">tanseven5@gmail.com</a>.</p>
 
-<h2>8. Changes</h2>
+<h2>9. Changes</h2>
 <p>If this policy changes, we update this page and the date above.</p>
 </main>
 <footer><div class="wrap">
