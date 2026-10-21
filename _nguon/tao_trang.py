@@ -49,23 +49,23 @@ TRANG = [
 ]
 # Bản tiếng Anh (anh Tân 21/10/2026): cùng khối, chữ ở phan_en/, đường dẫn /en/<trang>/
 EN = {
-    "": (None, "T-TỔNG HỢP — One person, 15 YouTube channels, narration in 9 languages | Tân Seven",
-         "T-TỔNG HỢP: Windows app that makes YouTube compilation videos automatically. 6 topics, AI narration in 9 languages, mute source audio to avoid music claims. Run many channels in many countries."),
-    "chay-15-kenh": ("Run 15 channels", "One person, 15 channels, 9 markets | T-TỔNG HỢP",
-                     "How one person runs 15 compilation channels in 9 markets with T-TỔNG HỢP: one niche and one language per channel, one button press each."),
-    "chu-de": ("6 topics", "6 compilation video topics | T-TỔNG HỢP",
+    "": (None, "T-TONGHOP — One person, 15 YouTube channels, narration in 9 languages | Tân Seven",
+         "T-TONGHOP: Windows app that makes YouTube compilation videos automatically. 6 topics, AI narration in 9 languages, mute source audio to avoid music claims. Run many channels in many countries."),
+    "chay-15-kenh": ("Run 15 channels", "One person, 15 channels, 9 markets | T-TONGHOP",
+                     "How one person runs 15 compilation channels in 9 markets with T-TONGHOP: one niche and one language per channel, one button press each."),
+    "chu-de": ("6 topics", "6 compilation video topics | T-TONGHOP",
                "Car crashes, natural disasters, planes & ships, security cameras, wildlife with narration, plus funny memes + sound effects."),
-    "an-toan": ("Safety", "Channel safety: mute source audio, blur, block claim sources | T-TỔNG HỢP",
-                "T-TỔNG HỢP filters in layers before editing: mute source audio, blur graphic scenes, block movies & CGI, skip claim-happy agencies, remove logos, drop dark scenes."),
-    "huong-dan": ("Guides", "Video guides — install, activate, connect the voice | T-TỔNG HỢP",
+    "an-toan": ("Safety", "Channel safety: mute source audio, blur, block claim sources | T-TONGHOP",
+                "T-TONGHOP filters in layers before editing: mute source audio, blur graphic scenes, block movies & CGI, skip claim-happy agencies, remove logos, drop dark scenes."),
+    "huong-dan": ("Guides", "Video guides — install, activate, connect the voice | T-TONGHOP",
                   "VIDEO 1: download, buy and activate a KEY, paste the OpenAI key, make your first video. VIDEO 2: connect the voice API at tanseven.com."),
-    "bang-gia": ("Pricing", "Pricing & buy a KEY | T-TỔNG HỢP",
+    "bang-gia": ("Pricing", "Pricing & buy a KEY | T-TONGHOP",
                  "1-month plan 1,000,000 VND, lifetime 5,000,000 VND. Scan the QR, your KEY appears on the page within seconds."),
-    "lay-api": ("API keys", "How to get API keys: OpenAI, T-GIỌNG ĐỌC, GIPHY | T-TỔNG HỢP",
+    "lay-api": ("API keys", "How to get API keys: OpenAI, T-GIỌNG ĐỌC, GIPHY | T-TONGHOP",
                 "Step by step: OpenAI key, T-GIỌNG ĐỌC voice key from tanseven.com, GIPHY key, then paste them into the app."),
-    "affiliate": ("AFFILIATE", "AFFILIATE 20% — refer T-TỔNG HỢP and earn commission | Tân Seven",
+    "affiliate": ("AFFILIATE", "AFFILIATE 20% — refer T-TONGHOP and earn commission | Tân Seven",
                   "Sign in with Google for a referral link. Earn 20% of every order and every renewal. Withdraw to a bank from 200,000 VND."),
-    "hoi-dap": ("FAQ", "FAQ | T-TỔNG HỢP", "Common questions about T-TỔNG HỢP: ease of use, costs, KEY, changing PC, copyright, many channels, affiliate."),
+    "hoi-dap": ("FAQ", "FAQ | T-TONGHOP", "Common questions about T-TONGHOP: ease of use, costs, KEY, changing PC, copyright, many channels, affiliate."),
 }
 MUA_EN = [('"1 tháng"', '"1 month"'), ('"Vĩnh viễn"', '"Lifetime"'), ('"Đã áp mã "', '"Code "'), ('": giảm "', '" applied: "'),
           ('"Lỗi máy chủ"', '"Server error"'), ('"✓ Mã "', '"✓ Code "'), ('" giảm "', '" gives "'),
@@ -113,7 +113,7 @@ def menu(duong, nn="vi"):
          {"tk": "Tài khoản", "mua": "Mua ngay", "hd": "Hỏi đáp", "ai": "Dùng trong Claude / ChatGPT"}
     return f'''<header class="dau">
   <div class="boc">
-    <a class="logo" href="{goc}/"><img src="/t7/logo.svg" alt="" width="30" height="30">T-<b>TỔNG HỢP</b></a>
+    <a class="logo" href="{goc}/"><img src="/t7/logo.svg" alt="" width="30" height="30"><span>T-<b>{"TONGHOP" if nn == "en" else "TỔNG HỢP"}</b></span></a>
     <nav>
 {lk}
       {doi}
