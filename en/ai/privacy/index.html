@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — T-TONGHOP connector &amp; plugin | Tan Seven</title>
+<meta name="description" content="Privacy policy for the T-TONGHOP MCP connector (api.tanseven.net/tth/mcp) and the t-tonghop Claude plugin.">
+<link rel="icon" href="/t7/logo.svg">
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--mute:#555}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111;--fg:#eee;--mute:#aaa}}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:32px 16px}
+h1{font-size:1.6rem}h2{font-size:1.15rem;margin-top:1.8em}small{color:var(--mute)}a{color:inherit}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #8884;padding:6px 8px;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<h1>Privacy Policy — T-TONGHOP connector &amp; plugin</h1>
+<p><small>Last updated: October 21, 2026 · Operator: Tan Seven (Vietnam) · Contact: <a href="mailto:tanseven5@gmail.com">tanseven5@gmail.com</a></small></p>
+
+<p>This policy covers the remote MCP server at <code>https://api.tanseven.net/tth/mcp</code> ("the connector") and the <code>t-tonghop</code> plugin that points to it. The plugin itself runs no code on your device; it only contains instructions (a skill) and the connector address.</p>
+
+<h2>1. What data we collect</h2>
+<table>
+<tr><th>Tool</th><th>Data received</th><th>Stored?</th></tr>
+<tr><td>gioi_thieu, bang_gia, chon_ngach, huong_dan</td><td>Only the tool call itself</td><td>No content is stored. Standard server logs (time, IP address, request size) are kept up to 30 days for security.</td></tr>
+<tr><td>phan_tich_kenh</td><td>The YouTube channel handle/URL you ask about</td><td>The public analysis result is cached in server memory for up to 12 hours, then discarded.</td></tr>
+<tr><td>mua_key</td><td>Machine code of your PC, chosen plan, optional discount code, optional referral code, optional phone/Zalo you choose to give</td><td>Yes — as an order record, needed to issue and support your license.</td></tr>
+<tr><td>kiem_tra_don</td><td>The order code</td><td>No new data; reads the existing order.</td></tr>
+</table>
+<p>We do <b>not</b> receive or store your conversations with the AI assistant, your name or email (unless you write to us), or any files. The connector has no sign-in.</p>
+
+<h2>2. How we use it</h2>
+<p>Order data is used only to match your bank transfer, issue your license KEY, provide support, and pay affiliate commissions when an order came through a referral link. Channel analysis data is used only to answer your request.</p>
+
+<h2>3. Third parties</h2>
+<ul>
+<li><b>YouTube Data API (Google)</b> — <code>phan_tich_kenh</code> reads public channel and video statistics through the official API. Use of YouTube data follows the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li>
+<li><b>SePay / your bank</b> — when you pay, the bank transfer notification (amount, transfer note, transaction id) reaches us through SePay to confirm the order.</li>
+<li><b>Vultr</b> — hosting provider of the server (Singapore).</li>
+</ul>
+<p>We do not sell, rent or share data for advertising.</p>
+
+<h2>4. Retention</h2>
+<p>Order records are kept for as long as the license is active and up to 5 years for accounting. Server logs: up to 30 days. Analysis cache: up to 12 hours.</p>
+
+<h2>5. Your choices</h2>
+<p>You can use every read-only tool without giving any personal data. To access or delete an order record, email <a href="mailto:tanseven5@gmail.com">tanseven5@gmail.com</a> with the order code; we answer within 7 days. Deleting an order record also ends support for that license.</p>
+
+<h2>6. Security</h2>
+<p>All traffic uses HTTPS. Signing keys and API keys stay on the server and are never sent to the AI or the plugin.</p>
+
+<h2>7. Changes</h2>
+<p>We will update this page and its date when the policy changes.</p>
+
+<p><small><a href="/en/ai/">Connector documentation</a> · <a href="/en/">T-TONGHOP</a> · <a href="/t7/terms/">Terms</a></small></p>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-TONGHOP for Claude & ChatGPT — connector docs | Tan Seven</title>
+<meta name="description" content="Add one MCP link to Claude, ChatGPT, Gemini or Grok: free YouTube channel niche analysis, compilation niche guide, and T-TONGHOP licensing.">
+<meta property="og:title" content="T-TONGHOP for Claude &amp; ChatGPT">
+<meta property="og:description" content="One MCP link: analyze any YouTube channel, plan a compilation niche, license the T-TONGHOP app.">
+<meta property="og:url" content="https://tanseven.net/en/ai/">
+<meta property="og:image" content="https://tanseven.net/huong-dan/bia.jpg">
+<link rel="icon" href="/t7/logo.svg">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--nen:#0A0A0B;--the:#141416;--vien:#26262A;--chu:#F4F4F5;--mo:#9A9AA4;--vang:#C8AA6E;--vang2:#F0E6D2;--do:#C0161D;--xanh:#0AC8B9;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--nen);color:var(--chu);font-family:"Be Vietnam Pro",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.boc{max-width:960px;margin:0 auto;padding:0 20px}
+.dau{border-bottom:1px solid var(--vien)}
+.dau .boc{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;text-decoration:none;white-space:nowrap}
+.logo b{color:var(--vang)}
+main{padding:48px 0 72px}
+.nho{color:var(--vang);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;display:block}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:900;line-height:1.15;margin-bottom:14px}
+h2{font-size:24px;font-weight:800;margin:44px 0 6px}
+.phu{color:var(--mo);font-size:17px;max-width:680px}
+.link{display:flex;gap:10px;margin-top:22px;max-width:680px}
+.link input{flex:1;min-width:0;background:#0d0d10;border:1px dashed var(--vang);border-radius:12px;color:var(--vang2);font:700 16px Consolas,monospace;padding:14px}
+.nut{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:800;text-decoration:none;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+.nut-do{background:var(--do);color:#fff}
+.nut-vien{border:1px solid var(--vien);color:var(--chu);background:transparent}
+.luoi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.o{background:var(--the);border:1px solid var(--vien);border-radius:var(--r);padding:22px}
+.o h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.o ol{padding-left:18px;color:var(--mo);font-size:14px;display:flex;flex-direction:column;gap:5px}
+.o ol b{color:var(--chu)}
+.hoi{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.hoi div{background:var(--the);border:1px solid var(--vien);border-radius:14px;padding:14px 18px;font-size:15px}
+.hoi div::before{content:"💬 ";}
+.tool{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.tool div{background:var(--the);border:1px solid var(--vien);border-radius:12px;padding:12px 16px;font-size:14px;color:var(--mo)}
+.tool code{color:var(--vang2);font:700 14px Consolas,monospace;display:block;margin-bottom:2px}
+.ghi{color:var(--mo);font-size:14px;margin-top:14px}
+footer{border-top:1px solid var(--vien);padding:26px 0;color:var(--mo);font-size:14px}
+@media (max-width:760px){.boc{padding:0 16px}.luoi,.tool{grid-template-columns:1fr}.link{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="dau">
+  <div class="boc">
+    <a class="logo" href="../"><img src="/t7/logo.svg" alt="" width="30" height="30">T-<b>TONGHOP</b></a>
+    <a href="/en/" style="color:var(--mo);text-decoration:none;font-size:15px">Home →</a>
+  </div>
+</header>
+<main>
+  <div class="boc">
+    <span class="nho">Connector documentation</span>
+    <h1>Niche research for compilation channels,<br>right inside Claude.</h1>
+    <p class="phu">Add this remote MCP server to your AI. It analyzes any YouTube channel by video type, guides you to one niche per channel with real data, and can license the T-TONGHOP Windows app that makes compilation videos with AI narration in 9 languages. No sign-in required.</p>
+    <div class="link"><input id="o-link" readonly value="https://api.tanseven.net/tth/mcp"><button type="button" class="nut nut-do" id="nut-chep">Copy link</button></div>
+
+    <h2>Set up in one minute</h2>
+    <p class="ghi">Each app calls it something different (Connector, App, Plugin), but it is the same MCP standard: give it a name, paste the URL.</p>
+    <div class="luoi">
+      <div class="o"><h3>Claude</h3><ol>
+        <li>Open <b>claude.ai</b> → <b>Customize</b> → <b>Connectors</b>.</li>
+        <li>Click <b>Add</b> → <b>Add custom connector</b>.</li>
+        <li>Name: <b>T-TONGHOP</b>, URL: the link above → <b>Continue</b>. Authentication: <b>No sign-in</b> → <b>Add</b> → <b>Connect</b>.</li>
+        <li>In a chat, ask a question; Claude asks permission the first time it uses a tool.</li>
+      </ol></div>
+      <div class="o"><h3>ChatGPT</h3><ol>
+        <li><b>Settings</b> → <b>Apps &amp; Connectors</b>.</li>
+        <li>Turn on <b>Developer mode</b> (Advanced) if you don't see a Create button.</li>
+        <li>Click <b>Create</b>: name <b>T-TONGHOP</b>, paste the link → <b>Create</b>.</li>
+        <li>In a chat, pick <b>T-TONGHOP</b> from the tools menu.</li>
+      </ol></div>
+      <div class="o"><h3>Gemini · Grok · Cursor…</h3><ol>
+        <li>Open the <b>Connector</b> / <b>Plugin</b> / <b>MCP</b> settings.</li>
+        <li>Choose <b>New connector</b> → <b>Custom</b>.</li>
+        <li>Name it, paste the link → <b>Add</b>.</li>
+      </ol></div>
+    </div>
+
+    <h2>Try these prompts</h2>
+    <div class="hoi">
+      <div>Analyze @failarmy and tell me which compilation niche I should start with.</div>
+      <div>I want to run 5 compilation channels in different languages. Plan one niche per channel.</div>
+      <div>How much is T-TONGHOP and what do I need to start?</div>
+      <div>My machine code is XXXX-XXXX-XXXX-XXXX — create a lifetime license order, then check order TTH… after I pay.</div>
+    </div>
+
+    <h2>Tools</h2>
+    <div class="tool">
+      <div><code>phan_tich_kenh</code>Read-only. Analyze any channel: recent long videos grouped by type, median views per type vs channel median, top 5, outliers. Uses the official YouTube Data API.</div>
+      <div><code>gioi_thieu</code>Read-only. About the T-TONGHOP app: features, 6 topics, 9 languages, requirements, download.</div>
+      <div><code>bang_gia</code>Read-only. License prices (VND), extra usage costs, 20% affiliate program.</div>
+      <div><code>chon_ngach</code>Read-only. Niche guide with FailArmy reference data.</div>
+      <div><code>huong_dan</code>Read-only. Install, API keys, make a video, troubleshooting (in Vietnamese).</div>
+      <div><code>mua_key</code>Write. Creates a license order for the user's PC and returns a bank-transfer QR. It never moves money: the user pays by scanning the QR.</div>
+      <div><code>kiem_tra_don</code>Read-only. Checks an order; once paid, returns the license KEY.</div>
+    </div>
+
+    <h2>Plugin &amp; skill</h2>
+    <p class="ghi">The <b>t-tonghop</b> plugin bundles this connector with the <b>compilation-niche-research</b> skill. Claude Code: <code>/plugin install t-tonghop --marketplace tanseven102/t-tonghop-plugin</code></p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+      <a class="nut nut-vien" href="https://github.com/tanseven102/t-tonghop-plugin">GitHub: t-tonghop-plugin</a>
+      <a class="nut nut-vien" href="/en/ai/privacy/">Privacy policy</a>
+      <a class="nut nut-vien" href="/llms.txt">llms.txt</a>
+    </div>
+    <p class="ghi">Support: <a href="mailto:tanseven5@gmail.com">tanseven5@gmail.com</a> · <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat">Zalo group</a>. The server only reads public data and creates orders for the machine code you provide; money moves only when you scan the QR yourself. Never paste license KEYs or API keys into a chat.</p>
+  </div>
+</main>
+<footer><div class="boc">© 2026 Tan Seven · T-TONGHOP · <a href="/en/">Home</a> · <a href="/en/ai/privacy/">Privacy</a> · <a href="/ai/">Tiếng Việt</a></div></footer>
+<script>
+document.getElementById("nut-chep").addEventListener("click", function(){
+  var v = document.getElementById("o-link").value, n = this;
+  (navigator.clipboard ? navigator.clipboard.writeText(v) : Promise.reject()).then(function(){ n.textContent = "✓ Copied"; }, function(){ document.getElementById("o-link").select(); n.textContent = "Press Ctrl+C"; });
+});
+</script>
+</body>
+</html>
