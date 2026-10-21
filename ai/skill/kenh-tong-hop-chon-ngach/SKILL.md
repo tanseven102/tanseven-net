@@ -16,11 +16,12 @@ Số liệu tham khảo FailArmy (304 video dài gần nhất, đo 21/10/2026, v
 
 | Dạng | Số video | View trung vị |
 |---|---|---|
-| Động vật | 12 | 4,45 triệu |
+| Động vật | 5 | 7,1 triệu |
+| Troll / chơi khăm | 3 | 6,8 triệu (ít mẫu) |
+| Camera an ninh | 4 | 6,4 triệu |
 | Nguy hiểm / suýt chết | 8 | 3,7 triệu |
-| Troll / hù doạ | 3 | 6,8 triệu (ít mẫu) |
-| Xe cộ / tai nạn | 23 | 2,0 triệu (cao nhất 24 triệu) |
-| Tổng hợp chung chung hằng tuần | 129 | 2,0 triệu |
+| Xe cộ / tai nạn | 19 | 2,1 triệu (cao nhất 24 triệu) |
+| Tổng hợp chung chung hằng tuần | 33 | 2,0 triệu |
 | Cả kênh | 304 | 2,5 triệu |
 
 Bài học: **video có chủ đề rõ thắng video chung chung.**
