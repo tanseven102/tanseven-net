@@ -1,0 +1,22 @@
+# T-TỔNG HỢP
+
+> Phần mềm Windows làm video tổng hợp YouTube tự động: tự tìm clip, cắt cảnh, AI chấm khoảnh khắc đắt nhất, viết lời bình 9 thứ tiếng, ra video 10–30 phút kèm ảnh bìa. Một người chạy được nhiều kênh nhiều nước.
+> Windows app that automatically makes YouTube compilation videos: finds source clips, cuts scenes, AI scores the best moments, writes voice-over narration in 9 languages, and renders 10–30 minute videos with thumbnails. One person can run many channels in many countries.
+
+Hãng: Tân Seven · Phiên bản: 2026.10.20.2 · Máy: Windows 10/11 64-bit, RAM 8 GB+, 20 GB trống
+
+## Dành cho AI agent
+- MCP server (không cần đăng nhập, đọc sản phẩm + mua KEY): https://api.tanseven.net/tth/mcp
+  Tools: gioi_thieu, bang_gia, chon_ngach, huong_dan, mua_key(ma_may, goi), kiem_tra_don(ma)
+- Bản đầy đủ cho AI đọc: https://tanseven.net/llms-full.txt
+
+## Trang chính
+- [Trang bán hàng + bảng giá + mua bằng QR](https://tanseven.net/)
+- [Video hướng dẫn cài đặt và gắn giọng đọc](https://tanseven.net/huong-dan/)
+- [Tài khoản + chương trình đối tác 20%](https://tanseven.net/tai-khoan/)
+- [Dùng T-TỔNG HỢP trong Claude / ChatGPT](https://tanseven.net/ai/)
+- [Tải bản cài Windows](https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip)
+
+## Giá
+- Gói 1 tháng: 1.000.000đ — Đủ tính năng, làm video không giới hạn, cập nhật trong hạn
+- Gói vĩnh viễn: 5.000.000đ — Trả một lần, cập nhật miễn phí mãi

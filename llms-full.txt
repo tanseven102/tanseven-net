@@ -1,0 +1,66 @@
+# T-TỔNG HỢP — thông tin đầy đủ cho AI
+
+Phần mềm Windows làm video tổng hợp YouTube tự động: tự tìm clip, cắt cảnh, AI chấm khoảnh khắc đắt nhất, viết lời bình 9 thứ tiếng, ra video 10–30 phút kèm ảnh bìa. Một người chạy được nhiều kênh nhiều nước.
+
+Windows app that automatically makes YouTube compilation videos: finds source clips, cuts scenes, AI scores the best moments, writes voice-over narration in 9 languages, and renders 10–30 minute videos with thumbnails. One person can run many channels in many countries.
+
+- Hãng: Tân Seven (https://tanseven.net)
+- Phiên bản: 2026.10.20.2
+- Máy: Windows 10/11 64-bit, RAM 8 GB+, 20 GB trống
+- Tải: https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip
+- Hướng dẫn: https://tanseven.net/huong-dan/
+- Hỗ trợ: nhóm Zalo https://zalo.me/g/gqjcnwu1hfmqa1zk6iat
+- MCP cho AI agent: https://api.tanseven.net/tth/mcp
+
+## Bảng giá (KEY gắn với một máy)
+- Gói 1 tháng: 1.000.000đ — Đủ tính năng, làm video không giới hạn, cập nhật trong hạn
+- Gói vĩnh viễn: 5.000.000đ — Trả một lần, cập nhật miễn phí mãi
+
+Chi phí dùng thêm: Khoá OpenAI của khách (thường vài nghìn đồng/video). Ký tự giọng đọc ở tanseven.com cho 5 chủ đề có lời bình: 99.000đ = 1,1 triệu ký tự, 299.000đ = 3,8 triệu ký tự, dùng vĩnh viễn.
+
+## 6 chủ đề
+- Tai nạn ô tô (có lời bình)
+- Thiên tai (có lời bình)
+- Máy bay & tàu biển (có lời bình)
+- Camera an ninh (có lời bình)
+- Động vật hoang dã (có lời bình)
+- Hài hước (meme + tiếng động, không lời)
+
+## Lời bình 9 thứ tiếng
+English, Tiếng Việt, Español, Português, Français, Italiano, हिन्दी (Hindi), 中文, 日本語
+
+## Tính năng
+- Tìm từ khoá hot theo chủ đề, tự tải clip nguồn (hoặc dán link / bỏ file sẵn)
+- Tự cắt cảnh, AI (gpt-4o-mini của khách) xem và chấm khoảnh khắc đắt nhất
+- Lời bình viết thẳng bằng 9 thứ tiếng, đọc bằng giọng T-GIỌNG ĐỌC (tanseven.com)
+- Danh sách Kênh của tôi: mỗi ô một video, độ dài + thư mục riêng, Thêm 10 video một lần
+- Tắt tiếng gốc để tránh nhạc bản quyền; tự che mờ / bỏ cảnh nặng theo luật YouTube
+- Chặn cảnh phim, CGI và nguồn của hãng hay claim (ViralHog, Jukin, Storyful, Newsflare…) theo tên nguồn
+- Xoá logo kênh khác, gắn logo kênh mình, bỏ cảnh tối
+- Hook 30 giây, meme, tiếng động (chủ đề Hài hước), ảnh bìa tự động
+
+## Cách mua
+1. Tải và mở tool, chép MÃ MÁY (dạng XXXX-XXXX-XXXX-XXXX).
+2. Trên https://tanseven.net/#mua dán MÃ MÁY, chọn gói, quét QR. Hoặc AI gọi tool mua_key qua MCP.
+3. Tiền về là KEY hiện ra; dán vào tool, bấm KÍCH HOẠT.
+
+## Chương trình đối tác
+20% số tiền khách trả cho mỗi đơn qua link giới thiệu; link nhớ 60 ngày; giữ 30 ngày đối soát; rút về ngân hàng từ 200.000đ. Hoa hồng tính cả các lần khách gia hạn về sau (cùng máy). Lấy link: https://tanseven.net/tai-khoan/
+
+## Hỏi đáp
+### Không biết dựng video có dùng được không?
+Được. Chọn chủ đề, thứ tiếng, độ dài, bấm LÀM VIDEO rồi chờ tới 100%.
+
+### Chạy 15 kênh có cần 15 máy không?
+Không. Một máy, một KEY làm video cho bao nhiêu kênh cũng được, tool làm lần lượt từng video, mỗi video lưu vào thư mục của kênh đó.
+
+### Một KEY dùng được mấy máy?
+Một KEY gắn với một máy (MÃ MÁY).
+
+### Thanh toán thế nào?
+Chuyển khoản QR tự động (SePay): tiền về vài giây là KEY hiện trên trang, hoặc AI gọi tool kiem_tra_don qua MCP.
+
+### Video có bị bản quyền không?
+Tool lọc sẵn nhiều lớp (tắt tiếng gốc, chặn phim/CGI, né nguồn hãng claim, xoá logo, thêm lời bình), nhưng người dùng vẫn tự chịu trách nhiệm về nguồn clip và cách đăng.
+
+Cập nhật: 2026-10-21

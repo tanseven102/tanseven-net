@@ -1,0 +1,42 @@
+{
+  "ten": "T-TỔNG HỢP",
+  "hang": "Tân Seven",
+  "trang": "https://tanseven.net",
+  "mo_ta_ngan": "Phần mềm Windows làm video tổng hợp YouTube tự động: tự tìm clip, cắt cảnh, AI chấm khoảnh khắc đắt nhất, viết lời bình 9 thứ tiếng, ra video 10–30 phút kèm ảnh bìa. Một người chạy được nhiều kênh nhiều nước.",
+  "description_en": "Windows app that automatically makes YouTube compilation videos: finds source clips, cuts scenes, AI scores the best moments, writes voice-over narration in 9 languages, and renders 10–30 minute videos with thumbnails. One person can run many channels in many countries.",
+  "phien_ban": "2026.10.20.2",
+  "he_dieu_hanh": "Windows 10/11 64-bit, RAM 8 GB+, 20 GB trống",
+  "tai": "https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip",
+  "huong_dan": "https://tanseven.net/huong-dan/",
+  "zalo": "https://zalo.me/g/gqjcnwu1hfmqa1zk6iat",
+  "mcp": "https://api.tanseven.net/tth/mcp",
+  "goi": [
+    {"ma": "thang", "ten": "Gói 1 tháng", "gia_vnd": 1000000, "ghi_chu": "Đủ tính năng, làm video không giới hạn, cập nhật trong hạn"},
+    {"ma": "vv", "ten": "Gói vĩnh viễn", "gia_vnd": 5000000, "ghi_chu": "Trả một lần, cập nhật miễn phí mãi"}
+  ],
+  "chu_de": [
+    ["Tai nạn ô tô", "có lời bình"], ["Thiên tai", "có lời bình"], ["Máy bay & tàu biển", "có lời bình"],
+    ["Camera an ninh", "có lời bình"], ["Động vật hoang dã", "có lời bình"], ["Hài hước", "meme + tiếng động, không lời"]
+  ],
+  "ngon_ngu": ["English", "Tiếng Việt", "Español", "Português", "Français", "Italiano", "हिन्दी (Hindi)", "中文", "日本語"],
+  "tinh_nang": [
+    "Tìm từ khoá hot theo chủ đề, tự tải clip nguồn (hoặc dán link / bỏ file sẵn)",
+    "Tự cắt cảnh, AI (gpt-4o-mini của khách) xem và chấm khoảnh khắc đắt nhất",
+    "Lời bình viết thẳng bằng 9 thứ tiếng, đọc bằng giọng T-GIỌNG ĐỌC (tanseven.com)",
+    "Danh sách Kênh của tôi: mỗi ô một video, độ dài + thư mục riêng, Thêm 10 video một lần",
+    "Tắt tiếng gốc để tránh nhạc bản quyền; tự che mờ / bỏ cảnh nặng theo luật YouTube",
+    "Chặn cảnh phim, CGI và nguồn của hãng hay claim (ViralHog, Jukin, Storyful, Newsflare…) theo tên nguồn",
+    "Xoá logo kênh khác, gắn logo kênh mình, bỏ cảnh tối",
+    "Hook 30 giây, meme, tiếng động (chủ đề Hài hước), ảnh bìa tự động"
+  ],
+  "chi_phi_them": "Khoá OpenAI của khách (thường vài nghìn đồng/video). Ký tự giọng đọc ở tanseven.com cho 5 chủ đề có lời bình: 99.000đ = 1,1 triệu ký tự, 299.000đ = 3,8 triệu ký tự, dùng vĩnh viễn.",
+  "doi_tac": {"ty_le": 20, "cookie_ngay": 60, "giu_ngay": 30, "rut_toi_thieu": 200000, "trang": "https://tanseven.net/tai-khoan/",
+              "ghi_chu": "Hoa hồng tính cả các lần khách gia hạn về sau (cùng máy)."},
+  "hoi_dap": [
+    ["Không biết dựng video có dùng được không?", "Được. Chọn chủ đề, thứ tiếng, độ dài, bấm LÀM VIDEO rồi chờ tới 100%."],
+    ["Chạy 15 kênh có cần 15 máy không?", "Không. Một máy, một KEY làm video cho bao nhiêu kênh cũng được, tool làm lần lượt từng video, mỗi video lưu vào thư mục của kênh đó."],
+    ["Một KEY dùng được mấy máy?", "Một KEY gắn với một máy (MÃ MÁY)."],
+    ["Thanh toán thế nào?", "Chuyển khoản QR tự động (SePay): tiền về vài giây là KEY hiện trên trang, hoặc AI gọi tool kiem_tra_don qua MCP."],
+    ["Video có bị bản quyền không?", "Tool lọc sẵn nhiều lớp (tắt tiếng gốc, chặn phim/CGI, né nguồn hãng claim, xoá logo, thêm lời bình), nhưng người dùng vẫn tự chịu trách nhiệm về nguồn clip và cách đăng."]
+  ]
+}

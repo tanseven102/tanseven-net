@@ -245,6 +245,107 @@ footer a{color:var(--mo)}
   .hero{padding:52px 0 56px}
 }
 </style>
+<!-- JSON-LD tu ai/tao.py -->
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "T-TỔNG HỢP",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "description": "Phần mềm Windows làm video tổng hợp YouTube tự động: tự tìm clip, cắt cảnh, AI chấm khoảnh khắc đắt nhất, viết lời bình 9 thứ tiếng, ra video 10–30 phút kèm ảnh bìa. Một người chạy được nhiều kênh nhiều nước.",
+  "url": "https://tanseven.net/",
+  "downloadUrl": "https://github.com/tanseven102/t-tong-hop-ban-khach/releases/latest/download/T-TONG-HOP-ban-khach.zip",
+  "softwareVersion": "2026.10.20.2",
+  "inLanguage": [
+   "vi",
+   "en"
+  ],
+  "publisher": {
+   "@type": "Organization",
+   "name": "Tân Seven",
+   "url": "https://tanseven.net"
+  },
+  "featureList": [
+   "Tìm từ khoá hot theo chủ đề, tự tải clip nguồn (hoặc dán link / bỏ file sẵn)",
+   "Tự cắt cảnh, AI (gpt-4o-mini của khách) xem và chấm khoảnh khắc đắt nhất",
+   "Lời bình viết thẳng bằng 9 thứ tiếng, đọc bằng giọng T-GIỌNG ĐỌC (tanseven.com)",
+   "Danh sách Kênh của tôi: mỗi ô một video, độ dài + thư mục riêng, Thêm 10 video một lần",
+   "Tắt tiếng gốc để tránh nhạc bản quyền; tự che mờ / bỏ cảnh nặng theo luật YouTube",
+   "Chặn cảnh phim, CGI và nguồn của hãng hay claim (ViralHog, Jukin, Storyful, Newsflare…) theo tên nguồn",
+   "Xoá logo kênh khác, gắn logo kênh mình, bỏ cảnh tối",
+   "Hook 30 giây, meme, tiếng động (chủ đề Hài hước), ảnh bìa tự động"
+  ],
+  "offers": [
+   {
+    "@type": "Offer",
+    "name": "Gói 1 tháng",
+    "price": 1000000,
+    "priceCurrency": "VND",
+    "availability": "https://schema.org/InStock",
+    "url": "https://tanseven.net/#gia"
+   },
+   {
+    "@type": "Offer",
+    "name": "Gói vĩnh viễn",
+    "price": 5000000,
+    "priceCurrency": "VND",
+    "availability": "https://schema.org/InStock",
+    "url": "https://tanseven.net/#gia"
+   }
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Không biết dựng video có dùng được không?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Được. Chọn chủ đề, thứ tiếng, độ dài, bấm LÀM VIDEO rồi chờ tới 100%."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Chạy 15 kênh có cần 15 máy không?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Không. Một máy, một KEY làm video cho bao nhiêu kênh cũng được, tool làm lần lượt từng video, mỗi video lưu vào thư mục của kênh đó."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Một KEY dùng được mấy máy?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Một KEY gắn với một máy (MÃ MÁY)."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Thanh toán thế nào?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Chuyển khoản QR tự động (SePay): tiền về vài giây là KEY hiện trên trang, hoặc AI gọi tool kiem_tra_don qua MCP."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Video có bị bản quyền không?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Tool lọc sẵn nhiều lớp (tắt tiếng gốc, chặn phim/CGI, né nguồn hãng claim, xoá logo, thêm lời bình), nhưng người dùng vẫn tự chịu trách nhiệm về nguồn clip và cách đăng."
+    }
+   }
+  ]
+ }
+]
+</script>
+<!-- /JSON-LD -->
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
 </head>
 <body>
 
@@ -606,6 +707,7 @@ footer a{color:var(--mo)}
       <details><summary>Có tốn thêm tiền gì ngoài gói không?</summary><p>Hai khoản trả theo lượng dùng: khoá OpenAI của chính anh chị (AI xem cảnh, viết lời bình, thường vài nghìn đồng mỗi video) và ký tự giọng đọc mua ở <a href="https://tanseven.com" target="_blank" rel="noopener" style="color:var(--vang2)">tanseven.com</a> cho 5 chủ đề có lời bình (gói 99.000đ = 1,1 triệu ký tự, dùng vĩnh viễn). Chủ đề Hài hước không cần giọng đọc. Tool không thu thêm phí nào khác.</p></details>
       <details><summary>Chạy 15 kênh có cần 15 máy không?</summary><p>Không. Một máy, một KEY làm được video cho bao nhiêu kênh cũng được: tool làm lần lượt từng video, mỗi video lưu vào thư mục của kênh đó. Muốn ra nhanh gấp đôi thì chạy thêm máy thứ hai, mỗi máy một KEY.</p></details>
       <details><summary>Tôi không biết tiếng Tây Ban Nha, Nhật… thì sao?</summary><p>Không cần biết. AI viết lời bình thẳng bằng thứ tiếng đó và giọng đọc đọc luôn. Anh chị chỉ cần viết tiêu đề, mô tả cùng thứ tiếng (dùng Google Dịch hoặc ChatGPT là đủ).</p></details>
+      <details><summary>Hỏi Claude / ChatGPT về T-TỔNG HỢP được không?</summary><p>Được. Dán link <code style="color:var(--vang2)">https://api.tanseven.net/tth/mcp</code> vào Connector của Claude hoặc ChatGPT (<a href="ai/" style="color:var(--vang2)">xem cách gắn</a>). AI sẽ tư vấn ngách, báo giá, tạo mã QR mua KEY và trả KEY khi tiền về.</p></details>
       <details><summary>Làm đối tác giới thiệu có mất phí không?</summary><p>Không. Đăng nhập Google ở <a href="tai-khoan/" style="color:var(--vang2)">trang Tài khoản</a> là có link riêng, không cần mua tool. Ai mua qua link, anh chị nhận 20% (gói vĩnh viễn 1.000.000đ, gói tháng 200.000đ mỗi lần gia hạn), rút về ngân hàng từ 200.000đ.</p></details>
       <details><summary>Một KEY dùng được mấy máy?</summary><p>Một KEY gắn với một máy. Muốn dùng máy thứ hai thì mua thêm một KEY cho mã máy đó.</p></details>
       <details><summary>Đổi máy hoặc cài lại Windows thì sao?</summary><p>Mã máy có thể đổi. Nhắn <a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">nhóm Zalo hỗ trợ</a> kèm KEY cũ và mã máy mới, Tân Seven cấp lại KEY cho đúng gói còn hạn.</p></details>
@@ -630,7 +732,7 @@ footer a{color:var(--mo)}
 <footer>
   <div class="boc">
     <span>© 2026 Tân Seven · T-TỔNG HỢP</span>
-    <span><a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo hỗ trợ</a> · <a href="t7/">Về Tân Seven</a> · <a href="t7/terms/">Điều khoản</a> · <a href="t7/privacy/">Quyền riêng tư</a></span>
+    <span><a href="https://zalo.me/g/gqjcnwu1hfmqa1zk6iat" target="_blank" rel="noopener">Nhóm Zalo hỗ trợ</a> · <a href="ai/">Dùng trong Claude / ChatGPT</a> · <a href="tai-khoan/">Đối tác 20%</a> · <a href="t7/">Về Tân Seven</a> · <a href="t7/terms/">Điều khoản</a> · <a href="t7/privacy/">Quyền riêng tư</a></span>
   </div>
 </footer>
 
